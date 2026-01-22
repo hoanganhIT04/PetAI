@@ -60,18 +60,18 @@ const clearFilters = () => {
 
 <template>
   <div class="pt-32 pb-20 px-4 min-h-screen bg-slate-50">
-    <div class="max-w-[1400px] mx-auto">
+    <div class="max-w-7xl mx-auto">
       
       <!-- Header Section -->
-      <div class="text-center mb-16">
-        <h1 class="text-5xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">Thư viện <span class="text-teal-600">Thú Cưng</span></h1>
-        <p class="text-xl md:text-2xl text-slate-500 font-medium max-w-2xl mx-auto">Khám phá thông tin chi tiết về hàng trăm giống chó mèo phổ biến nhất hiện nay.</p>
+      <div class="text-center mb-10">
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight">Thư viện <span class="text-teal-600">Thú Cưng</span></h1>
+        <p class="text-base md:text-lg text-slate-500 font-medium max-w-2xl mx-auto">Khám phá thông tin chi tiết về hàng trăm giống chó mèo phổ biến nhất hiện nay.</p>
       </div>
 
       <div class="flex flex-col lg:flex-row gap-8 items-start">
         
         <!-- Sidebar Filters (Desktop) -->
-        <aside class="w-full lg:w-80 bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm shrink-0 sticky top-28 hidden lg:block">
+        <aside class="w-full lg:w-72 bg-white p-5 rounded-[2rem] border border-slate-100 shadow-sm shrink-0 sticky top-24 hidden lg:block">
             <div class="flex items-center justify-between mb-8">
                 <h3 class="text-2xl font-extrabold text-slate-900 flex items-center gap-2">
                     <Filter class="w-6 h-6 text-teal-600"/> Bộ lọc
@@ -173,7 +173,7 @@ const clearFilters = () => {
             </div>
 
             <!-- Pet Grid -->
-            <div v-if="filteredPets.length > 0" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
+            <div v-if="filteredPets.length > 0" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
                 <PetCard v-for="pet in paginatedPets" :key="pet.id" :pet="pet" />
             </div>
 

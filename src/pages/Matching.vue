@@ -122,14 +122,14 @@ const suggestedPet = {
     </div>
 
     <!-- Quiz Card -->
-    <div v-if="!isFinished" class="max-w-2xl w-full bg-white rounded-[3rem] shadow-xl shadow-slate-200/50 overflow-hidden p-8 md:p-14 border border-slate-100 relative">
+    <div v-if="!isFinished" class="max-w-2xl w-full bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 overflow-hidden p-6 md:p-10 border border-slate-100 relative">
         <transition name="slide-fade" mode="out-in">
             <div :key="currentStep">
                 <div class="text-center mb-10">
                     <div class="inline-block bg-orange-100 text-orange-600 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter mb-4">
                         {{ questions[currentStep].category }}
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">{{ questions[currentStep].text }}</h2>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-900 leading-tight">{{ questions[currentStep].text }}</h2>
                     <p class="text-slate-500 mt-4">{{ questions[currentStep].subtitle }}</p>
                 </div>
 
@@ -138,12 +138,12 @@ const suggestedPet = {
                         v-for="opt in questions[currentStep].options" 
                         :key="opt.value"
                         @click="selectOption(opt.value)"
-                        class="group flex items-center justify-between p-6 border-2 rounded-3xl transition-all duration-300 text-left active:scale-[0.98]"
+                        class="group flex items-center justify-between p-4 border-2 rounded-2xl transition-all duration-300 text-left active:scale-[0.98]"
                         :class="answers[currentStep] === opt.value ? 'border-teal-500 bg-teal-50' : 'border-slate-100 hover:border-teal-400 hover:bg-teal-50/30'"
                     >
                         <div>
-                            <p class="font-bold text-lg text-slate-800" :class="answers[currentStep] === opt.value ? 'text-teal-800' : ''">{{ opt.text }}</p>
-                            <p class="text-sm text-slate-400">{{ opt.sub }}</p>
+                            <p class="font-bold text-base text-slate-800" :class="answers[currentStep] === opt.value ? 'text-teal-800' : ''">{{ opt.text }}</p>
+                            <p class="text-xs text-slate-400">{{ opt.sub }}</p>
                         </div>
                         <div 
                             class="w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all"
@@ -176,7 +176,7 @@ const suggestedPet = {
 
     <!-- Result Card -->
     <div v-else class="max-w-2xl w-full text-center">
-        <h2 class="text-4xl font-extrabold text-slate-900 mb-2">Kết quả phân tích</h2>
+        <h2 class="text-3xl font-extrabold text-slate-900 mb-2">Kết quả phân tích</h2>
         <p class="text-slate-500 mb-8">Dựa trên 5 câu trả lời của bạn</p>
         
         <div class="bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl border-4 border-teal-500 relative overflow-hidden">

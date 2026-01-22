@@ -7,33 +7,33 @@ const route = useRoute()
 
 <template>
   <header class="fixed w-full top-0 left-0 z-50 transition-all duration-300 glass border-b border-slate-200" id="main-header">
-    <div class="max-w-7xl mx-auto px-4 h-24 grid grid-cols-3 items-center">
+    <div class="max-w-7xl mx-auto px-4 h-16 grid grid-cols-3 items-center">
       
       <!-- Logo (Left) -->
       <RouterLink to="/" class="flex items-center gap-3 group justify-self-start">
-        <div class="relative w-10 h-10 bg-teal-600 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
-          <Dog class="text-white w-6 h-6 absolute transition-all duration-300 group-hover:scale-0" />
-          <Cat class="text-white w-6 h-6 absolute transition-all duration-300 scale-0 group-hover:scale-100" />
+        <div class="relative w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
+          <Dog class="text-white w-5 h-5 absolute transition-all duration-300 group-hover:scale-0" />
+          <Cat class="text-white w-5 h-5 absolute transition-all duration-300 scale-0 group-hover:scale-100" />
         </div>
-        <span class="text-xl font-extrabold text-slate-800 tracking-tight">Pet<span class="text-teal-600">AI</span></span>
+        <span class="text-2xl font-extrabold text-slate-800 tracking-tight">Pet<span class="text-teal-600">AI</span></span>
       </RouterLink>
 
       <!-- Desktop Nav (Center) -->
-      <nav class="hidden md:flex items-center gap-8 bg-white/50 px-8 py-3 rounded-full border border-slate-100 shadow-sm backdrop-blur-md justify-self-center">
+      <nav class="hidden md:flex items-center gap-8 bg-white/50 px-6 py-2 rounded-full border border-slate-100 shadow-sm backdrop-blur-md justify-self-center">
         <RouterLink to="/" 
-          class="flex items-center gap-2 text-sm font-medium transition-all duration-300 text-slate-500 hover:text-teal-600"
+          class="flex items-center gap-2 text-base font-semibold transition-all duration-300 text-slate-500 hover:text-teal-600"
           active-class="text-teal-600 font-bold bg-teal-50/50 px-3 py-1 rounded-lg"
         >
           Trang chủ
         </RouterLink>
         <RouterLink to="/category" 
-          class="flex items-center gap-2 text-sm font-medium transition-all duration-300 text-slate-500 hover:text-teal-600"
+          class="flex items-center gap-2 text-base font-semibold transition-all duration-300 text-slate-500 hover:text-teal-600"
           active-class="text-teal-600 font-bold bg-teal-50/50 px-3 py-1 rounded-lg"
         >
           Thư viện
         </RouterLink>
         <RouterLink to="/matching" 
-          class="flex items-center gap-2 text-sm font-medium transition-all duration-300 text-slate-500 hover:text-teal-600"
+          class="flex items-center gap-2 text-base font-semibold transition-all duration-300 text-slate-500 hover:text-teal-600"
           active-class="text-teal-600 font-bold bg-teal-50/50 px-3 py-1 rounded-lg"
         >
           Ghép đôi
@@ -51,7 +51,7 @@ const route = useRoute()
     </div>
   </header>
   <!-- Spacer for fixed header -->
-  <div class="h-24"></div>
+  <div class="h-16"></div>
 </template>
 
 <style scoped>

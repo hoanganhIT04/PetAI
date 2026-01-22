@@ -12,7 +12,7 @@ const pet = computed(() => {
 </script>
 
 <template>
-  <div class="pt-32 pb-20 px-4 max-w-6xl mx-auto">
+  <div class="pt-24 pb-16 px-4 max-w-6xl mx-auto">
     
     <RouterLink to="/category" class="inline-flex items-center gap-2 text-slate-500 font-bold hover:text-teal-600 mb-8 transition">
         <ArrowLeft class="w-5 h-5"/> Quay lại thư viện
@@ -21,7 +21,7 @@ const pet = computed(() => {
     <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100 flex flex-col md:flex-row">
       
       <!-- Image Side -->
-      <div class="md:w-1/2 h-96 md:h-[600px] relative">
+      <div class="md:w-1/2 h-80 md:h-[450px] relative">
         <img :src="pet.img" class="w-full h-full object-cover">
         <div class="absolute top-6 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-full font-bold text-teal-700 shadow-sm flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
@@ -30,10 +30,10 @@ const pet = computed(() => {
       </div>
 
       <!-- Content Side -->
-      <div class="md:w-1/2 p-10 md:p-14 flex flex-col justify-between">
-        <div class="space-y-8">
+      <div class="md:w-1/2 p-8 md:p-10 flex flex-col justify-between">
+        <div class="space-y-6">
             <div>
-                <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-2">{{ pet.name }}</h1>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-2">{{ pet.name }}</h1>
                 <p class="text-orange-500 font-bold text-2xl">{{ pet.price }}</p>
             </div>
 

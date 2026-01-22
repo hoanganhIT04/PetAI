@@ -56,15 +56,15 @@ const resetScan = () => {
 <template>
   <div class="pt-32 pb-20 px-4 min-h-[90vh] flex flex-col justify-center">
     <div class="max-w-4xl mx-auto text-center w-full">
-      <h1 class="text-5xl font-extrabold text-slate-900 mb-6">AI Breed <span class="text-teal-600">Scanner</span></h1>
-      <p class="text-xl text-slate-600 mb-12">Tải ảnh lên để nhận diện giống chó/mèo và tra cứu thông tin chi tiết.</p>
+      <h1 class="text-4xl font-extrabold text-slate-900 mb-4">AI Breed <span class="text-teal-600">Scanner</span></h1>
+      <p class="text-lg text-slate-600 mb-8">Tải ảnh lên để nhận diện giống chó/mèo và tra cứu thông tin chi tiết.</p>
 
       <!-- Dropzone Area -->
       <transition name="fade" mode="out-in">
         <div 
             v-if="!previewImage"
             @click="triggerUpload" 
-            class="border-4 border-dashed border-slate-200 rounded-[2.5rem] p-16 bg-white hover:border-teal-400 transition cursor-pointer group shadow-xl max-w-2xl mx-auto min-h-[400px] flex flex-col justify-center items-center"
+            class="border-4 border-dashed border-slate-200 rounded-[2rem] p-8 bg-white hover:border-teal-400 transition cursor-pointer group shadow-xl max-w-2xl mx-auto min-h-[250px] flex flex-col justify-center items-center"
         >
             <div class="flex flex-col items-center gap-6 text-slate-400 group-hover:text-teal-600">
             <UploadCloud class="w-20 h-20 transition-transform group-hover:scale-110" />
@@ -84,7 +84,7 @@ const resetScan = () => {
         <div v-else class="max-w-3xl mx-auto">
             
             <!-- Loading State -->
-            <div v-if="isScanning" class="border-4 border-dashed border-teal-100 rounded-[2.5rem] p-16 bg-teal-50 min-h-[400px] flex flex-col justify-center items-center">
+            <div v-if="isScanning" class="border-4 border-dashed border-teal-100 rounded-[2rem] p-8 bg-teal-50 min-h-[250px] flex flex-col justify-center items-center">
                 <div class="flex flex-col items-center gap-6 text-teal-600 animate-pulse">
                     <Loader2 class="w-20 h-20 animate-spin" />
                     <p class="text-2xl font-bold italic">AI đang phân tích hình ảnh...</p>
