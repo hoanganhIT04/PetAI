@@ -1,14 +1,14 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { Search, ChevronLeft, ChevronRight, Filter, Dog, Cat, X } from 'lucide-vue-next'
-import { allPets } from '../data/pets'
+import allPets from '../data/pets_data.json'
 import PetCard from '../components/PetCard.vue'
 
 // State
 const searchQuery = ref('')
 const selectedType = ref('All') // 'All', 'Dog', 'Cat'
 const selectedSize = ref('All')
-const priceRange = ref([0, 50]) // Min 0, Max 50 (Million)
+const priceRange = ref([0, 5000]) // Min 0, Max 50 (Million)
 const currentPage = ref(1)
 const itemsPerPage = 6
 const showMobileFilters = ref(false)
@@ -31,6 +31,43 @@ const paginatedPets = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage
   const end = start + itemsPerPage
   return filteredPets.value.slice(start, end)
+})
+
+// Pagination Logic
+const displayedPages = computed(() => {
+  const total = totalPages.value
+  const current = currentPage.value
+  const delta = 1 // Number of pages to show around current page
+  
+  const range = []
+  const rangeWithDots = []
+  let l
+
+  // Always show first, last, and range around current
+  range.push(1)
+  for (let i = current - delta; i <= current + delta; i++) {
+    if (i < total && i > 1) {
+      range.push(i)
+    }
+  }
+  range.push(total)
+  
+  // Clean duplicates and sort
+  const uniqueRange = [...new Set(range)].sort((a, b) => a - b)
+  
+  for (let i of uniqueRange) {
+    if (l) {
+      if (i - l === 2) {
+        rangeWithDots.push(l + 1)
+      } else if (i - l !== 1) {
+        rangeWithDots.push('...')
+      }
+    }
+    rangeWithDots.push(i)
+    l = i
+  }
+  
+  return rangeWithDots
 })
 
 const activeFiltersCount = computed(() => {
@@ -186,31 +223,33 @@ const clearFilters = () => {
             </div>
 
             <!-- Pagination -->
-            <div v-if="totalPages > 1" class="flex justify-center items-center gap-3 mt-12">
+            <div v-if="totalPages > 1" class="flex justify-center items-center gap-2 mt-12 flex-wrap">
                 <button 
                     @click="setPage(currentPage - 1)" 
-                    class="w-12 h-12 rounded-2xl flex items-center justify-center border-2 border-slate-200 hover:border-teal-400 hover:text-teal-600 disabled:opacity-50 disabled:cursor-not-allowed bg-white"
+                    class="w-10 h-10 md:w-12 md:h-12 rounded-2xl flex items-center justify-center border-2 border-slate-200 hover:border-teal-400 hover:text-teal-600 disabled:opacity-50 disabled:cursor-not-allowed bg-white"
                     :disabled="currentPage === 1"
                 >
-                    <ChevronLeft class="w-6 h-6" />
+                    <ChevronLeft class="w-5 h-5 md:w-6 md:h-6" />
                 </button>
 
-                <button 
-                    v-for="p in totalPages" 
-                    :key="p"
-                    @click="setPage(p)"
-                    class="w-12 h-12 rounded-2xl font-black text-lg transition border-2"
-                    :class="currentPage === p ? 'bg-teal-600 text-white border-teal-600 shadow-lg shadow-teal-600/30' : 'bg-white text-slate-500 border-slate-200 hover:border-teal-400 hover:text-teal-600'"
-                >
-                    {{ p }}
-                </button>
+                <template v-for="(p, index) in displayedPages" :key="index">
+                    <button 
+                         v-if="p !== '...'"
+                        @click="setPage(p)"
+                        class="w-10 h-10 md:w-12 md:h-12 rounded-2xl font-black text-base md:text-lg transition border-2"
+                        :class="currentPage === p ? 'bg-teal-600 text-white border-teal-600 shadow-lg shadow-teal-600/30' : 'bg-white text-slate-500 border-slate-200 hover:border-teal-400 hover:text-teal-600'"
+                    >
+                        {{ p }}
+                    </button>
+                    <span v-else class="text-slate-400 font-bold px-1">...</span>
+                </template>
 
                 <button 
                     @click="setPage(currentPage + 1)" 
-                    class="w-12 h-12 rounded-2xl flex items-center justify-center border-2 border-slate-200 hover:border-teal-400 hover:text-teal-600 disabled:opacity-50 disabled:cursor-not-allowed bg-white"
+                    class="w-10 h-10 md:w-12 md:h-12 rounded-2xl flex items-center justify-center border-2 border-slate-200 hover:border-teal-400 hover:text-teal-600 disabled:opacity-50 disabled:cursor-not-allowed bg-white"
                     :disabled="currentPage === totalPages"
                 >
-                    <ChevronRight class="w-6 h-6" />
+                    <ChevronRight class="w-5 h-5 md:w-6 md:h-6" />
                 </button>
             </div>
         </main>
