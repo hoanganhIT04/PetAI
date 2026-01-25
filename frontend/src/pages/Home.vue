@@ -25,23 +25,38 @@ const handleFileChange = (event) => {
   }
 }
 
-const startScan = () => {
+const startScan = async () => {
   isScanning.value = true
   scanResult.value = null
-  
-  // Simulate AI scanning delay
-  setTimeout(() => {
-    isScanning.value = false
+
+  const formData = new FormData()
+  formData.append("file", fileInput.value.files[0])
+
+  try {
+    const res = await fetch("http://localhost:8000/predict", {
+      method: "POST",
+      body: formData
+    })
+
+    const data = await res.json()
+
     scanResult.value = {
-      breed: "Golden Retriever",
-      confidence: "98%"
+      breed: data.breed,
+      confidence: data.confidence + "%"
     }
-    // Scroll to result
+
+  } catch (err) {
+    alert("AI server error")
+    console.error(err)
+  } finally {
+    isScanning.value = false
     setTimeout(() => {
-        document.getElementById('result-preview')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      document.getElementById('result-preview')
+        ?.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }, 100)
-  }, 2000)
+  }
 }
+
 
 const resetScan = () => {
     previewImage.value = null
@@ -51,6 +66,13 @@ const resetScan = () => {
     }
     window.scrollTo({ top: 0, behavior: 'smooth' })
 }
+
+const formatBreed = (name) => {
+  return name
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase())
+}
+
 </script>
 
 <template>
@@ -102,14 +124,22 @@ const resetScan = () => {
                         
                         <div class="text-left flex-1">
                             <span class="text-teal-600 font-black text-sm uppercase tracking-[0.2em] block mb-2">Kết quả phân tích</span>
-                            <h3 class="text-5xl font-black italic text-slate-900 mb-2">{{ scanResult.breed }}</h3>
+                            <h3
+                                class="text-5xl 
+                                font-black italic text-slate-900
+                                mb-3 leading-tight
+                                max-w-[28rem]
+                                line-clamp-2"
+                            >
+                              {{ formatBreed(scanResult.breed) }}
+                            </h3>
                             <p class="text-slate-500 font-medium text-lg mb-6 flex items-center gap-2">
                                 Độ tin cậy: <span class="text-teal-600 font-bold bg-teal-50 px-2 py-0.5 rounded">{{ scanResult.confidence }}</span>
                             </p>
                             
                             <div class="flex flex-col gap-3">
                                 <RouterLink 
-                                    to="/info/1" 
+                                    :to="`/info/${scanResult.breed}`"
                                     class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-teal-700 transition flex items-center justify-center gap-2 text-lg shadow-lg"
                                 >
                                     Xem thông tin chi tiết <ArrowRight class="w-5 h-5" />
