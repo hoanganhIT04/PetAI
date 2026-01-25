@@ -40,6 +40,7 @@ def preprocess_image(image_bytes):
     img = np.expand_dims(img, axis=0)
     return img
 
+CONFIDENCE_THRESHOLD = 0.35  # 35%
 # ===== API =====
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
@@ -48,18 +49,28 @@ async def predict(file: UploadFile = File(...)):
         img = preprocess_image(image_bytes)
 
         preds = model.predict(img)[0]
+        max_conf = float(np.max(preds))
         idx = int(np.argmax(preds))
+
+        if max_conf < CONFIDENCE_THRESHOLD:
+            return {
+                "success": False,
+                "message": "Ảnh không hợp lệ",
+                "confidence": round(max_conf * 100, 2)
+            }
 
         label = LABELS[str(idx)] if isinstance(LABELS, dict) else LABELS[idx]
 
         return {
+            "success": True,
             "class_id": idx,
             "breed": label,
-            "confidence": round(float(preds[idx]) * 100, 2)
+            "confidence": round(max_conf * 100, 2)
         }
 
     except Exception as e:
         return {
+            "success": False,
             "error": str(e)
         }
 

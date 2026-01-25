@@ -40,6 +40,15 @@ const startScan = async () => {
 
     const data = await res.json()
 
+    if (!data.success) {
+      scanResult.value = {
+        error: true,
+        message: data.message,
+        confidence: data.confidence + "%"
+      }
+      return
+    }
+
     scanResult.value = {
       breed: data.breed,
       confidence: data.confidence + "%"
@@ -50,10 +59,6 @@ const startScan = async () => {
     console.error(err)
   } finally {
     isScanning.value = false
-    setTimeout(() => {
-      document.getElementById('result-preview')
-        ?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    }, 100)
   }
 }
 
@@ -114,49 +119,87 @@ const formatBreed = (name) => {
             </div>
 
             <!-- Result State -->
-            <div v-if="scanResult" id="result-preview" class="mt-8">
-                <div class="bg-white p-8 rounded-[2.5rem] shadow-2xl border-4 border-teal-500 relative">
-                    
-                    <div class="flex flex-col md:flex-row items-center gap-10">
-                        <div class="w-64 h-64 bg-slate-200 rounded-3xl overflow-hidden shadow-md shrink-0">
-                            <img :src="previewImage" class="w-full h-full object-cover">
-                        </div>
-                        
-                        <div class="text-left flex-1">
-                            <span class="text-teal-600 font-black text-sm uppercase tracking-[0.2em] block mb-2">Kết quả phân tích</span>
-                            <h3
-                                class="text-5xl 
-                                font-black italic text-slate-900
-                                mb-3 leading-tight
-                                max-w-[28rem]
-                                line-clamp-2"
-                            >
-                              {{ formatBreed(scanResult.breed) }}
-                            </h3>
-                            <p class="text-slate-500 font-medium text-lg mb-6 flex items-center gap-2">
-                                Độ tin cậy: <span class="text-teal-600 font-bold bg-teal-50 px-2 py-0.5 rounded">{{ scanResult.confidence }}</span>
-                            </p>
-                            
-                            <div class="flex flex-col gap-3">
-                                <RouterLink 
-                                    :to="`/info/${scanResult.breed}`"
-                                    class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-teal-700 transition flex items-center justify-center gap-2 text-lg shadow-lg"
-                                >
-                                    Xem thông tin chi tiết <ArrowRight class="w-5 h-5" />
-                                </RouterLink>
+          <div v-if="scanResult" id="result-preview" class="mt-8">
 
-                                <button 
-                                    @click="resetScan" 
-                                    class="w-full bg-white border-2 border-slate-200 text-slate-600 py-4 rounded-xl font-bold hover:border-teal-400 hover:text-teal-600 transition flex items-center justify-center gap-2 text-lg"
-                                >
-                                    <RotateCw class="w-5 h-5" /> Quét ảnh khác
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
+            <!--CASE: Ảnh không hợp lệ -->
+            <div
+              v-if="scanResult.error"
+              class="bg-red-50 p-8 rounded-[2.5rem] shadow-2xl border-4 border-red-400 text-center"
+            >
+              <div class="flex flex-col items-center gap-6">
+                <div class="w-64 h-64 bg-slate-200 rounded-3xl overflow-hidden shadow-md">
+                  <img :src="previewImage" class="w-full h-full object-cover">
                 </div>
+
+                <h3 class="text-4xl font-black text-red-600">
+                  Không nhận diện được
+                </h3>
+
+                <p class="text-slate-600 text-lg max-w-xl">
+                  {{ scanResult.message }}
+                </p>
+
+                <p class="text-red-500 font-bold">
+                  Độ tin cậy: {{ scanResult.confidence }}
+                </p>
+
+                <button
+                  @click="resetScan"
+                  class="mt-4 bg-white border-2 border-red-400 text-red-600 px-8 py-4 rounded-xl font-bold hover:bg-red-100 transition flex items-center gap-2"
+                >
+                  <RotateCw class="w-5 h-5" /> Quét ảnh khác
+                </button>
+              </div>
             </div>
+
+            <!--CASE: Nhận diện thành công -->
+            <div
+              v-else
+              class="bg-white p-8 rounded-[2.5rem] shadow-2xl border-4 border-teal-500 relative"
+            >
+              <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="w-64 h-64 bg-slate-200 rounded-3xl overflow-hidden shadow-md shrink-0">
+                  <img :src="previewImage" class="w-full h-full object-cover">
+                </div>
+
+                <div class="text-left flex-1">
+                  <span class="text-teal-600 font-black text-sm uppercase tracking-[0.2em] block mb-2">
+                    Kết quả phân tích
+                  </span>
+
+                  <h3
+                    class="text-5xl font-black italic text-slate-900 mb-3 leading-tight max-w-[28rem] line-clamp-2"
+                  >
+                    {{ formatBreed(scanResult.breed) }}
+                  </h3>
+
+                  <p class="text-slate-500 font-medium text-lg mb-6 flex items-center gap-2">
+                    Độ tin cậy:
+                    <span class="text-teal-600 font-bold bg-teal-50 px-2 py-0.5 rounded">
+                      {{ scanResult.confidence }}
+                    </span>
+                  </p>
+
+                  <div class="flex flex-col gap-3">
+                    <RouterLink
+                      :to="`/info/${scanResult.breed}`"
+                      class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-teal-700 transition flex items-center justify-center gap-2 text-lg shadow-lg"
+                    >
+                      Xem thông tin chi tiết <ArrowRight class="w-5 h-5" />
+                    </RouterLink>
+
+                    <button
+                      @click="resetScan"
+                      class="w-full bg-white border-2 border-slate-200 text-slate-600 py-4 rounded-xl font-bold hover:border-teal-400 hover:text-teal-600 transition flex items-center justify-center gap-2 text-lg"
+                    >
+                      <RotateCw class="w-5 h-5" /> Quét ảnh khác
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
 
         </div>
       </transition>
