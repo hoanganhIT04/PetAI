@@ -12,12 +12,12 @@
     },
     "priceMin": 3,
     "priceMax": 2000,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 1,
-      "space": 2,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 2,
+      "space": 1,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/chihuahua/avatar.jpg"
   },
@@ -38,7 +38,7 @@
     "scores": {
       "energy": 1,
       "space": 1,
-      "grooming": 3,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/japanese_spaniel/avatar.jpg"
@@ -56,10 +56,10 @@
     },
     "priceMin": 8,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 1,
-      "space": 2,
+      "energy": 2,
+      "space": 1,
       "grooming": 1,
       "kid_friendly": 1
     },
@@ -81,8 +81,8 @@
     "size": "Trung bình",
     "scores": {
       "energy": 1,
-      "space": 2,
-      "grooming": 3,
+      "space": 3,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/pekinese/avatar.jpg"
@@ -100,11 +100,11 @@
     },
     "priceMin": 6,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 1,
-      "space": 2,
-      "grooming": 3,
+      "energy": 2,
+      "space": 1,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/shih-tzu/avatar.jpg"
@@ -122,12 +122,12 @@
     },
     "priceMin": 12,
     "priceMax": 5000,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
-      "energy": 2,
+      "energy": 3,
       "space": 3,
-      "grooming": 3,
-      "kid_friendly": 1
+      "grooming": 4,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/blenheim_spaniel/avatar.jpg"
   },
@@ -146,9 +146,9 @@
     "priceMax": 5000,
     "size": "Trung bình",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 2,
+      "energy": 3,
+      "space": 3,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/papillon/avatar.jpg"
@@ -166,12 +166,12 @@
     },
     "priceMin": 6,
     "priceMax": 4000,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 3,
-      "space": 2,
+      "energy": 5,
+      "space": 1,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/toy_terrier/avatar.jpg"
   },
@@ -190,10 +190,10 @@
     "priceMax": 5000,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 5,
+      "space": 3,
+      "grooming": 3,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/rhodesian_ridgeback/avatar.jpg"
   },
@@ -210,11 +210,11 @@
     },
     "priceMin": 20,
     "priceMax": 6000,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 3,
+      "energy": 2,
+      "space": 1,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/afghan_hound/avatar.jpg"
@@ -232,11 +232,11 @@
     },
     "priceMin": 12,
     "priceMax": 3000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 2,
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/basset/avatar.jpg"
@@ -254,12 +254,12 @@
     },
     "priceMin": 8,
     "priceMax": 2500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/beagle/avatar.jpg"
   },
@@ -279,9 +279,9 @@
     "size": "Trung bình",
     "scores": {
       "energy": 3,
-      "space": 2,
-      "grooming": 2,
-      "kid_friendly": 1
+      "space": 3,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/bloodhound/avatar.jpg"
   },
@@ -300,9 +300,9 @@
     "priceMax": 2500,
     "size": "Nhỏ",
     "scores": {
-      "energy": 3,
+      "energy": 1,
       "space": 1,
-      "grooming": 2,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/bluetick/avatar.jpg"
@@ -322,17 +322,17 @@
     "priceMax": 2500,
     "size": "Nhỏ",
     "scores": {
-      "energy": 3,
+      "energy": 1,
       "space": 1,
-      "grooming": 2,
-      "kid_friendly": 1
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/black-and-tan_coonhound/avatar.jpg"
   },
   {
     "id": "walker_hound",
     "name": "Walker hound",
-    "type": "Cat",
+    "type": "Dog",
     "lifespan": "12 năm - 13 năm",
     "care_instruction": "Treeing Walker Coonhound, thường được gọi ngắn gọn là Walker Hound, là giống chó săn Mỹ rất nổi tiếng với khả năng truy dấu nhanh và dai sức. Chúng thường được nuôi để săn thú nhỏ như sóc, gấu mèo và thậm chí cả hươu. Đặc điểm nổi bật của Walker Hound là sự nhanh nhẹn, sức bền và bản năng săn mồi mạnh mẽ. Vì thế, việc chăm sóc chúng đòi hỏi một chế độ vận động dày đặc: mỗi ngày cần ít nhất 1 – 2 giờ chạy bộ, đi dạo dài hoặc tham gia các trò chơi đánh hơi. Nếu bị nhốt trong nhà quá lâu, chúng dễ trở nên bồn chồn, hú, hoặc phá phách.\n\nTrong chế độ ăn, Walker Hound cần nhiều protein để duy trì cơ bắp, kết hợp chất béo tốt để cung cấp năng lượng cho hoạt động săn mồi. Khẩu phần nên gồm thịt gà, bò, cá, trứng, kết hợp rau củ và ngũ cốc nguyên hạt để cân bằng dinh dưỡng. Do có nguy cơ đầy hơi (bloating), bạn nên chia bữa thành 2 – 3 lần/ngày thay vì cho ăn một bữa lớn.\n\nVề sức khỏe, Walker Hound nhìn chung khỏe mạnh, ít bệnh di truyền nặng. Tuy vậy, chúng có thể gặp một số vấn đề thường thấy ở chó săn mùi như viêm tai (tai dài dễ bẩn và ẩm), bệnh về khớp do vận động nhiều, và béo phì nếu không kiểm soát khẩu phần. Bạn nên vệ sinh tai hằng tuần, kiểm tra mắt định kỳ và duy trì cân nặng ổn định để giảm áp lực lên khớp.\n\nVề tính cách, Walker Hound thông minh, trung thành, thân thiện với gia đình và thường hòa đồng với trẻ em. Tuy nhiên, chúng có tính độc lập cao và bản năng săn mùi rất mạnh, đôi khi khiến chúng “phớt lờ” lệnh gọi khi đang theo dấu vết. Việc huấn luyện đòi hỏi kiên nhẫn, dùng phần thưởng tích cực và bắt đầu từ khi còn nhỏ. Do hay hú và sủa lớn khi đánh hơi thấy dấu vết, Walker Hound không thực sự phù hợp với môi trường căn hộ đông đúc. Ngược lại, chúng sẽ là bạn đồng hành tuyệt vời cho những ai yêu thích không gian rộng rãi và các hoạt động ngoài trời.",
     "price": {
@@ -342,12 +342,12 @@
     },
     "priceMin": 8,
     "priceMax": 2000,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 3,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 2,
+      "space": 1,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/walker_hound/avatar.jpg"
   },
@@ -364,19 +364,19 @@
     },
     "priceMin": 12,
     "priceMax": 3000,
-    "size": "Nhỏ",
+    "size": "Lớn",
     "scores": {
-      "energy": 3,
-      "space": 1,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 5,
+      "space": 5,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/english_foxhound/avatar.jpg"
   },
   {
     "id": "redbone",
     "name": "redbone",
-    "type": "Cat",
+    "type": "Dog",
     "lifespan": "12 năm - 14 năm",
     "care_instruction": "Redbone Coonhound là giống chó săn có nguồn gốc từ Mỹ, nổi bật với bộ lông đỏ đồng óng ả và vóc dáng cân đối. Chúng rất nhanh nhẹn, dẻo dai và có bản năng săn mùi mạnh mẽ, thường được dùng để săn thú nhỏ như gấu mèo, sóc và thậm chí cả thú lớn. Vì vậy, Redbone cần vận động thường xuyên, ít nhất 1 – 2 giờ/ngày với các hoạt động như đi bộ đường dài, chạy bộ hoặc tham gia trò chơi đánh hơi. Nếu bị giam trong nhà quá lâu, chúng dễ buồn chán và trở nên phá phách.\n\nTrong chế độ ăn, Redbone cần khẩu phần giàu protein để duy trì cơ bắp khỏe mạnh và cung cấp năng lượng. Thịt gà, bò, cá, trứng kết hợp cùng rau củ, ngũ cốc nguyên hạt sẽ giúp cân bằng dinh dưỡng. Do có nguy cơ béo phì nếu ăn nhiều mà không vận động đủ, bạn nên kiểm soát khẩu phần ăn, chia làm 2 – 3 bữa nhỏ trong ngày, đồng thời tránh cho ăn quá nhiều thức ăn chứa tinh bột hoặc chất béo xấu.\n\nVề sức khỏe, Redbone Coonhound nhìn chung khỏe mạnh nhưng có thể gặp một số vấn đề về xương khớp như loạn sản hông hoặc khớp, cùng với bệnh về tai do tai dài dễ bẩn. Chủ nuôi cần vệ sinh tai hằng tuần, kiểm tra mắt định kỳ và giữ cân nặng ổn định để giảm áp lực cho hệ xương khớp.\n\nTính cách của Redbone Coonhound rất thân thiện, trung thành và hòa đồng với trẻ em cũng như các vật nuôi khác. Tuy nhiên, chúng độc lập và bướng bỉnh, nhất là khi đánh hơi thấy mùi lạ, nên huấn luyện cần kiên nhẫn và nhất quán, kết hợp phần thưởng để khuyến khích. Đây là giống chó phù hợp với những người yêu thích hoạt động ngoài trời, thích chạy bộ, leo núi và có không gian sống rộng rãi. Với ngoại hình đẹp và tính cách dễ gần, Redbone vừa là bạn đồng hành săn mồi, vừa là thú cưng tình cảm trong gia đình.",
     "price": {
@@ -386,11 +386,11 @@
     },
     "priceMin": 8,
     "priceMax": 2500,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 2,
+      "energy": 2,
+      "space": 1,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/redbone/avatar.jpg"
@@ -408,11 +408,11 @@
     },
     "priceMin": 15,
     "priceMax": 5000,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
-      "energy": 2,
+      "energy": 3,
       "space": 3,
-      "grooming": 3,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/borzoi/avatar.jpg"
@@ -430,12 +430,12 @@
     },
     "priceMin": 20,
     "priceMax": 7500,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
-      "energy": 2,
+      "energy": 3,
       "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "grooming": 3,
+      "kid_friendly": 5
     },
     "image_path": "/assets/dog_images/irish_wolfhound/avatar.jpg"
   },
@@ -452,10 +452,10 @@
     },
     "priceMin": 15,
     "priceMax": 4000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
+      "energy": 4,
+      "space": 4,
       "grooming": 1,
       "kid_friendly": 1
     },
@@ -476,8 +476,8 @@
     "priceMax": 4500,
     "size": "Trung bình",
     "scores": {
-      "energy": 2,
-      "space": 2,
+      "energy": 1,
+      "space": 3,
       "grooming": 1,
       "kid_friendly": 1
     },
@@ -496,12 +496,12 @@
     },
     "priceMin": 18,
     "priceMax": 5000,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
       "energy": 2,
       "space": 3,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/ibizan_hound/avatar.jpg"
   },
@@ -520,10 +520,10 @@
     "priceMax": 3500,
     "size": "Nhỏ",
     "scores": {
-      "energy": 3,
+      "energy": 4,
       "space": 1,
-      "grooming": 2,
-      "kid_friendly": 1
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/norwegian_elkhound/avatar.jpg"
   },
@@ -542,10 +542,10 @@
     "priceMax": 5000,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 3,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/otterhound/avatar.jpg"
   },
@@ -564,10 +564,10 @@
     "priceMax": 5000,
     "size": "Trung bình",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 3,
+      "space": 3,
+      "grooming": 4,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/saluki/avatar.jpg"
   },
@@ -586,9 +586,9 @@
     "priceMax": 6000,
     "size": "Lớn",
     "scores": {
-      "energy": 1,
-      "space": 3,
-      "grooming": 2,
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/scottish_deerhound/avatar.jpg"
@@ -608,9 +608,9 @@
     "priceMax": 5000,
     "size": "Nhỏ",
     "scores": {
-      "energy": 3,
+      "energy": 4,
       "space": 1,
-      "grooming": 2,
+      "grooming": 1,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/weimaraner/avatar.jpg"
@@ -628,12 +628,12 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 3,
-      "space": 2,
+      "energy": 4,
+      "space": 4,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/staffordshire_bullterrier/avatar.jpg"
   },
@@ -650,12 +650,12 @@
     },
     "priceMin": 18,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 3,
-      "space": 2,
+      "energy": 2,
+      "space": 1,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/american_staffordshire_terrier/avatar.jpg"
   },
@@ -672,12 +672,12 @@
     },
     "priceMin": 20,
     "priceMax": 4500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/bedlington_terrier/avatar.jpg"
   },
@@ -696,9 +696,9 @@
     "priceMax": 4000,
     "size": "Lớn",
     "scores": {
-      "energy": 1,
-      "space": 3,
-      "grooming": 2,
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/border_terrier/avatar.jpg"
@@ -716,11 +716,11 @@
     },
     "priceMin": 25,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 3,
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/kerry_blue_terrier/avatar.jpg"
@@ -738,11 +738,11 @@
     },
     "priceMin": 20,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 1,
-      "space": 3,
-      "grooming": 2,
+      "energy": 4,
+      "space": 1,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/irish_terrier/avatar.jpg"
@@ -762,10 +762,10 @@
     "priceMax": 4500,
     "size": "Lớn",
     "scores": {
-      "energy": 1,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/norfolk_terrier/avatar.jpg"
   },
@@ -782,11 +782,11 @@
     },
     "priceMin": 18,
     "priceMax": 4500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 2,
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/norwich_terrier/avatar.jpg"
@@ -806,9 +806,9 @@
     "priceMax": 5000,
     "size": "Nhỏ",
     "scores": {
-      "energy": 1,
+      "energy": 5,
       "space": 1,
-      "grooming": 3,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/yorkshire_terrier/avatar.jpg"
@@ -826,11 +826,11 @@
     },
     "priceMin": 8,
     "priceMax": 4000,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 2,
+      "energy": 2,
+      "space": 1,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/wire-haired_fox_terrier/avatar.jpg"
@@ -848,11 +848,11 @@
     },
     "priceMin": 10,
     "priceMax": 4500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 2,
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/lakeland_terrier/avatar.jpg"
@@ -872,9 +872,9 @@
     "priceMax": 4500,
     "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 3,
-      "grooming": 2,
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/sealyham_terrier/avatar.jpg"
@@ -892,11 +892,11 @@
     },
     "priceMin": 15,
     "priceMax": 5000,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
       "energy": 3,
       "space": 3,
-      "grooming": 2,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/airedale/avatar.jpg"
@@ -916,10 +916,10 @@
     "priceMax": 4000,
     "size": "Lớn",
     "scores": {
-      "energy": 3,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/cairn/avatar.jpg"
   },
@@ -938,9 +938,9 @@
     "priceMax": 4000,
     "size": "Lớn",
     "scores": {
-      "energy": 3,
-      "space": 3,
-      "grooming": 2,
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/australian_terrier/avatar.jpg"
@@ -960,10 +960,10 @@
     "priceMax": 4500,
     "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/dandie_dinmont/avatar.jpg"
   },
@@ -980,12 +980,12 @@
     },
     "priceMin": 12,
     "priceMax": 4000,
-    "size": "Nhỏ",
+    "size": "Lớn",
     "scores": {
-      "energy": 1,
-      "space": 1,
+      "energy": 4,
+      "space": 4,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/boston_bull/avatar.jpg"
   },
@@ -1004,10 +1004,10 @@
     "priceMax": 4000,
     "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/miniature_schnauzer/avatar.jpg"
   },
@@ -1024,12 +1024,12 @@
     },
     "priceMin": 25,
     "priceMax": 6000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/giant_schnauzer/avatar.jpg"
   },
@@ -1046,12 +1046,12 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/standard_schnauzer/avatar.jpg"
   },
@@ -1070,10 +1070,10 @@
     "priceMax": 4500,
     "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/scotch_terrier/avatar.jpg"
   },
@@ -1090,12 +1090,12 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 1,
-      "space": 2,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/tibetan_terrier/avatar.jpg"
   },
@@ -1114,10 +1114,10 @@
     "priceMax": 4500,
     "size": "Lớn",
     "scores": {
-      "energy": 1,
-      "space": 3,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/silky_terrier/avatar.jpg"
   },
@@ -1136,10 +1136,10 @@
     "priceMax": 4500,
     "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/soft-coated_wheaten_terrier/avatar.jpg"
   },
@@ -1158,10 +1158,10 @@
     "priceMax": 4500,
     "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/west_highland_white_terrier/avatar.jpg"
   },
@@ -1180,10 +1180,10 @@
     "priceMax": 4500,
     "size": "Lớn",
     "scores": {
-      "energy": 1,
-      "space": 3,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/lhasa/avatar.jpg"
   },
@@ -1200,11 +1200,11 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 3,
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/flat-coated_retriever/avatar.jpg"
@@ -1222,11 +1222,11 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 2,
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/curly-coated_retriever/avatar.jpg"
@@ -1244,12 +1244,12 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/golden_retriever/avatar.jpg"
   },
@@ -1266,12 +1266,12 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
+      "energy": 4,
+      "space": 4,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/labrador_retriever/avatar.jpg"
   },
@@ -1288,10 +1288,10 @@
     },
     "priceMin": 25,
     "priceMax": 5500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
+      "energy": 4,
+      "space": 4,
       "grooming": 1,
       "kid_friendly": 1
     },
@@ -1310,10 +1310,10 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
+      "energy": 4,
+      "space": 4,
       "grooming": 1,
       "kid_friendly": 1
     },
@@ -1332,10 +1332,10 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
+      "energy": 4,
+      "space": 4,
       "grooming": 1,
       "kid_friendly": 1
     },
@@ -1354,12 +1354,12 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/english_setter/avatar.jpg"
   },
@@ -1376,12 +1376,12 @@
     },
     "priceMin": 25,
     "priceMax": 5500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/irish_setter/avatar.jpg"
   },
@@ -1398,11 +1398,11 @@
     },
     "priceMin": 25,
     "priceMax": 5500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 3,
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/gordon_setter/avatar.jpg"
@@ -1420,12 +1420,12 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
+      "energy": 4,
+      "space": 4,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/brittany_spaniel/avatar.jpg"
   },
@@ -1442,11 +1442,11 @@
     },
     "priceMin": 25,
     "priceMax": 5500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 2,
+      "energy": 5,
+      "space": 4,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/clumber/avatar.jpg"
@@ -1464,11 +1464,11 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 3,
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/english_springer/avatar.jpg"
@@ -1486,12 +1486,12 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/welsh_springer_spaniel/avatar.jpg"
   },
@@ -1508,12 +1508,12 @@
     },
     "priceMin": 15,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/cocker_spaniel/avatar.jpg"
   },
@@ -1530,11 +1530,11 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 3,
+      "energy": 5,
+      "space": 4,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/sussex_spaniel/avatar.jpg"
@@ -1552,11 +1552,11 @@
     },
     "priceMin": 25,
     "priceMax": 6000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 2,
+      "energy": 5,
+      "space": 4,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/irish_water_spaniel/avatar.jpg"
@@ -1576,17 +1576,17 @@
     "priceMax": 5000,
     "size": "Lớn",
     "scores": {
-      "energy": 3,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/kuvasz/avatar.jpg"
   },
   {
     "id": "schipperke",
     "name": "schipperke",
-    "type": "Cat",
+    "type": "Dog",
     "lifespan": "13 năm – 16 năm",
     "care_instruction": "Schipperke là giống chó nhỏ đến từ Bỉ, nổi bật với bộ lông đen dày, dáng vóc chắc chắn, khuôn mặt tinh anh và được mệnh danh là “tiểu sói” do ngoại hình giống chó sói thu nhỏ. Ban đầu, chúng được nuôi trên thuyền để bắt chuột và cảnh giới, sau này trở thành bạn đồng hành trung thành, lanh lợi và tràn đầy năng lượng.\n\nTính cách:\nSchipperke thông minh, tò mò, gan dạ và có phần bướng bỉnh. Chúng cực kỳ trung thành với gia đình nhưng thường cảnh giác với người lạ, là giống chó giữ nhà tốt. Do có bản tính săn mồi nhỏ, chúng có thể đuổi theo mèo, chim hoặc gặm nhấm, nên cần giám sát khi ra ngoài.\n\nVận động:\nDù nhỏ bé nhưng Schipperke có năng lượng cao và cần được vận động hằng ngày: đi bộ, chạy nhảy, chơi đùa hoặc tham gia các trò chơi trí tuệ. Nếu bị bỏ mặc quá lâu, chúng dễ sinh buồn chán và phá phách. Nhà có sân vườn an toàn sẽ rất phù hợp với giống chó này.\n\nHuấn luyện:\nSchipperke nhanh nhẹn, học nhanh nhưng đôi khi cứng đầu, nên cần huấn luyện kiên nhẫn, nhất quán và dùng phương pháp tích cực (thưởng – khích lệ). Chúng thích được thử thách bằng các trò chơi thông minh, agility hoặc obedience. Xã hội hóa sớm cũng quan trọng để tránh quá cảnh giác hoặc sủa nhiều.\n\nChăm sóc lông:\nBộ lông đen tuyền, dày và hơi dài ở cổ – ngực cần được chải 1 – 2 lần/tuần để loại bỏ lông rụng và giữ bóng mượt. Chúng rụng lông theo mùa, lúc đó cần chải thường xuyên hơn. Việc tắm không cần quá nhiều, chỉ khi lông bẩn. Cần vệ sinh tai, răng, cắt móng định kỳ để phòng bệnh.\n\nChế độ dinh dưỡng:\nNên cho ăn khẩu phần giàu protein nạc (thịt gà, cá, bò), kết hợp rau củ quả và tinh bột nguyên hạt. Do kích thước nhỏ nhưng năng lượng cao, Schipperke cần khẩu phần cân đối, tránh cho ăn quá nhiều vì dễ bị béo phì. Hạn chế đồ ăn thừa, đồ ngọt hoặc thức ăn nhiều dầu mỡ.\n\nSức khỏe:\nSchipperke nhìn chung khỏe mạnh, tuổi thọ cao, nhưng có thể gặp một số vấn đề như: bệnh về mắt (đục thủy tinh thể, teo võng mạc tiến triển), loạn sản xương bánh chè (patella luxation), bệnh tuyến giáp, béo phì. Khám thú y định kỳ, duy trì cân nặng hợp lý và chế độ vận động đầy đủ sẽ giúp chúng sống lâu và khỏe mạnh.",
     "price": {
@@ -1598,10 +1598,10 @@
     "priceMax": 4000,
     "size": "Lớn",
     "scores": {
-      "energy": 3,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/schipperke/avatar.jpg"
   },
@@ -1620,10 +1620,10 @@
     "priceMax": 5000,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 3,
+      "grooming": 4,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/groenendael/avatar.jpg"
   },
@@ -1642,10 +1642,10 @@
     "priceMax": 5000,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
+      "energy": 4,
+      "space": 3,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/malinois/avatar.jpg"
   },
@@ -1664,10 +1664,10 @@
     "priceMax": 4500,
     "size": "Lớn",
     "scores": {
-      "energy": 3,
-      "space": 3,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/briard/avatar.jpg"
   },
@@ -1686,10 +1686,10 @@
     "priceMax": 4000,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
+      "energy": 5,
+      "space": 3,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/kelpie/avatar.jpg"
   },
@@ -1706,12 +1706,12 @@
     },
     "priceMin": 25,
     "priceMax": 6000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/komondor/avatar.jpg"
   },
@@ -1728,12 +1728,12 @@
     },
     "priceMin": 18,
     "priceMax": 4000,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
-      "energy": 2,
+      "energy": 1,
       "space": 3,
-      "grooming": 3,
-      "kid_friendly": 1
+      "grooming": 4,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/old_english_sheepdog/avatar.jpg"
   },
@@ -1752,10 +1752,10 @@
     "priceMax": 3500,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 1,
+      "space": 3,
+      "grooming": 4,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/shetland_sheepdog/avatar.jpg"
   },
@@ -1772,11 +1772,11 @@
     },
     "priceMin": 18,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
-      "energy": 3,
+      "energy": 4,
       "space": 3,
-      "grooming": 3,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/collie/avatar.jpg"
@@ -1796,9 +1796,9 @@
     "priceMax": 4000,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 3,
+      "energy": 5,
+      "space": 3,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/border_collie/avatar.jpg"
@@ -1818,10 +1818,10 @@
     "priceMax": 5000,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 3,
+      "grooming": 3,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/bouvier_des_flandres/avatar.jpg"
   },
@@ -1840,10 +1840,10 @@
     "priceMax": 6000,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
+      "energy": 4,
+      "space": 3,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/rottweiler/avatar.jpg"
   },
@@ -1862,10 +1862,10 @@
     "priceMax": 6000,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 3,
+      "grooming": 4,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/german_shepherd/avatar.jpg"
   },
@@ -1884,10 +1884,10 @@
     "priceMax": 6000,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
+      "energy": 4,
+      "space": 3,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/doberman/avatar.jpg"
   },
@@ -1904,12 +1904,12 @@
     },
     "priceMin": 5,
     "priceMax": 2500,
-    "size": "Nhỏ",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 1,
+      "energy": 4,
+      "space": 4,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/miniature_pinscher/avatar.jpg"
   },
@@ -1928,10 +1928,10 @@
     "priceMax": 5000,
     "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 3,
+      "energy": 4,
+      "space": 5,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/greater_swiss_mountain_dog/avatar.jpg"
   },
@@ -1950,9 +1950,9 @@
     "priceMax": 5000,
     "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 3,
-      "grooming": 3,
+      "energy": 4,
+      "space": 5,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/bernese_mountain_dog/avatar.jpg"
@@ -1972,10 +1972,10 @@
     "priceMax": 500,
     "size": "Lớn",
     "scores": {
-      "energy": 3,
-      "space": 3,
+      "energy": 4,
+      "space": 4,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/appenzeller/avatar.jpg"
   },
@@ -1994,10 +1994,10 @@
     "priceMax": 500,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
+      "energy": 4,
+      "space": 3,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/entlebucher/avatar.jpg"
   },
@@ -2017,9 +2017,9 @@
     "size": "Trung bình",
     "scores": {
       "energy": 3,
-      "space": 2,
+      "space": 3,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/boxer/avatar.jpg"
   },
@@ -2036,12 +2036,12 @@
     },
     "priceMin": 0,
     "priceMax": 60,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 1,
-      "space": 3,
+      "energy": 2,
+      "space": 1,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/bull_mastiff/avatar.jpg"
   },
@@ -2058,12 +2058,12 @@
     },
     "priceMin": 0,
     "priceMax": 120,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 1,
-      "space": 3,
-      "grooming": 3,
-      "kid_friendly": 1
+      "space": 1,
+      "grooming": 4,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/tibetan_mastiff/avatar.jpg"
   },
@@ -2085,7 +2085,7 @@
       "energy": 1,
       "space": 1,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/french_bulldog/avatar.jpg"
   },
@@ -2102,12 +2102,12 @@
     },
     "priceMin": 0,
     "priceMax": 60,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
-      "energy": 2,
+      "energy": 3,
       "space": 3,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/great_dane/avatar.jpg"
   },
@@ -2124,11 +2124,11 @@
     },
     "priceMin": 2,
     "priceMax": 500,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
-      "energy": 2,
+      "energy": 3,
       "space": 3,
-      "grooming": 2,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/saint_bernard/avatar.jpg"
@@ -2146,11 +2146,11 @@
     },
     "priceMin": 0,
     "priceMax": 500,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
-      "energy": 3,
+      "energy": 4,
       "space": 3,
-      "grooming": 2,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/eskimo_dog/avatar.jpg"
@@ -2168,11 +2168,11 @@
     },
     "priceMin": 0,
     "priceMax": 500,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
-      "energy": 3,
+      "energy": 5,
       "space": 3,
-      "grooming": 2,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/malamute/avatar.jpg"
@@ -2190,12 +2190,12 @@
     },
     "priceMin": 1,
     "priceMax": 500,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 1,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/siberian_husky/avatar.jpg"
   },
@@ -2214,17 +2214,17 @@
     "priceMax": 60,
     "size": "Lớn",
     "scores": {
-      "energy": 1,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/affenpinscher/avatar.jpg"
   },
   {
     "id": "basenji",
     "name": "basenji",
-    "type": "Cat",
+    "type": "Dog",
     "lifespan": "12 năm – 14 năm",
     "care_instruction": "Basenji là giống chó săn cổ xưa có nguồn gốc từ Trung Phi (Congo), nổi bật với đặc điểm không sủa như các loài chó khác mà thay vào đó phát ra âm thanh đặc biệt gọi là yodel (tiếng hú – ngân rung). Ngoại hình gọn gàng, nhỏ nhắn, cao 40 – 43 cm, nặng 9 – 12 kg, có đôi tai dựng, mắt hạnh nhân sắc sảo và chiếc đuôi xoắn tròn đặc trưng.\n\nTính cách: Basenji thông minh, độc lập, tò mò và cảnh giác cao. Chúng thân thiện với gia đình, tình cảm với chủ nhưng thường dè dặt với người lạ. Bướng bỉnh và khó huấn luyện hơn nhiều giống chó khác, nên cần người chủ kiên nhẫn, nhất quán và kinh nghiệm.\n\nGiống chó này rất năng động, cần nhiều vận động hàng ngày như chạy bộ, đi dạo dài, chơi các trò săn mồi giả lập. Nếu không được giải phóng năng lượng, Basenji dễ phá phách hoặc tìm cách thoát ra ngoài.\n\nBộ lông ngắn, mịn và gần như không có mùi nên việc chăm sóc khá đơn giản. Chỉ cần chải 1 lần/tuần để loại bỏ lông chết. Giống này vốn sạch sẽ, thường tự liếm lông như mèo. Tuy nhiên, vẫn cần vệ sinh tai, răng và cắt móng định kỳ.\n\nChế độ dinh dưỡng: nên cho ăn thức ăn giàu protein và năng lượng (thịt nạc, cá, gan, rau củ, ngũ cốc nguyên hạt). Hạn chế tinh bột kém chất lượng và đồ ăn nhiều dầu mỡ.\n\nVề sức khỏe, Basenji có thể mắc một số bệnh di truyền như hội chứng Fanconi (thận), loạn sản hông, bệnh về mắt (teo võng mạc). Khám thú y định kỳ và xét nghiệm di truyền từ khi chọn giống là rất quan trọng.\n\nBasenji phù hợp với người năng động, kiên nhẫn trong huấn luyện và có không gian cho chó chạy nhảy.",
     "price": {
@@ -2234,12 +2234,12 @@
     },
     "priceMin": 0,
     "priceMax": 800,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 3,
-      "space": 2,
+      "energy": 4,
+      "space": 4,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/basenji/avatar.jpg"
   },
@@ -2280,10 +2280,10 @@
     "priceMax": 500,
     "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 3,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 4,
+      "kid_friendly": 5
     },
     "image_path": "/assets/dog_images/leonberg/avatar.jpg"
   },
@@ -2300,12 +2300,12 @@
     },
     "priceMin": 0,
     "priceMax": 70,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 1,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "space": 1,
+      "grooming": 3,
+      "kid_friendly": 5
     },
     "image_path": "/assets/dog_images/newfoundland/avatar.jpg"
   },
@@ -2322,12 +2322,12 @@
     },
     "priceMin": 1,
     "priceMax": 800,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 2,
-      "space": 3,
-      "grooming": 3,
-      "kid_friendly": 1
+      "space": 1,
+      "grooming": 4,
+      "kid_friendly": 5
     },
     "image_path": "/assets/dog_images/great_pyrenees/avatar.jpg"
   },
@@ -2346,9 +2346,9 @@
     "priceMax": 40,
     "size": "Trung bình",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 2,
+      "energy": 4,
+      "space": 3,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/samoyed/avatar.jpg"
@@ -2368,9 +2368,9 @@
     "priceMax": 30,
     "size": "Nhỏ",
     "scores": {
-      "energy": 1,
+      "energy": 5,
       "space": 1,
-      "grooming": 3,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/pomeranian/avatar.jpg"
@@ -2388,12 +2388,12 @@
     },
     "priceMin": 0,
     "priceMax": 500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
-      "energy": 2,
-      "space": 3,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 3,
+      "space": 1,
+      "grooming": 4,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/chow/avatar.jpg"
   },
@@ -2412,9 +2412,9 @@
     "priceMax": 500,
     "size": "Nhỏ",
     "scores": {
-      "energy": 2,
+      "energy": 3,
       "space": 1,
-      "grooming": 2,
+      "grooming": 3,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/keeshond/avatar.jpg"
@@ -2434,10 +2434,10 @@
     "priceMax": 50,
     "size": "Nhỏ",
     "scores": {
-      "energy": 3,
+      "energy": 4,
       "space": 1,
-      "grooming": 3,
-      "kid_friendly": 1
+      "grooming": 4,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/brabancon_griffon/avatar.jpg"
   },
@@ -2454,12 +2454,12 @@
     },
     "priceMin": 0,
     "priceMax": 45,
-    "size": "Nhỏ",
+    "size": "Lớn",
     "scores": {
-      "energy": 2,
-      "space": 1,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/pembroke/avatar.jpg"
   },
@@ -2478,10 +2478,10 @@
     "priceMax": 500,
     "size": "Lớn",
     "scores": {
-      "energy": 1,
-      "space": 3,
-      "grooming": 2,
-      "kid_friendly": 1
+      "energy": 4,
+      "space": 4,
+      "grooming": 3,
+      "kid_friendly": 2
     },
     "image_path": "/assets/dog_images/cardigan/avatar.jpg"
   },
@@ -2500,9 +2500,9 @@
     "priceMax": 25,
     "size": "Trung bình",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 2,
+      "energy": 3,
+      "space": 3,
+      "grooming": 1,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/toy_poodle/avatar.jpg"
@@ -2522,9 +2522,9 @@
     "priceMax": 500,
     "size": "Trung bình",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 2,
+      "energy": 3,
+      "space": 3,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/miniature_poodle/avatar.jpg"
@@ -2544,9 +2544,9 @@
     "priceMax": 50,
     "size": "Trung bình",
     "scores": {
-      "energy": 3,
-      "space": 2,
-      "grooming": 3,
+      "energy": 5,
+      "space": 3,
+      "grooming": 4,
       "kid_friendly": 1
     },
     "image_path": "/assets/dog_images/standard_poodle/avatar.jpg"
@@ -2567,9 +2567,9 @@
     "size": "Trung bình",
     "scores": {
       "energy": 3,
-      "space": 2,
-      "grooming": 2,
-      "kid_friendly": 1
+      "space": 3,
+      "grooming": 3,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/mexican_hairless/avatar.jpg"
   },
@@ -2586,12 +2586,12 @@
     },
     "priceMin": 0,
     "priceMax": 50,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
-      "energy": 1,
-      "space": 2,
+      "energy": 5,
+      "space": 4,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/dingo/avatar.jpg"
   },
@@ -2610,10 +2610,10 @@
     "priceMax": 100,
     "size": "Trung bình",
     "scores": {
-      "energy": 2,
-      "space": 2,
+      "energy": 3,
+      "space": 3,
       "grooming": 1,
-      "kid_friendly": 1
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/dhole/avatar.jpg"
   },
@@ -2632,10 +2632,10 @@
     "priceMax": 100,
     "size": "Trung bình",
     "scores": {
-      "energy": 2,
-      "space": 2,
-      "grooming": 3,
-      "kid_friendly": 1
+      "energy": 3,
+      "space": 3,
+      "grooming": 4,
+      "kid_friendly": 4
     },
     "image_path": "/assets/dog_images/african_hunting_dog/avatar.jpg"
   }

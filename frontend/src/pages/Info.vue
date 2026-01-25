@@ -83,7 +83,7 @@ const getStarCount = (score) => {
                                 <Activity class="w-4 h-4"/> Vận động
                             </div>
                             <div class="flex gap-1">
-                                <span v-for="i in 3" :key="i" class="h-2 w-full rounded-full" :class="i <= pet.scores?.energy ? 'bg-teal-500' : 'bg-slate-200'"></span>
+                                <span v-for="i in 5" :key="i" class="h-2 w-full rounded-full" :class="i <= pet.scores?.energy ? 'bg-teal-500' : 'bg-slate-200'"></span>
                             </div>
                         </div>
 
@@ -92,7 +92,7 @@ const getStarCount = (score) => {
                                 <Home class="w-4 h-4"/> Không gian
                             </div>
                             <div class="flex gap-1">
-                                <span v-for="i in 3" :key="i" class="h-2 w-full rounded-full" :class="i <= pet.scores?.space ? 'bg-blue-500' : 'bg-slate-200'"></span>
+                                <span v-for="i in 5" :key="i" class="h-2 w-full rounded-full" :class="i <= pet.scores?.space ? 'bg-blue-500' : 'bg-slate-200'"></span>
                             </div>
                         </div>
 
@@ -101,7 +101,7 @@ const getStarCount = (score) => {
                                 <Scissors class="w-4 h-4"/> Chăm sóc lông
                             </div>
                             <div class="flex gap-1">
-                                <span v-for="i in 3" :key="i" class="h-2 w-full rounded-full" :class="i <= pet.scores?.grooming ? 'bg-purple-500' : 'bg-slate-200'"></span>
+                                <span v-for="i in 5" :key="i" class="h-2 w-full rounded-full" :class="i <= pet.scores?.grooming ? 'bg-purple-500' : 'bg-slate-200'"></span>
                             </div>
                         </div>
 
@@ -110,7 +110,8 @@ const getStarCount = (score) => {
                                 <Heart class="w-4 h-4"/> Thân thiện trẻ em
                             </div>
                             <div class="flex gap-1">
-                                <span v-for="i in 3" :key="i" class="h-2 w-full rounded-full" :class="i <= pet.scores?.kid_friendly ? 'bg-red-500' : 'bg-slate-200'"></span>
+                                <!-- Invert Score: 1(Safe) -> 5 Bars, 5(Risk) -> 1 Bar -->
+                                <span v-for="i in 5" :key="i" class="h-2 w-full rounded-full" :class="i <= (6 - (pet.scores?.kid_friendly || 3)) ? 'bg-red-500' : 'bg-slate-200'"></span>
                             </div>
                         </div>
                     </div>

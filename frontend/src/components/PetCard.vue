@@ -32,11 +32,8 @@ const goToDetail = () => {
         {{ pet.size }}
       </div>
        <div class="absolute bottom-2 left-2 flex gap-1">
-            <span v-for="i in 5" :key="i" class="text-xs" :class="i <= (pet.scores?.kid_friendly === 1 ? 5 : 2) ? 'text-yellow-400' : 'text-gray-300'">
-                <!-- Simple logic: 1=Friendly(5 stars), 0=Caution(2 stars) for demo purposes if mapped blindly.
-                     Actually my data has 1 (Friendly) and 0 (Caution). 
-                     Let's map: 1 -> 5 stars, 0 -> 2 stars (Caution).
-                -->
+            <!-- Invert Kid Friendly Score for Display: 1(Safe) -> 5 Stars, 5(Risk) -> 1 Star -->
+            <span v-for="i in 5" :key="i" class="text-xs" :class="i <= (6 - (pet.scores?.kid_friendly || 3)) ? 'text-yellow-400' : 'text-gray-300'">
                 ★
             </span>
        </div>
@@ -53,10 +50,10 @@ const goToDetail = () => {
        <!-- Badges for Scores -->
       <div class="flex gap-2 mb-3 text-[10px] font-bold">
            <span class="px-2 py-1 rounded-md bg-blue-50 text-blue-600 border border-blue-100">
-               Energy: {{ pet.scores?.energy }}/3
+               Energy: {{ pet.scores?.energy }}/5
            </span>
            <span class="px-2 py-1 rounded-md bg-purple-50 text-purple-600 border border-purple-100">
-               Space: {{ pet.scores?.space }}/3
+               Space: {{ pet.scores?.space }}/5
            </span>
       </div>
 

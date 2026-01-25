@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { Check, ChevronLeft, ArrowRight, RotateCcw } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
+import allPets from '../data/pets_data.json'
 
 const router = useRouter()
 
@@ -11,9 +12,9 @@ const questions = [
     text: "Bạn có thường xuyên đi vắng không?",
     subtitle: "Điều này giúp chọn loài vật có khả năng tự lập.",
     options: [
-      { text: "Làm việc tại nhà", sub: "Có thể dành 5-8 tiếng/ngày", value: 1 },
+      { text: "Làm việc tại nhà", sub: "Có thể dành 5-8 tiếng/ngày", value: 1 }, // High availability -> Can handle High Energy/Clingy (Score 1-5 irrelevant? No, maybe Energy)
       { text: "Đi làm hành chính", sub: "Vắng nhà 8-10 tiếng", value: 2 },
-      { text: "Hay đi công tác", sub: "Cần loài cực kỳ tự lập", value: 3 }
+      { text: "Hay đi công tác", sub: "Cần loài cực kỳ tự lập", value: 3 } // Low availability -> Low Energy (1-2)
     ]
   },
   {
@@ -21,9 +22,9 @@ const questions = [
     text: "Diện tích nhà bạn thế nào?",
     subtitle: "Kích thước thú cưng cần phù hợp với không gian.",
     options: [
-      { text: "Chung cư nhỏ / Phòng trọ", sub: "< 30m2", value: 1 },
-      { text: "Căn hộ trung bình", sub: "30-70m2", value: 2 },
-      { text: "Nhà phố / Biệt thự", sub: "Có sân vườn rộng", value: 3 }
+      { text: "Chung cư nhỏ / Phòng trọ", sub: "< 30m2", value: 1 }, // Space 1
+      { text: "Căn hộ trung bình", sub: "30-70m2", value: 2 }, // Space 2-3
+      { text: "Nhà phố / Biệt thự", sub: "Có sân vườn rộng", value: 3 } // Space 4-5
     ]
   },
   {
@@ -31,9 +32,9 @@ const questions = [
     text: "Bạn thích vận động mức nào?",
     subtitle: "Ảnh hưởng đến việc dắt thú cưng đi dạo.",
     options: [
-      { text: "Chill tại nhà", sub: "Thích nằm sofa xem phim", value: 1 },
-      { text: "Đi dạo nhẹ nhàng", sub: "30p mỗi ngày", value: 2 },
-      { text: "Chạy bộ / Thể thao", sub: "Vận động mạnh mỗi ngày", value: 3 }
+      { text: "Chill tại nhà", sub: "Thích nằm sofa xem phim", value: 1 }, // Energy 1-2
+      { text: "Đi dạo nhẹ nhàng", sub: "30p mỗi ngày", value: 2 }, // Energy 3
+      { text: "Chạy bộ / Thể thao", sub: "Vận động mạnh mỗi ngày", value: 3 } // Energy 4-5
     ]
   },
   {
@@ -41,9 +42,9 @@ const questions = [
     text: "Bạn từng nuôi thú cưng chưa?",
     subtitle: "Một số loài cần người nuôi có kinh nghiệm.",
     options: [
-      { text: "Lần đầu nuôi", sub: "Cần loài dễ tính, dễ dạy", value: 1 },
-      { text: "Đã từng nuôi", sub: "Biết chăm sóc cơ bản", value: 2 },
-      { text: "Chuyên gia", sub: "Hiểu rõ tâm lý thú cưng", value: 3 }
+      { text: "Lần đầu nuôi", sub: "Cần loài dễ tính, dễ dạy", value: 1 }, // Grooming 1-2, KidFriendly 1-2 (Friendly)
+      { text: "Đã từng nuôi", sub: "Biết chăm sóc cơ bản", value: 2 }, 
+      { text: "Chuyên gia", sub: "Hiểu rõ tâm lý thú cưng", value: 3 } // Can handle Hard grooming/Temperament
     ]
   },
   {
@@ -51,9 +52,9 @@ const questions = [
     text: "Khả năng chi trả hàng tháng?",
     subtitle: "Bao gồm thức ăn, spa, y tế.",
     options: [
-      { text: "Tiết kiệm", sub: "< 1 triệu/tháng", value: 1 },
-      { text: "Trung bình", sub: "1 - 3 triệu/tháng", value: 2 },
-      { text: "Thoải mái", sub: "> 3 triệu/tháng", value: 3 }
+      { text: "Tiết kiệm", sub: "< 2 triệu/tháng", value: 1 }, 
+      { text: "Trung bình", sub: "2 - 5 triệu/tháng", value: 2 },
+      { text: "Thoải mái", sub: "> 5 triệu/tháng", value: 3 }
     ]
   }
 ]
@@ -61,6 +62,7 @@ const questions = [
 const currentStep = ref(0)
 const answers = ref({})
 const isFinished = ref(false)
+const suggestedPet = ref(null)
 
 const progress = computed(() => {
     return ((currentStep.value + 1) / questions.length) * 100
@@ -87,20 +89,72 @@ const prevStep = () => {
 }
 
 const finishQuiz = () => {
-    // Fake processing
+    calculateResult()
     isFinished.value = true
+}
+
+const calculateResult = () => {
+    // Map answers to Target Scores (1-5 Scale)
+    
+    // Q1: Time Availability [1(Home), 2(Work), 3(Away)]
+    // 1 -> High Energy OK (up to 5)
+    // 3 -> Low Energy Only (1-2)
+    // Let's use Q3 (Energy Preference) as the primary Energy driver, but cap it with Q1?
+    // User wants "Accuracy". Let's simply map Q3 to Energy target.
+    // Q3: 1->Target 1, 2->Target 3, 3->Target 5.
+    const targetEnergy = answers.value[2] === 1 ? 1 : (answers.value[2] === 2 ? 3 : 5)
+    
+    // Q2: Space [1(Small), 2(Med), 3(Big)]
+    // 1->Target 1, 2->Target 3, 3->Target 5
+    const targetSpace = answers.value[1] === 1 ? 1 : (answers.value[1] === 2 ? 3 : 5)
+    
+    // Q4: Experience [1(Novice), 2(Avg), 3(Expert)]
+    // Proxy for Grooming difficulty & Temperament (Kid Friendly?? Not really)
+    // Let's map to Grooming: 1->Target 1 (Easy), 2->3, 3->5 (Hard OK)
+    const targetGrooming = answers.value[3] === 1 ? 1 : (answers.value[3] === 2 ? 3 : 5)
+
+    // Calculate Distance for each pet
+    let bestMatch = null
+    let minDistance = Infinity
+
+    allPets.forEach(pet => {
+        // Budget Filter
+        // Q5: 1(<2M), 2(2-5M), 3(>5M). Data usually has `priceMin` (Purchase price). 
+        // Monthly cost correlates with Size & Grooming. But let's check Purchase Price?
+        // Actually "Monthly Budget" is different from Purchase Price.
+        // Let's assume Budget 1 -> Small Size / Low Grooming?
+        // Simplified: Just use vector matching on traits.
+        
+        let dEnergy = Math.pow(pet.scores.energy - targetEnergy, 2)
+        let dSpace = Math.pow(pet.scores.space - targetSpace, 2)
+        let dGrooming = Math.pow(pet.scores.grooming - targetGrooming, 2)
+        
+        let distance = Math.sqrt(dEnergy + dSpace + dGrooming)
+        
+        if (distance < minDistance) {
+            minDistance = distance
+            bestMatch = pet
+        }
+    })
+
+    // Fallback
+    if (!bestMatch) bestMatch = allPets[0]
+
+    // Construct Display Object
+    suggestedPet.value = {
+        name: bestMatch.name,
+        desc: `Dựa trên sở thích của bạn, ${bestMatch.name} là lựa chọn tuyệt vời! Với mức năng lượng ${bestMatch.scores.energy}/5 và nhu cầu không gian ${bestMatch.scores.space}/5.`,
+        match: Math.round((1 - minDistance/10) * 100) + "%", // Fake match % based on distance
+        image: bestMatch.image_path,
+        id: bestMatch.id
+    }
 }
 
 const restart = () => {
     currentStep.value = 0
     answers.value = {}
     isFinished.value = false
-}
-
-const suggestedPet = {
-    name: "Golden Retriever",
-    desc: "Bạn là người hướng ngoại, có không gian sống rộng và thích vận động. Golden Retriever là người bạn lý tưởng với tính cách thân thiện, trung thành và tràn đầy năng lượng.",
-    match: "96%"
+    suggestedPet.value = null
 }
 </script>
 
