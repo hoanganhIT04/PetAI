@@ -10,8 +10,8 @@ import os
 
 # ===== PATH =====
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "dog.h5")
-LABEL_PATH = os.path.join(BASE_DIR, "dog_label.json")
+MODEL_PATH = os.path.join(BASE_DIR, "model.keras")
+LABEL_PATH = os.path.join(BASE_DIR, "label.json")
 
 # ===== LOAD MODEL =====
 model = tf.keras.models.load_model(MODEL_PATH)
