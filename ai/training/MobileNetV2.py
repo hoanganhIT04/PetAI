@@ -11,10 +11,10 @@ from tensorflow.keras.applications import MobileNetV2
 # ================== PATH ==================
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
-DATASET_PATH = os.path.join(BASE_DIR, "frontend", "public", "assets", "dog_images")
-CSV_PATH     = os.path.join(BASE_DIR, "ai", "data", "dog.csv")
-MODEL_PATH   = os.path.join(BASE_DIR, "ai", "dog.h5")
-LABEL_PATH   = os.path.join(BASE_DIR, "ai", "dog_label.json")
+DATASET_PATH = os.path.join(BASE_DIR, "frontend", "public", "assets", "images")
+CSV_PATH     = os.path.join(BASE_DIR, "ai", "data", "metadata.csv")
+MODEL_PATH   = os.path.join(BASE_DIR, "ai","model","model.h5")
+LABEL_PATH   = os.path.join(BASE_DIR, "ai", "label.json")
 
 # ================== CONFIG ==================
 IMG_SIZE      = (224, 224)

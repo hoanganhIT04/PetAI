@@ -1,0 +1,94 @@
+PS A:\NCKH_Web\PetAI\ai\training> python MobileNetV2.py
+Đã load 139 giống từ CSV
+Mapping preview:
+  0: chihuahua
+  1: japanese_spaniel
+  2: maltese_dog
+  3: pekinese
+  4: shih_tzu
+Found 18896 images belonging to 139 classes.
+Found 4662 images belonging to 139 classes.
+Classes: 139
+Train samples: 18896
+Val samples: 4662
+2026-01-27 14:23:47.576680: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE SSE2 SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Epoch 1/15
+1181/1181 [==============================] - 479s 405ms/step - loss: 2.2959 - accuracy: 0.4141 - val_loss: 1.0349 - val_accuracy: 0.6903
+Epoch 2/15
+1181/1181 [==============================] - 338s 287ms/step - loss: 1.4108 - accuracy: 0.5828 - val_loss: 0.9257 - val_accuracy: 0.7220
+Epoch 3/15
+1181/1181 [==============================] - 345s 292ms/step - loss: 1.2691 - accuracy: 0.6255 - val_loss: 0.8722 - val_accuracy: 0.7272
+Epoch 4/15
+1181/1181 [==============================] - 337s 285ms/step - loss: 1.1971 - accuracy: 0.6431 - val_loss: 0.8635 - val_accuracy: 0.7299
+Epoch 5/15
+1181/1181 [==============================] - 335s 284ms/step - loss: 1.1385 - accuracy: 0.6608 - val_loss: 0.8693 - val_accuracy: 0.7357
+Epoch 6/15
+1181/1181 [==============================] - 335s 284ms/step - loss: 1.1066 - accuracy: 0.6696 - val_loss: 0.8418 - val_accuracy: 0.7441
+Epoch 7/15
+1181/1181 [==============================] - 339s 287ms/step - loss: 1.0686 - accuracy: 0.6807 - val_loss: 0.8869 - val_accuracy: 0.7306
+Epoch 8/15
+1181/1181 [==============================] - 337s 286ms/step - loss: 1.0418 - accuracy: 0.6813 - val_loss: 0.8487 - val_accuracy: 0.7469
+Epoch 9/15
+1181/1181 [==============================] - 336s 285ms/step - loss: 1.0224 - accuracy: 0.6870 - val_loss: 0.8544 - val_accuracy: 0.7460
+Epoch 10/15
+1181/1181 [==============================] - 336s 285ms/step - loss: 1.0179 - accuracy: 0.6940 - val_loss: 0.8751 - val_accuracy: 0.7415
+Epoch 11/15
+1181/1181 [==============================] - ETA: 0s - loss: 0.9867 - accuracy: 0.6979Restoring model weights from the end of the best epoch: 6.
+1181/1181 [==============================] - 333s 282ms/step - loss: 0.9867 - accuracy: 0.6979 - val_loss: 0.8897 - val_accuracy: 0.7372
+Epoch 11: early stopping
+Epoch 1/20
+1181/1181 [==============================] - 374s 315ms/step - loss: 1.4424 - accuracy: 0.5862 - val_loss: 0.8397 - val_accuracy: 0.7467 - lr: 1.0000e-05
+Epoch 2/20
+1181/1181 [==============================] - 368s 312ms/step - loss: 1.2482 - accuracy: 0.6345 - val_loss: 0.8233 - val_accuracy: 0.7529 - lr: 1.0000e-05
+Epoch 3/20
+1181/1181 [==============================] - 367s 311ms/step - loss: 1.1867 - accuracy: 0.6502 - val_loss: 0.8058 - val_accuracy: 0.7570 - lr: 1.0000e-05
+Epoch 4/20
+1181/1181 [==============================] - 368s 312ms/step - loss: 1.1423 - accuracy: 0.6574 - val_loss: 0.7946 - val_accuracy: 0.7580 - lr: 1.0000e-05
+Epoch 5/20
+1181/1181 [==============================] - 366s 310ms/step - loss: 1.1193 - accuracy: 0.6661 - val_loss: 0.7820 - val_accuracy: 0.7647 - lr: 1.0000e-05
+Epoch 6/20
+1181/1181 [==============================] - 373s 316ms/step - loss: 1.0825 - accuracy: 0.6738 - val_loss: 0.7750 - val_accuracy: 0.7615 - lr: 1.0000e-05
+Epoch 7/20
+1181/1181 [==============================] - 378s 320ms/step - loss: 1.0630 - accuracy: 0.6829 - val_loss: 0.7645 - val_accuracy: 0.7647 - lr: 1.0000e-05
+Epoch 8/20
+1181/1181 [==============================] - 370s 314ms/step - loss: 1.0259 - accuracy: 0.6936 - val_loss: 0.7582 - val_accuracy: 0.7673 - lr: 1.0000e-05
+Epoch 9/20
+1181/1181 [==============================] - 368s 311ms/step - loss: 1.0204 - accuracy: 0.6937 - val_loss: 0.7560 - val_accuracy: 0.7683 - lr: 1.0000e-05
+Epoch 10/20
+1181/1181 [==============================] - 370s 313ms/step - loss: 0.9875 - accuracy: 0.7033 - val_loss: 0.7476 - val_accuracy: 0.7735 - lr: 1.0000e-05
+Epoch 11/20
+1181/1181 [==============================] - 368s 312ms/step - loss: 0.9776 - accuracy: 0.7047 - val_loss: 0.7408 - val_accuracy: 0.7724 - lr: 1.0000e-05
+Epoch 12/20
+1181/1181 [==============================] - 370s 314ms/step - loss: 0.9512 - accuracy: 0.7127 - val_loss: 0.7356 - val_accuracy: 0.7743 - lr: 1.0000e-05
+Epoch 13/20
+1181/1181 [==============================] - 366s 310ms/step - loss: 0.9264 - accuracy: 0.7164 - val_loss: 0.7358 - val_accuracy: 0.7771 - lr: 1.0000e-05
+Epoch 14/20
+1181/1181 [==============================] - 367s 310ms/step - loss: 0.9197 - accuracy: 0.7200 - val_loss: 0.7307 - val_accuracy: 0.7797 - lr: 1.0000e-05
+Epoch 15/20
+1181/1181 [==============================] - 364s 309ms/step - loss: 0.9041 - accuracy: 0.7234 - val_loss: 0.7281 - val_accuracy: 0.7816 - lr: 1.0000e-05
+Epoch 16/20
+1181/1181 [==============================] - 368s 311ms/step - loss: 0.8969 - accuracy: 0.7262 - val_loss: 0.7250 - val_accuracy: 0.7829 - lr: 1.0000e-05
+Epoch 17/20
+1181/1181 [==============================] - 371s 314ms/step - loss: 0.8909 - accuracy: 0.7282 - val_loss: 0.7203 - val_accuracy: 0.7838 - lr: 1.0000e-05
+Epoch 18/20
+1181/1181 [==============================] - 378s 320ms/step - loss: 0.8584 - accuracy: 0.7352 - val_loss: 0.7205 - val_accuracy: 0.7829 - lr: 1.0000e-05
+Epoch 19/20
+1181/1181 [==============================] - 376s 319ms/step - loss: 0.8458 - accuracy: 0.7386 - val_loss: 0.7196 - val_accuracy: 0.7821 - lr: 1.0000e-05
+Epoch 20/20
+1181/1181 [==============================] - 374s 317ms/step - loss: 0.8318 - accuracy: 0.7408 - val_loss: 0.7180 - val_accuracy: 0.7842 - lr: 1.0000e-05
+
+BẮT ĐẦU TRAINING
+
+C:\laragon\bin\python\python-3.10\lib\site-packages\keras\src\engine\training.py:3000: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+
+Đã lưu model: A:\NCKH_Web\PetAI\ai\model\model.h5
+
+============================================================
+KẾT QUẢ CUỐI
+Train Acc: 74.08%
+Val Acc:   78.42%
+Gap:       -4.34%
+ĐÁNH GIÁ: TỐT (gap thấp)
+============================================================
