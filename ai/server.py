@@ -10,7 +10,7 @@ import os
 
 # ===== PATH =====
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "model.keras")
+MODEL_PATH = os.path.join(BASE_DIR, "modelPets.keras")
 LABEL_PATH = os.path.join(BASE_DIR, "label.json")
 
 # ===== LOAD MODEL =====
