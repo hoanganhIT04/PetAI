@@ -5,8 +5,26 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const inputFile = path.join(__dirname, 'dog.csv');
-const outputFile = path.join(__dirname, 'src', 'data', 'pets_data.json');
+// Project root: A:\NCKH_Web\PetAI
+const projectRoot = path.resolve(__dirname, '../../../');
+
+// Input CSV: PetAI/ai/data/metadata.csv
+const inputFile = path.join(
+    projectRoot,
+    'ai',
+    'data',
+    'metadata.csv'
+);
+
+// Output JSON: PetAI/frontend/src/data/pets_data.json
+const outputFile = path.join(
+    projectRoot,
+    'frontend',
+    'src',
+    'data',
+    'pets_data.json'
+);
+
 
 // Ensure output directory exists
 const outputDir = path.dirname(outputFile);
@@ -148,7 +166,7 @@ fs.readFile(inputFile, 'utf8', (err, data) => {
                 grooming: scoreGrooming,
                 kid_friendly: scoreKid
             },
-            image_path: `/assets/dog_images/${slug}/avatar.jpg`
+            image_path: `/assets/avatar/${slug}.jpg`
         };
     }).filter(p => p !== null);
 
