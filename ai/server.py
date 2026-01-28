@@ -11,7 +11,7 @@ import os
 # ===== PATH =====
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "model", "model.keras")
-LABEL_PATH = os.path.join(BASE_DIR, "label.json")
+LABEL_PATH = os.path.join(BASE_DIR, "label_keras.json")
 
 # ===== LOAD MODEL =====
 model = tf.keras.models.load_model(MODEL_PATH)
