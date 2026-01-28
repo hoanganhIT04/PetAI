@@ -78,7 +78,7 @@
     },
     "priceMin": 7,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 1,
       "space": 3,
@@ -122,7 +122,7 @@
     },
     "priceMin": 12,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 1,
       "space": 3,
@@ -144,7 +144,7 @@
     },
     "priceMin": 8,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -188,7 +188,7 @@
     },
     "priceMin": 15,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 5,
       "space": 3,
@@ -210,7 +210,7 @@
     },
     "priceMin": 20,
     "priceMax": 6000,
-    "size": "Nhỏ",
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 1,
@@ -232,7 +232,7 @@
     },
     "priceMin": 12,
     "priceMax": 3000,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -254,7 +254,7 @@
     },
     "priceMin": 8,
     "priceMax": 2500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -276,7 +276,7 @@
     },
     "priceMin": 15,
     "priceMax": 3500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 1,
       "space": 3,
@@ -298,7 +298,7 @@
     },
     "priceMin": 10,
     "priceMax": 2500,
-    "size": "Nhỏ",
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 1,
@@ -320,7 +320,7 @@
     },
     "priceMin": 10,
     "priceMax": 2500,
-    "size": "Nhỏ",
+    "size": "Lớn",
     "scores": {
       "energy": 1,
       "space": 1,
@@ -342,7 +342,7 @@
     },
     "priceMin": 8,
     "priceMax": 2000,
-    "size": "Nhỏ",
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 1,
@@ -364,7 +364,7 @@
     },
     "priceMin": 12,
     "priceMax": 3000,
-    "size": "Nhỏ",
+    "size": "Lớn",
     "scores": {
       "energy": 5,
       "space": 1,
@@ -386,7 +386,7 @@
     },
     "priceMin": 8,
     "priceMax": 2500,
-    "size": "Nhỏ",
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 1,
@@ -408,7 +408,7 @@
     },
     "priceMin": 15,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 1,
       "space": 3,
@@ -430,7 +430,7 @@
     },
     "priceMin": 20,
     "priceMax": 7500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 1,
       "space": 3,
@@ -452,7 +452,7 @@
     },
     "priceMin": 15,
     "priceMax": 4000,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -496,7 +496,7 @@
     },
     "priceMin": 18,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -518,7 +518,7 @@
     },
     "priceMin": 15,
     "priceMax": 3500,
-    "size": "Nhỏ",
+    "size": "Trung bình",
     "scores": {
       "energy": 4,
       "space": 1,
@@ -540,7 +540,7 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 4,
       "space": 3,
@@ -562,7 +562,7 @@
     },
     "priceMin": 18,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -606,7 +606,7 @@
     },
     "priceMin": 18,
     "priceMax": 5000,
-    "size": "Nhỏ",
+    "size": "Lớn",
     "scores": {
       "energy": 4,
       "space": 1,
@@ -628,7 +628,7 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -650,7 +650,7 @@
     },
     "priceMin": 18,
     "priceMax": 5000,
-    "size": "Nhỏ",
+    "size": "Trung bình",
     "scores": {
       "energy": 2,
       "space": 1,
@@ -672,7 +672,7 @@
     },
     "priceMin": 20,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -694,7 +694,7 @@
     },
     "priceMin": 15,
     "priceMax": 4000,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -716,7 +716,7 @@
     },
     "priceMin": 25,
     "priceMax": 5000,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -738,7 +738,7 @@
     },
     "priceMin": 20,
     "priceMax": 4500,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 3,
@@ -760,7 +760,7 @@
     },
     "priceMin": 18,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -782,7 +782,7 @@
     },
     "priceMin": 18,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -848,7 +848,7 @@
     },
     "priceMin": 10,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -870,7 +870,7 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -892,7 +892,7 @@
     },
     "priceMin": 15,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -914,7 +914,7 @@
     },
     "priceMin": 10,
     "priceMax": 4000,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -936,7 +936,7 @@
     },
     "priceMin": 10,
     "priceMax": 4000,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -958,7 +958,7 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -980,7 +980,7 @@
     },
     "priceMin": 12,
     "priceMax": 4000,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1002,7 +1002,7 @@
     },
     "priceMin": 12,
     "priceMax": 4000,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1046,7 +1046,7 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1068,7 +1068,7 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1090,7 +1090,7 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1112,7 +1112,7 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1134,7 +1134,7 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1156,7 +1156,7 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1178,7 +1178,7 @@
     },
     "priceMin": 15,
     "priceMax": 4500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1420,7 +1420,7 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1464,7 +1464,7 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1486,7 +1486,7 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1508,7 +1508,7 @@
     },
     "priceMin": 15,
     "priceMax": 5000,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1530,7 +1530,7 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
       "energy": 5,
       "space": 4,
@@ -1596,7 +1596,7 @@
     },
     "priceMin": 15,
     "priceMax": 4000,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -1618,7 +1618,7 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 4,
       "space": 3,
@@ -1640,7 +1640,7 @@
     },
     "priceMin": 18,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 4,
       "space": 3,
@@ -1728,7 +1728,7 @@
     },
     "priceMin": 18,
     "priceMax": 4000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -1750,7 +1750,7 @@
     },
     "priceMin": 15,
     "priceMax": 3500,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -1772,7 +1772,7 @@
     },
     "priceMin": 18,
     "priceMax": 4500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 4,
       "space": 3,
@@ -1816,7 +1816,7 @@
     },
     "priceMin": 20,
     "priceMax": 5000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 4,
       "space": 3,
@@ -1838,7 +1838,7 @@
     },
     "priceMin": 15,
     "priceMax": 6000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 4,
       "space": 3,
@@ -1860,7 +1860,7 @@
     },
     "priceMin": 12,
     "priceMax": 6000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 4,
       "space": 3,
@@ -1882,7 +1882,7 @@
     },
     "priceMin": 8,
     "priceMax": 6000,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 4,
       "space": 3,
@@ -1904,7 +1904,7 @@
     },
     "priceMin": 5,
     "priceMax": 2500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -2014,7 +2014,7 @@
     },
     "priceMin": 0,
     "priceMax": 500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -2036,7 +2036,7 @@
     },
     "priceMin": 0,
     "priceMax": 60,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 2,
       "space": 3,
@@ -2058,7 +2058,7 @@
     },
     "priceMin": 0,
     "priceMax": 120,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 1,
       "space": 3,
@@ -2102,7 +2102,7 @@
     },
     "priceMin": 0,
     "priceMax": 60,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -2124,7 +2124,7 @@
     },
     "priceMin": 2,
     "priceMax": 500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 1,
       "space": 3,
@@ -2146,7 +2146,7 @@
     },
     "priceMin": 0,
     "priceMax": 500,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 3,
@@ -2168,7 +2168,7 @@
     },
     "priceMin": 0,
     "priceMax": 500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 5,
       "space": 3,
@@ -2190,7 +2190,7 @@
     },
     "priceMin": 1,
     "priceMax": 500,
-    "size": "Nhỏ",
+    "size": "Trung bình",
     "scores": {
       "energy": 4,
       "space": 1,
@@ -2212,7 +2212,7 @@
     },
     "priceMin": 0,
     "priceMax": 60,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 5,
@@ -2234,7 +2234,7 @@
     },
     "priceMin": 0,
     "priceMax": 800,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -2300,7 +2300,7 @@
     },
     "priceMin": 0,
     "priceMax": 70,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 2,
       "space": 3,
@@ -2322,7 +2322,7 @@
     },
     "priceMin": 1,
     "priceMax": 800,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -2344,7 +2344,7 @@
     },
     "priceMin": 0,
     "priceMax": 40,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 4,
       "space": 3,
@@ -2388,7 +2388,7 @@
     },
     "priceMin": 0,
     "priceMax": 500,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -2410,7 +2410,7 @@
     },
     "priceMin": 2,
     "priceMax": 500,
-    "size": "Nhỏ",
+    "size": "Trung bình",
     "scores": {
       "energy": 3,
       "space": 1,
@@ -2454,7 +2454,7 @@
     },
     "priceMin": 0,
     "priceMax": 45,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -2476,7 +2476,7 @@
     },
     "priceMin": 0,
     "priceMax": 500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -2498,7 +2498,7 @@
     },
     "priceMin": 0,
     "priceMax": 25,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -2520,7 +2520,7 @@
     },
     "priceMin": 0,
     "priceMax": 500,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -2542,7 +2542,7 @@
     },
     "priceMin": 0,
     "priceMax": 50,
-    "size": "Trung bình",
+    "size": "Lớn",
     "scores": {
       "energy": 5,
       "space": 3,
@@ -2586,7 +2586,7 @@
     },
     "priceMin": 0,
     "priceMax": 50,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
       "energy": 5,
       "space": 4,
@@ -2607,7 +2607,7 @@
       "international": "Không có giá thương mại"
     },
     "priceMin": 0,
-    "priceMax": 100,
+    "priceMax": 0,
     "size": "Trung bình",
     "scores": {
       "energy": 3,
@@ -2629,8 +2629,8 @@
       "international": "Không có giá thương mại"
     },
     "priceMin": 0,
-    "priceMax": 100,
-    "size": "Trung bình",
+    "priceMax": 0,
+    "size": "Lớn",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -2652,7 +2652,7 @@
     },
     "priceMin": 2,
     "priceMax": 800,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 3,
@@ -2674,7 +2674,7 @@
     },
     "priceMin": 0,
     "priceMax": 50,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 5,
       "space": 4,
@@ -2762,7 +2762,7 @@
     },
     "priceMin": 0,
     "priceMax": 800,
-    "size": "Lớn",
+    "size": "Trung bình",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -2784,7 +2784,7 @@
     },
     "priceMin": 0,
     "priceMax": 45,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -2806,7 +2806,7 @@
     },
     "priceMin": 0,
     "priceMax": 500,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -2828,7 +2828,7 @@
     },
     "priceMin": 0,
     "priceMax": 60,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 1,
       "space": 3,
@@ -2850,7 +2850,7 @@
     },
     "priceMin": 0,
     "priceMax": 200,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 1,
       "space": 3,
@@ -2916,7 +2916,7 @@
     },
     "priceMin": 0,
     "priceMax": 800,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 1,
       "space": 3,
@@ -2960,7 +2960,7 @@
     },
     "priceMin": 2,
     "priceMax": 600,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -2982,7 +2982,7 @@
     },
     "priceMin": 0,
     "priceMax": 60,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -3004,7 +3004,7 @@
     },
     "priceMin": 0,
     "priceMax": 500,
-    "size": "Trung bình",
+    "size": "Nhỏ",
     "scores": {
       "energy": 3,
       "space": 3,
@@ -3026,7 +3026,7 @@
     },
     "priceMin": 0,
     "priceMax": 800,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
@@ -3048,7 +3048,7 @@
     },
     "priceMin": 0,
     "priceMax": 500,
-    "size": "Lớn",
+    "size": "Nhỏ",
     "scores": {
       "energy": 4,
       "space": 4,
