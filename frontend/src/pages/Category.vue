@@ -89,7 +89,7 @@ const setPage = (page) => {
 const clearFilters = () => {
     selectedType.value = 'All'
     selectedSize.value = 'All'
-    priceRange.value = [0, 50]
+    priceRange.value = [0, 5000]
     searchQuery.value = ''
     currentPage.value = 1
 }
