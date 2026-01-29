@@ -3062,7 +3062,7 @@
     "name": "burmese",
     "type": "Cat",
     "lifespan": "12 năm – 16 năm",
-    "care_instruction": "type tên giống loài tuổi thọ trung bình cân nặng trung bình chiều cao trung bình chiều dài trung bình cách chăm giá có giấy tờ giá không giấy tờ giá quốc tế\nCat burmese 12 năm – 16 năm 3 – 6 kg 25 – 30 cm 40 – 46 cm \"Burmese là giống mèo thân thiện, thông minh và rất quấn người, vì vậy chúng cần được quan tâm và tương tác thường xuyên. Về chế độ ăn, Burmese có cơ địa săn chắc, nhiều cơ bắp nên cần thức ăn giàu đạm động vật, ưu tiên các loại thức ăn chất lượng cao dành cho mèo trưởng thành. Có thể kết hợp thức ăn hạt và pate ướt để đảm bảo đủ dinh dưỡng và hạn chế các vấn đề về thận.\nVề vận động, Burmese khá hiếu động và thích chơi đùa, leo trèo. Chủ nuôi nên chuẩn bị đồ chơi, trụ cào móng hoặc không gian leo trèo trong nhà để giúp mèo giải tỏa năng lượng và tránh buồn chán. Chúng thích ở trong nhà và không cần ra ngoài thường xuyên như một số giống mèo khác.\nVề sức khỏe, Burmese nhìn chung khỏe mạnh nhưng có thể gặp một số vấn đề di truyền như bệnh nướu răng hoặc bệnh tim nhẹ. Việc vệ sinh răng miệng định kỳ, khám thú y thường xuyên và tiêm phòng đầy đủ là rất quan trọng. Tính cách của Burmese rất tình cảm, hòa đồng với trẻ em và các vật nuôi khác, phù hợp với gia đình cần một giống mèo thân thiện, gắn bó và dễ chăm sóc.",
+    "care_instruction": "Burmese là giống mèo thân thiện, thông minh và rất quấn người, vì vậy chúng cần được quan tâm và tương tác thường xuyên. Về chế độ ăn, Burmese có cơ địa săn chắc, nhiều cơ bắp nên cần thức ăn giàu đạm động vật, ưu tiên các loại thức ăn chất lượng cao dành cho mèo trưởng thành. Có thể kết hợp thức ăn hạt và pate ướt để đảm bảo đủ dinh dưỡng và hạn chế các vấn đề về thận.\nVề vận động, Burmese khá hiếu động và thích chơi đùa, leo trèo. Chủ nuôi nên chuẩn bị đồ chơi, trụ cào móng hoặc không gian leo trèo trong nhà để giúp mèo giải tỏa năng lượng và tránh buồn chán. Chúng thích ở trong nhà và không cần ra ngoài thường xuyên như một số giống mèo khác.\nVề sức khỏe, Burmese nhìn chung khỏe mạnh nhưng có thể gặp một số vấn đề di truyền như bệnh nướu răng hoặc bệnh tim nhẹ. Việc vệ sinh răng miệng định kỳ, khám thú y thường xuyên và tiêm phòng đầy đủ là rất quan trọng. Tính cách của Burmese rất tình cảm, hòa đồng với trẻ em và các vật nuôi khác, phù hợp với gia đình cần một giống mèo thân thiện, gắn bó và dễ chăm sóc.",
     "price": {
       "paper": "15 – 30 triệu VNĐ",
       "no_paper": "7 – 12 triệu VNĐ",
@@ -3072,7 +3072,7 @@
     "priceMax": 2000,
     "size": "Nhỏ",
     "scores": {
-      "energy": 3,
+      "energy": 2,
       "space": 1,
       "grooming": 1,
       "kid_friendly": 2

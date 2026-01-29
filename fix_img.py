@@ -1,7 +1,7 @@
 import json
 import os
 
-FILE_PATH = r"A:\NCKH_Web\PetAI\frontend\src\data\pets_data.json"
+FILE_PATH = r"frontend\src\data\pets_data.json"
 
 # Load JSON
 with open(FILE_PATH, "r", encoding="utf-8") as f:
