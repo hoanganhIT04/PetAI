@@ -31,6 +31,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# ===== STATIC FILES =====
+from fastapi.staticfiles import StaticFiles
+ASSETS_PATH = os.path.join(BASE_DIR, "..", "frontend", "public", "assets")
+app.mount("/assets", StaticFiles(directory=ASSETS_PATH), name="assets")
 
 # ===== IMAGE PREPROCESS =====
 def preprocess_image(image_bytes):
