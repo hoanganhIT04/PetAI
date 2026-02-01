@@ -54,7 +54,7 @@ const parseCSV = (text) => {
 
 fs.readFile(inputFile, 'utf8', (err, text) => {
     if (err) {
-        console.error('❌ Read CSV error:', err);
+        console.error('Read CSV error:', err);
         return;
     }
 
@@ -121,8 +121,8 @@ fs.readFile(inputFile, 'utf8', (err, text) => {
         JSON.stringify(pets, null, 2),
         'utf8',
         err => {
-            if (err) console.error('❌ Write JSON error:', err);
-            else console.log(`✅ Converted ${pets.length} pets → pets_data.json`);
+            if (err) console.error('Write JSON error:', err);
+            else console.log(`Converted ${pets.length} pets → pets_data.json`);
         }
     );
 });
