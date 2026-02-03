@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 import uvicorn
 import tensorflow as tf
 import numpy as np
@@ -8,14 +9,24 @@ import json
 import io
 import os
 
+# ===== FASTAPI =====
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # ===== PATH =====
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "model", "model.h5")
 LABEL_PATH = os.path.join(BASE_DIR, "label.json")
+ASSETS_PATH = os.path.join(BASE_DIR, "..", "frontend", "public", "assets")
 
 # ===== STATIC FILES =====
-from fastapi.staticfiles import StaticFiles
-ASSETS_PATH = os.path.join(BASE_DIR, "..", "frontend", "public", "assets")
 app.mount("/assets", StaticFiles(directory=ASSETS_PATH), name="assets")
 
 # ===== LOAD MODEL =====
@@ -25,31 +36,16 @@ model = tf.keras.models.load_model(MODEL_PATH)
 with open(LABEL_PATH, "r", encoding="utf-8") as f:
     LABELS = json.load(f)
 
-# ===== FASTAPI =====
-app = FastAPI()
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Vite
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-# ===== STATIC FILES =====
-from fastapi.staticfiles import StaticFiles
-ASSETS_PATH = os.path.join(BASE_DIR, "..", "frontend", "public", "assets")
-app.mount("/assets", StaticFiles(directory=ASSETS_PATH), name="assets")
-
 # ===== IMAGE PREPROCESS =====
 def preprocess_image(image_bytes):
     img = Image.open(io.BytesIO(image_bytes)).convert("RGB")
-    img = img.resize((224, 224))  # PHẢI đúng size lúc train
+    img = img.resize((224, 224))
     img = np.array(img, dtype=np.float32) / 255.0
     img = np.expand_dims(img, axis=0)
     return img
 
-CONFIDENCE_THRESHOLD = 0.35  # 35%
+CONFIDENCE_THRESHOLD = 0.35
+
 # ===== API =====
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
@@ -83,10 +79,8 @@ async def predict(file: UploadFile = File(...)):
             "error": str(e)
         }
 
-
 # ===== RUN =====
 if __name__ == "__main__":
-    
     uvicorn.run(
         "server_h5:app",
         host="0.0.0.0",
