@@ -217,8 +217,9 @@ Dataset *non-animal* được thiết kế để huấn luyện **Model 1 – An
   - Không làm ảnh hưởng đến kiến trúc và mô hình hiện tại
 ---
 
-#### 🧩 Cấu trúc thư mục dữ liệu
+## 🧩 Cấu trúc thư mục dữ liệu
 
+```text
 data/
 ├── data_model_1/
 │   ├── animal/
