@@ -1,0 +1,45 @@
+body {
+  background: #f4fbf7;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.ai-card {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform .3s;
+}
+
+.ai-card:hover {
+  transform: translateY(-4px);
+}
+
+.ai-card-header {
+  background: linear-gradient(90deg, #1e8e5a, #2ecc71);
+  color: white;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.ai-card-body {
+  padding: 20px;
+}
+
+.progress-block {
+  margin-bottom: 22px;
+}
+
+.progress {
+  height: 22px;
+  border-radius: 12px;
+  background: #eaf6ef;
+}
+
+.progress-bar {
+  font-weight: 600;
+  transition: width .6s ease;
+}

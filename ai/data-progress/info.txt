@@ -1,0 +1,2 @@
+cd ai/data-progress
+uvicorn main:app --reload
