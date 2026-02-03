@@ -1,26 +1,34 @@
-import json
 import os
+import re
 
-FILE_PATH = r"frontend\src\data\pets_data.json"
+FOLDER_PATH = r"A:\NCKH_Web\PetAI\frontend\public\assets\data\data_model_1\non_animal\electronic"
+IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".webp", ".bmp")
 
-# Load JSON
-with open(FILE_PATH, "r", encoding="utf-8") as f:
-    data = json.load(f)
+pattern = re.compile(r"^electronic_\d+\.(jpg|jpeg|png|webp|bmp)$", re.IGNORECASE)
 
-# Process data
-for item in data:
-    # 1. Capitalize first letter of each word in name
-    if "name" in item and isinstance(item["name"], str):
-        item["name"] = item["name"].title()
+files = [
+    f for f in os.listdir(FOLDER_PATH)
+    if f.lower().endswith(IMAGE_EXTENSIONS) and not pattern.match(f)
+]
 
-    # 2. Replace '-' with '_' in image_path
-    if "image_path" in item and isinstance(item["image_path"], str):
-        item["image_path"] = item["image_path"].replace("-", "_")
+files.sort()
 
-# Save back to file
-with open(FILE_PATH, "w", encoding="utf-8") as f:
-    json.dump(data, f, ensure_ascii=False, indent=2)
+# Tìm index lớn nhất hiện có
+existing_indexes = []
+for f in os.listdir(FOLDER_PATH):
+    m = re.match(r"electronic_(\d+)\.", f, re.IGNORECASE)
+    if m:
+        existing_indexes.append(int(m.group(1)))
 
-print("✅ Đã cập nhật pets_data.json:")
-print("- Name: Viết hoa chữ cái đầu")
-print("- image_path: '-' → '_'")
+start_index = max(existing_indexes) + 1 if existing_indexes else 1
+
+for idx, filename in enumerate(files, start=start_index):
+    ext = os.path.splitext(filename)[1]
+    new_name = f"electronic_{idx:03d}{ext}"
+
+    old_path = os.path.join(FOLDER_PATH, filename)
+    new_path = os.path.join(FOLDER_PATH, new_name)
+
+    os.rename(old_path, new_path)
+
+print(f"Đã đổi tên {len(files)} ảnh (không ghi đè).")
