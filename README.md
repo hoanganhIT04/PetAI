@@ -236,8 +236,7 @@ data/
 │   ├── australian_terrier/
 │   ├── ...
 │   └── unknown/
-
-
+```
 ---
 
 Thiết kế kiến trúc này đảm bảo hệ thống hoạt động ổn định, dễ mở rộng và phù hợp cho các nghiên cứu cũng như ứng dụng thực tế liên quan đến trí tuệ nhân tạo trong lĩnh vực nhận diện vật nuôi.
