@@ -6,7 +6,7 @@ from pathlib import Path
 FRONTEND_DIR = Path(__file__).resolve().parents[2] / "frontend"
 DATA_DIR = FRONTEND_DIR / "public/assets/data"
 
-BASE_DIR = DATA_DIR / "data_model_1/non_animal"
+BASE_DIR = DATA_DIR / "data_model_1/animal"
 IMAGE_EXTS = (".jpg", ".jpeg", ".png", ".webp")
 
 for folder_name in os.listdir(BASE_DIR):
