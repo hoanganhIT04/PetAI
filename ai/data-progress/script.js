@@ -14,15 +14,38 @@ fetch("http://127.0.0.1:8000/data-progress")
 
 /* ================= UTILS ================= */
 function percent(cur, target) {
+  return ((cur / target) * 100).toFixed(1);
+}
+
+function percentCapped(cur, target) {
   return Math.min((cur / target) * 100, 100).toFixed(1);
 }
 
+
 function setBar(id, cur, target) {
-  document.getElementById(`${id}-text`).innerText = `${cur} / ${target}`;
+  const realPercent = Number(percent(cur, target));
+  const cappedPercent = Math.min(realPercent, 100);
+
+  document.getElementById(`${id}-text`).innerText =
+    `${cur} / ${target} (${realPercent}%)`;
+
   const bar = document.getElementById(`${id}-bar`);
-  bar.style.width = percent(cur, target) + "%";
-  bar.innerText = percent(cur, target) + "%";
+  bar.style.width = cappedPercent + "%";
+  bar.innerText = realPercent + "%";
+
+  // reset màu
+  bar.classList.remove("bg-danger", "bg-success", "bg-warning");
+
+  if (realPercent < 40) {
+    bar.classList.add("bg-danger");      // 🔴 thiếu
+  } else if (realPercent <= 100) {
+    bar.classList.add("bg-success");     // 🟢 đạt
+  } else {
+    bar.classList.add("bg-warning");     // 🟡 vượt
+  }
 }
+
+
 
 /* ================= MAIN DASHBOARD ================= */
 function renderMain() {
