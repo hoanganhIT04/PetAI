@@ -1,10 +1,10 @@
 import os
 import re
 
-FOLDER_PATH = r"A:\NCKH_Web\PetAI\frontend\public\assets\data\data_model_1\non_animal\text_logo"
+FOLDER_PATH = r"A:\NCKH_Web\PetAI\frontend\public\assets\data\data_model_1\non_animal\object"
 IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".webp", ".bmp")
 
-pattern = re.compile(r"^text_logo_\d+\.(jpg|jpeg|png|webp|bmp)$", re.IGNORECASE)
+pattern = re.compile(r"^object_\d+\.(jpg|jpeg|png|webp|bmp)$", re.IGNORECASE)
 
 # Lấy các file CHƯA đúng format
 files = [
@@ -17,7 +17,7 @@ files.sort()
 # Tìm index lớn nhất hiện có
 existing_indexes = []
 for f in os.listdir(FOLDER_PATH):
-    m = re.match(r"text_logo_(\d+)\.", f, re.IGNORECASE)
+    m = re.match(r"object_(\d+)\.", f, re.IGNORECASE)
     if m:
         existing_indexes.append(int(m.group(1)))
 
@@ -25,7 +25,7 @@ start_index = max(existing_indexes) + 1 if existing_indexes else 1
 
 for idx, filename in enumerate(files, start=start_index):
     ext = os.path.splitext(filename)[1]
-    new_name = f"text_logo_{idx:03d}{ext}"
+    new_name = f"object_{idx:03d}{ext}"
 
     old_path = os.path.join(FOLDER_PATH, filename)
     new_path = os.path.join(FOLDER_PATH, new_name)
