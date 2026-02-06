@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <title>PetAI Dataset Dashboard</title>
@@ -11,117 +12,119 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container py-5">
+  <div class="container py-5">
 
-  <!-- HEADER -->
-  <div class="text-center mb-5">
-    <h1 class="fw-bold text-success">
-      <i class="fa-solid fa-brain"></i> PetAI Dataset Dashboard
-    </h1>
-    <p class="text-muted">
-      Theo dõi tiến độ thu thập dữ liệu cho mô hình AI nhận diện chó mèo
-    </p>
-  </div>
+    <!-- HEADER -->
+    <div class="text-center mb-5">
+      <h1 class="fw-bold text-success">
+        <i class="fa-solid fa-brain"></i> PetAI Dataset Dashboard
+      </h1>
+      <p class="text-muted">
+        Theo dõi tiến độ thu thập dữ liệu cho mô hình AI nhận diện chó mèo
+      </p>
+    </div>
 
-  <!-- MODEL 1 -->
-  <div class="ai-card">
-    <div class="ai-card-header">
+    <!-- MODEL 1 -->
+    <div class="ai-card">
+      <div class="ai-card-header">
         <span><i class="fa-solid fa-filter"></i> Model 1 – Animal Filter</span>
 
         <div class="d-flex gap-2">
-            <button class="btn btn-outline-light btn-sm" onclick="openModal('m1_animal')">
+          <button class="btn btn-outline-light btn-sm" onclick="openModal('m1_animal')">
             <i class="fa-solid fa-dog"></i> Chi tiết Animal
-            </button>
-            <button class="btn btn-outline-light btn-sm" onclick="openModal('m1_non')">
+          </button>
+          <button class="btn btn-outline-light btn-sm" onclick="openModal('m1_non')">
             <i class="fa-solid fa-box"></i> Chi tiết Non-Animal
-            </button>
-        </div>
-    </div>
-
-
-    <div class="ai-card-body">
-      <div class="progress-block">
-        <div class="d-flex justify-content-between">
-          <strong>Animal</strong>
-          <span id="m1-animal-text"></span>
-        </div>
-        <div class="progress">
-          <div id="m1-animal-bar" class="progress-bar bg-success"></div>
+          </button>
         </div>
       </div>
 
-      <div class="progress-block">
-        <div class="d-flex justify-content-between">
-          <strong>Non-Animal</strong>
-          <span id="m1-non-text"></span>
+
+      <div class="ai-card-body">
+        <div class="progress-block">
+          <div class="d-flex justify-content-between">
+            <strong>Animal</strong>
+            <span id="m1-animal-text"></span>
+          </div>
+          <div class="progress">
+            <div id="m1-animal-bar" class="progress-bar bg-success"></div>
+          </div>
         </div>
-        <div class="progress">
-          <div id="m1-non-bar" class="progress-bar bg-success"></div>
+
+        <div class="progress-block">
+          <div class="d-flex justify-content-between">
+            <strong>Non-Animal</strong>
+            <span id="m1-non-text"></span>
+          </div>
+          <div class="progress">
+            <div id="m1-non-bar" class="progress-bar bg-success"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODEL 2 -->
+    <div class="ai-card mt-4">
+      <div class="ai-card-header">
+        <span><i class="fa-solid fa-paw"></i> Model 2 – Breed Classifier</span>
+        <button class="btn btn-outline-light btn-sm" onclick="openModal('model2')">
+          <i class="fa-solid fa-paw"></i> Chi tiết Breed
+        </button>
+      </div>
+
+      <div class="ai-card-body">
+        <div class="progress-block">
+          <div class="d-flex justify-content-between">
+            <strong>Breed Images</strong>
+            <span id="m2-breed-text"></span>
+          </div>
+          <div class="progress">
+            <div id="m2-breed-bar" class="progress-bar bg-success"></div>
+          </div>
+        </div>
+
+        <div class="progress-block">
+          <div class="d-flex justify-content-between">
+            <strong>Unknown</strong>
+            <span id="m2-unknown-text"></span>
+          </div>
+          <div class="progress">
+            <div id="m2-unknown-bar" class="progress-bar bg-secondary"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal fade" id="detailModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle"></h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+            <thead class="table-success">
+              <tr>
+                <th>#</th>
+                <th>Folder / Class</th>
+                <th>Số ảnh</th>
+              </tr>
+            </thead>
+            <tbody id="modalTable"></tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- MODEL 2 -->
-  <div class="ai-card mt-4">
-    <div class="ai-card-header">
-      <span><i class="fa-solid fa-paw"></i> Model 2 – Breed Classifier</span>
-      <button class="btn btn-outline-light btn-sm" onclick="openModal('model2')">
-        <i class="fa-solid fa-paw"></i> Chi tiết Breed
-      </button>
-    </div>
-
-    <div class="ai-card-body">
-      <div class="progress-block">
-        <div class="d-flex justify-content-between">
-          <strong>Breed Images</strong>
-          <span id="m2-breed-text"></span>
-        </div>
-        <div class="progress">
-          <div id="m2-breed-bar" class="progress-bar bg-success"></div>
-        </div>
-      </div>
-
-      <div class="progress-block">
-        <div class="d-flex justify-content-between">
-          <strong>Unknown</strong>
-          <span id="m2-unknown-text"></span>
-        </div>
-        <div class="progress">
-          <div id="m2-unknown-bar" class="progress-bar bg-secondary"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL -->
-<div class="modal fade" id="detailModal" tabindex="-1">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalTitle"></h5>
-        <button class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <table class="table table-striped">
-          <thead class="table-success">
-            <tr>
-              <th>#</th>
-              <th>Folder / Class</th>
-              <th>Số ảnh</th>
-            </tr>
-          </thead>
-          <tbody id="modalTable"></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
