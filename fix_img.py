@@ -1,7 +1,7 @@
 import os
 import re
 
-FOLDER_PATH = r"A:\NCKH_Web\PetAI\frontend\public\assets\data\data_model_1\non_animal\nature"
+FOLDER_PATH = r"A:\NCKH_Web\PetAI\frontend\public\assets\data\data_model_1\non_animal\object"
 IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".webp", ".bmp")
 
 pattern = re.compile(r"^nature_\d+\.(jpg|jpeg|png|webp|bmp)$", re.IGNORECASE)
