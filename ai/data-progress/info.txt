@@ -1,4 +1,4 @@
 cd ai/data-progress
 uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 
-python rename_model.py
+python ai/data-progress/rename_model.py

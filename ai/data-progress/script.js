@@ -45,8 +45,6 @@ function setBar(id, cur, target) {
   }
 }
 
-
-
 /* ================= MAIN DASHBOARD ================= */
 function renderMain() {
   if (!DATA) return;
