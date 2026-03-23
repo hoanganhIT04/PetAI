@@ -23,7 +23,7 @@ app.add_middleware(
 # ===== PATH =====
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "model", "model.h5")
-LABEL_PATH = os.path.join(BASE_DIR, "label", "label.json")
+LABEL_PATH = os.path.join(BASE_DIR, "label", "label_h5.json")
 ASSETS_PATH = os.path.join(BASE_DIR, "..", "frontend", "public", "assets")
 
 # ===== STATIC FILES =====
