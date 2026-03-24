@@ -129,14 +129,14 @@ const clearFilters = () => {
                         <label class="block text-sm font-black text-slate-400 uppercase tracking-wider mb-4">Loài
                             vật</label>
                         <div class="grid grid-cols-3 gap-2">
-                            <button v-for="type in ['All', 'Dog', 'Cat']" :key="type"
+                            <button v-for="type in ['All', 'dog', 'cat']" :key="type"
                                 @click="selectedType = type; currentPage = 1"
                                 class="flex flex-col items-center justify-center p-3 rounded-2xl border-2 transition-all"
                                 :class="selectedType === type ? 'border-teal-500 bg-teal-50 text-teal-700' : 'border-slate-100 hover:border-teal-200 text-slate-500'">
                                 <span v-if="type === 'All'" class="font-bold text-lg">Tất cả</span>
-                                <Dog v-if="type === 'Dog'" class="w-6 h-6 mb-1" />
-                                <Cat v-if="type === 'Cat'" class="w-6 h-6 mb-1" />
-                                <span v-if="type !== 'All'" class="text-xs font-bold">{{ type === 'Dog' ? 'Chó' : 'Mèo'
+                                <Dog v-if="type === 'dog'" class="w-6 h-6 mb-1" />
+                                <Cat v-if="type === 'cat'" class="w-6 h-6 mb-1" />
+                                <span v-if="type !== 'All'" class="text-xs font-bold">{{ type === 'dog' ? 'Chó' : 'Mèo'
                                 }}</span>
                             </button>
                         </div>
@@ -144,16 +144,32 @@ const clearFilters = () => {
 
                     <!-- Size Filter -->
                     <div class="mb-8">
-                        <label class="block text-sm font-black text-slate-400 uppercase tracking-wider mb-4">Kích
-                            thước</label>
+                        <label class="block text-sm font-black text-slate-400 uppercase tracking-wider mb-4">
+                            Kích thước
+                        </label>
+
                         <div class="space-y-2">
-                            <button v-for="size in ['All', 'Nhỏ', 'Trung bình', 'Lớn']" :key="size"
+                            <button v-for="size in ['All', 'small', 'medium', 'large']" :key="size"
                                 @click="selectedSize = size; currentPage = 1"
                                 class="w-full text-left px-4 py-3 rounded-xl font-bold transition-all flex justify-between items-center"
-                                :class="selectedSize === size ? 'bg-teal-600 text-white shadow-lg shadow-teal-500/30' : 'bg-slate-50 text-slate-600 hover:bg-slate-100'">
-                                {{ size === 'All' ? 'Tất cả kích thước' : size }}
+                                :class="selectedSize === size
+                                    ? 'bg-teal-600 text-white shadow-lg shadow-teal-500/30'
+                                    : 'bg-slate-50 text-slate-600 hover:bg-slate-100'">
+                                <!-- Label hiển thị -->
+                                <span>
+                                    {{
+                                        size === 'All' ? 'Tất cả kích thước' :
+                                            size === 'small' ? 'Nhỏ' :
+                                                size === 'medium' ? 'Trung bình' :
+                                                    'Lớn'
+                                    }}
+                                </span>
+
+                                <!-- Tick -->
                                 <span v-if="selectedSize === size"
-                                    class="bg-white/20 w-5 h-5 rounded-full flex items-center justify-center text-xs">✓</span>
+                                    class="bg-white/20 w-5 h-5 rounded-full flex items-center justify-center text-xs">
+                                    ✓
+                                </span>
                             </button>
                         </div>
                     </div>
@@ -260,35 +276,59 @@ const clearFilters = () => {
                     </button>
                 </div>
 
-                <!-- Mobile Filters Content (Same as Desktop Sidebar but adapted) -->
+                <!-- Mobile Filters Content -->
                 <div class="mb-8">
-                    <label class="block text-sm font-black text-slate-400 uppercase tracking-wider mb-4">Loài
-                        vật</label>
+                    <label class="block text-sm font-black text-slate-400 uppercase tracking-wider mb-4">
+                        Loài vật
+                    </label>
+
                     <div class="grid grid-cols-3 gap-2">
-                        <button v-for="type in ['All', 'Dog', 'Cat']" :key="type"
+                        <button v-for="type in ['All', 'dog', 'cat']" :key="type"
                             @click="selectedType = type; currentPage = 1"
                             class="flex flex-col items-center justify-center p-3 rounded-2xl border-2 transition-all"
-                            :class="selectedType === type ? 'border-teal-500 bg-teal-50 text-teal-700' : 'border-slate-100 hover:border-teal-200 text-slate-500'">
+                            :class="selectedType === type
+                                ? 'border-teal-500 bg-teal-50 text-teal-700'
+                                : 'border-slate-100 hover:border-teal-200 text-slate-500'">
                             <span v-if="type === 'All'" class="font-bold text-lg">Tất cả</span>
-                            <Dog v-if="type === 'Dog'" class="w-6 h-6 mb-1" />
-                            <Cat v-if="type === 'Cat'" class="w-6 h-6 mb-1" />
-                            <span v-if="type !== 'All'" class="text-xs font-bold">{{ type === 'Dog' ? 'Chó' : 'Mèo'
-                            }}</span>
+
+                            <Dog v-if="type === 'dog'" class="w-6 h-6 mb-1" />
+                            <Cat v-if="type === 'cat'" class="w-6 h-6 mb-1" />
+
+                            <span v-if="type !== 'All'" class="text-xs font-bold">
+                                {{ type === 'dog' ? 'Chó' : 'Mèo' }}
+                            </span>
                         </button>
                     </div>
                 </div>
 
+                <!-- Size Filter -->
                 <div class="mb-8">
-                    <label class="block text-sm font-black text-slate-400 uppercase tracking-wider mb-4">Kích
-                        thước</label>
+                    <label class="block text-sm font-black text-slate-400 uppercase tracking-wider mb-4">
+                        Kích thước
+                    </label>
+
                     <div class="space-y-2">
-                        <button v-for="size in ['All', 'Nhỏ', 'Trung bình', 'Lớn']" :key="size"
+                        <button v-for="size in ['All', 'small', 'medium', 'large']" :key="size"
                             @click="selectedSize = size; currentPage = 1"
                             class="w-full text-left px-4 py-3 rounded-xl font-bold transition-all flex justify-between items-center"
-                            :class="selectedSize === size ? 'bg-teal-600 text-white' : 'bg-slate-50 text-slate-600'">
-                            {{ size === 'All' ? 'Tất cả' : size }}
+                            :class="selectedSize === size
+                                ? 'bg-teal-600 text-white'
+                                : 'bg-slate-50 text-slate-600'">
+                            <!-- Label tiếng Việt -->
+                            <span>
+                                {{
+                                    size === 'All' ? 'Tất cả' :
+                                        size === 'small' ? 'Nhỏ' :
+                                            size === 'medium' ? 'Trung bình' :
+                                'Lớn'
+                                }}
+                            </span>
+
+                            <!-- Tick -->
                             <span v-if="selectedSize === size"
-                                class="bg-white/20 w-5 h-5 rounded-full flex items-center justify-center text-xs">✓</span>
+                                class="bg-white/20 w-5 h-5 rounded-full flex items-center justify-center text-xs">
+                                ✓
+                            </span>
                         </button>
                     </div>
                 </div>

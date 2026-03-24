@@ -1,79 +1,111 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { Check, ChevronLeft, ArrowRight, RotateCcw } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import allPets from '../data/pets_data.json'
 
 const router = useRouter()
 
+onMounted(() => {
+    const saved = localStorage.getItem("pet_recommend_results")
+
+    if (saved) {
+        suggestedPet.value = JSON.parse(saved)
+        isFinished.value = true
+
+        // restore scroll
+        // setTimeout(() => {
+        //     window.scrollTo(0, 300)
+        // }, 50)
+    }
+})
+
 const questions = [
-  {
-    category: "Thói quen sinh hoạt",
-    text: "Bạn có thường xuyên đi vắng không?",
-    subtitle: "Điều này giúp chọn loài vật có khả năng tự lập.",
-    options: [
-      { text: "Làm việc tại nhà", sub: "Có thể dành 5-8 tiếng/ngày", value: 1 }, // High availability -> Can handle High Energy/Clingy (Score 1-5 irrelevant? No, maybe Energy)
-      { text: "Đi làm hành chính", sub: "Vắng nhà 8-10 tiếng", value: 2 },
-      { text: "Hay đi công tác", sub: "Cần loài cực kỳ tự lập", value: 3 } // Low availability -> Low Energy (1-2)
-    ]
-  },
-  {
-    category: "Không gian sống",
-    text: "Diện tích nhà bạn thế nào?",
-    subtitle: "Kích thước thú cưng cần phù hợp với không gian.",
-    options: [
-      { text: "Chung cư nhỏ / Phòng trọ", sub: "< 30m2", value: 1 }, // Space 1
-      { text: "Căn hộ trung bình", sub: "30-70m2", value: 2 }, // Space 2-3
-      { text: "Nhà phố / Biệt thự", sub: "Có sân vườn rộng", value: 3 } // Space 4-5
-    ]
-  },
-  {
-    category: "Mức năng lượng",
-    text: "Bạn thích vận động mức nào?",
-    subtitle: "Ảnh hưởng đến việc dắt thú cưng đi dạo.",
-    options: [
-      { text: "Chill tại nhà", sub: "Thích nằm sofa xem phim", value: 1 }, // Energy 1-2
-      { text: "Đi dạo nhẹ nhàng", sub: "30p mỗi ngày", value: 2 }, // Energy 3
-      { text: "Chạy bộ / Thể thao", sub: "Vận động mạnh mỗi ngày", value: 3 } // Energy 4-5
-    ]
-  },
-  {
-    category: "Kinh nghiệm",
-    text: "Bạn từng nuôi thú cưng chưa?",
-    subtitle: "Một số loài cần người nuôi có kinh nghiệm.",
-    options: [
-      { text: "Lần đầu nuôi", sub: "Cần loài dễ tính, dễ dạy", value: 1 }, // Grooming 1-2, KidFriendly 1-2 (Friendly)
-      { text: "Đã từng nuôi", sub: "Biết chăm sóc cơ bản", value: 2 }, 
-      { text: "Chuyên gia", sub: "Hiểu rõ tâm lý thú cưng", value: 3 } // Can handle Hard grooming/Temperament
-    ]
-  },
-  {
-    category: "Ngân sách",
-    text: "Khả năng chi trả hàng tháng?",
-    subtitle: "Bao gồm thức ăn, spa, y tế.",
-    options: [
-      { text: "Tiết kiệm", sub: "< 2 triệu/tháng", value: 1 }, 
-      { text: "Trung bình", sub: "2 - 5 triệu/tháng", value: 2 },
-      { text: "Thoải mái", sub: "> 5 triệu/tháng", value: 3 }
-    ]
-  }
+    {
+        key: "type",
+        category: "Loại thú cưng",
+        subtitle: "Chọn giữa chó hoặc mèo",
+        text: "Bạn muốn nuôi gì?",
+        options: [
+            { text: "Chó", value: "dog" },
+            { text: "Mèo", value: "cat" }
+        ]
+    },
+    {
+        key: "energy",
+        category: "Mức năng lượng",
+        subtitle: "Ảnh hưởng đến việc vận động mỗi ngày",
+        text: "Bạn thích thú cưng vận động mức nào?",
+        options: [
+            { text: "Ít vận động", value: 1 },
+            { text: "Trung bình", value: 3 },
+            { text: "Rất năng động", value: 5 }
+        ]
+    },
+    {
+        key: "space",
+        category: "Không gian sống",
+        subtitle: "Phù hợp với diện tích nhà",
+        text: "Không gian sống của bạn?",
+        options: [
+            { text: "Nhỏ", value: 1 },
+            { text: "Vừa", value: 3 },
+            { text: "Rộng", value: 5 }
+        ]
+    },
+    {
+        key: "grooming",
+        category: "Chăm sóc",
+        subtitle: "Thời gian bạn dành để chăm thú cưng",
+        text: "Bạn có thể chăm sóc lông mức nào?",
+        options: [
+            { text: "Ít chăm", value: 1 },
+            { text: "Bình thường", value: 3 },
+            { text: "Chăm kỹ", value: 5 }
+        ]
+    },
+    {
+        key: "kid_friendly",
+        category: "Gia đình",
+        subtitle: "Mức độ thân thiện với trẻ nhỏ",
+        text: "Nhà bạn có trẻ nhỏ không?",
+        options: [
+            { text: "Có, cần rất hiền", value: 1 },
+            { text: "Không quan trọng", value: 3 },
+            { text: "Không có trẻ", value: 5 }
+        ]
+    },
+    {
+        key: "size",
+        category: "Kích thước",
+        subtitle: "Chọn kích thước thú cưng mong muốn",
+        text: "Bạn thích kích thước nào?",
+        options: [
+            { text: "Nhỏ", value: "small" },
+            { text: "Trung bình", value: "medium" },
+            { text: "Lớn", value: "large" }
+        ]
+    }
 ]
 
 const currentStep = ref(0)
 const answers = ref({})
 const isFinished = ref(false)
-const suggestedPet = ref(null)
+const suggestedPet = ref([])
 
 const progress = computed(() => {
     return ((currentStep.value + 1) / questions.length) * 100
 })
 
 const selectOption = (val) => {
-    answers.value[currentStep.value] = val
+    const key = questions[currentStep.value].key
+    answers.value[key] = val
 }
 
 const nextStep = () => {
-    if (answers.value[currentStep.value]) {
+    const key = questions[currentStep.value].key
+
+    if (answers.value[key]) {
         if (currentStep.value < questions.length - 1) {
             currentStep.value++
         } else {
@@ -93,184 +125,257 @@ const finishQuiz = () => {
     isFinished.value = true
 }
 
+// 
+const WEIGHTS = {
+    energy: 2.0,
+    space: 1.5,
+    grooming: 1.0,
+    kid_friendly: 1.5
+}
+
+const getVector = (obj) => [
+    obj.energy,
+    obj.space,
+    obj.grooming,
+    obj.kid_friendly
+]
+
+const weightedDistance = (a, b) => {
+    const keys = ["energy", "space", "grooming", "kid_friendly"]
+
+    return Math.sqrt(
+        keys.reduce((sum, key, i) => {
+            const w = WEIGHTS[key] || 1
+            return sum + w * Math.pow(a[i] - b[i], 2)
+        }, 0)
+    )
+}
+
 const calculateResult = () => {
-    // Map answers to Target Scores (1-5 Scale)
-    
-    // Q1: Time Availability [1(Home), 2(Work), 3(Away)]
-    // 1 -> High Energy OK (up to 5)
-    // 3 -> Low Energy Only (1-2)
-    // Let's use Q3 (Energy Preference) as the primary Energy driver, but cap it with Q1?
-    // User wants "Accuracy". Let's simply map Q3 to Energy target.
-    // Q3: 1->Target 1, 2->Target 3, 3->Target 5.
-    const targetEnergy = answers.value[2] === 1 ? 1 : (answers.value[2] === 2 ? 3 : 5)
-    
-    // Q2: Space [1(Small), 2(Med), 3(Big)]
-    // 1->Target 1, 2->Target 3, 3->Target 5
-    const targetSpace = answers.value[1] === 1 ? 1 : (answers.value[1] === 2 ? 3 : 5)
-    
-    // Q4: Experience [1(Novice), 2(Avg), 3(Expert)]
-    // Proxy for Grooming difficulty & Temperament (Kid Friendly?? Not really)
-    // Let's map to Grooming: 1->Target 1 (Easy), 2->3, 3->5 (Hard OK)
-    const targetGrooming = answers.value[3] === 1 ? 1 : (answers.value[3] === 2 ? 3 : 5)
 
-    // Calculate Distance for each pet
-    let bestMatch = null
-    let minDistance = Infinity
+    const filteredPets = allPets
+        .filter(p => p.id !== "unknown")
+        .filter(p => p.type.toLowerCase() === answers.value.type)
 
-    allPets.forEach(pet => {
-        // Budget Filter
-        // Q5: 1(<2M), 2(2-5M), 3(>5M). Data usually has `priceMin` (Purchase price). 
-        // Monthly cost correlates with Size & Grooming. But let's check Purchase Price?
-        // Actually "Monthly Budget" is different from Purchase Price.
-        // Let's assume Budget 1 -> Small Size / Low Grooming?
-        // Simplified: Just use vector matching on traits.
-        
-        let dEnergy = Math.pow(pet.scores.energy - targetEnergy, 2)
-        let dSpace = Math.pow(pet.scores.space - targetSpace, 2)
-        let dGrooming = Math.pow(pet.scores.grooming - targetGrooming, 2)
-        
-        let distance = Math.sqrt(dEnergy + dSpace + dGrooming)
-        
-        if (distance < minDistance) {
-            minDistance = distance
-            bestMatch = pet
+    const userVec = getVector(answers.value)
+
+    let results = []
+
+    filteredPets.forEach(pet => {
+
+        // HARD FILTER
+        if (answers.value.space === 1 && pet.scores.space >= 4) return
+        if (answers.value.kid_friendly === 1 && pet.scores.kid_friendly >= 4) return
+
+        const petVec = getVector(pet.scores)
+
+        let distance = weightedDistance(userVec, petVec)
+
+        // size penalty
+        if (pet.size !== answers.value.size) {
+            distance += 1.5
         }
+
+        let score = 100 / (1 + distance)
+
+        results.push({
+            pet,
+            score,
+            distance
+        })
     })
 
-    // Fallback
-    if (!bestMatch) bestMatch = allPets[0]
-
-    // Construct Display Object
-    suggestedPet.value = {
-        name: bestMatch.name,
-        desc: `Dựa trên sở thích của bạn, ${bestMatch.name} là lựa chọn tuyệt vời! Với mức năng lượng ${bestMatch.scores.energy}/5 và nhu cầu không gian ${bestMatch.scores.space}/5.`,
-        match: Math.round((1 - minDistance/10) * 100) + "%", // Fake match % based on distance
-        image: bestMatch.image_path,
-        id: bestMatch.id
+    if (results.length === 0) {
+        suggestedPet.value = []
+        return
     }
+
+    // sort theo score (cao → tốt)
+    results.sort((a, b) => b.score - a.score)
+
+    const topPets = results.slice(0, 3)
+
+    suggestedPet.value = topPets.map(item => {
+
+        const pet = item.pet
+        const user = answers.value
+
+        let reasons = []
+
+        // Energy
+        if (Math.abs(pet.scores.energy - user.energy) <= 1) {
+            reasons.push("Mức năng lượng phù hợp với bạn")
+        }
+
+        // Space
+        if (Math.abs(pet.scores.space - user.space) <= 1) {
+            reasons.push("Phù hợp với không gian sống")
+        }
+
+        // Grooming
+        if (Math.abs(pet.scores.grooming - user.grooming) <= 1) {
+            reasons.push("Dễ chăm sóc theo nhu cầu của bạn")
+        }
+
+        // Kid
+        if (Math.abs(pet.scores.kid_friendly - user.kid_friendly) <= 1) {
+            reasons.push("Thân thiện với gia đình/trẻ nhỏ")
+        }
+
+        // Size
+        if (pet.size === user.size) {
+            reasons.push("Kích thước đúng mong muốn")
+        }
+
+        return {
+            name: pet.name,
+            match: Math.round(item.score) + "%",
+            image: pet.image_path,
+            id: pet.id,
+            desc: reasons.slice(0, 2).join(" • "), // lấy 2 lý do đẹp nhất
+            fullReasons: reasons // để mở rộng nếu cần
+        }
+    })
+    localStorage.setItem("pet_recommend_results", JSON.stringify(suggestedPet.value))
 }
 
 const restart = () => {
     currentStep.value = 0
     answers.value = {}
     isFinished.value = false
-    suggestedPet.value = null
+    suggestedPet.value = []
 }
 </script>
 
 <template>
-  <div class="pt-32 pb-20 px-4 min-h-screen flex flex-col items-center">
-    
-    <!-- Progress Header -->
-    <div v-if="!isFinished" class="max-w-2xl w-full mb-8">
-        <div class="flex justify-between items-center mb-2">
-            <span class="text-sm font-bold text-teal-600 uppercase tracking-widest">Tiến trình: {{ Math.round(progress) }}%</span>
-            <span class="text-xs text-slate-400 font-medium">Câu hỏi {{ currentStep + 1 }} / {{ questions.length }}</span>
-        </div>
-        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-            <div 
-                class="bg-teal-500 h-full transition-all duration-500 ease-out"
-                :style="{ width: `${progress}%` }"
-            ></div>
-        </div>
-    </div>
+    <div class="pt-32 pb-20 px-4 min-h-screen flex flex-col items-center">
 
-    <!-- Quiz Card -->
-    <div v-if="!isFinished" class="max-w-2xl w-full bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 overflow-hidden p-6 md:p-10 border border-slate-100 relative">
-        <transition name="slide-fade" mode="out-in">
-            <div :key="currentStep">
-                <div class="text-center mb-10">
-                    <div class="inline-block bg-orange-100 text-orange-600 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter mb-4">
-                        {{ questions[currentStep].category }}
+        <!-- Progress Header -->
+        <div v-if="!isFinished" class="max-w-2xl w-full mb-8">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-bold text-teal-600 uppercase tracking-widest">Tiến trình: {{
+                    Math.round(progress) }}%</span>
+                <span class="text-xs text-slate-400 font-medium">Câu hỏi {{ currentStep + 1 }} / {{ questions.length
+                }}</span>
+            </div>
+            <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                <div class="bg-teal-500 h-full transition-all duration-500 ease-out" :style="{ width: `${progress}%` }">
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Card -->
+        <div v-if="!isFinished"
+            class="max-w-2xl w-full bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 overflow-hidden p-6 md:p-10 border border-slate-100 relative">
+            <transition name="slide-fade" mode="out-in">
+                <div :key="currentStep">
+                    <div class="text-center mb-10">
+                        <div
+                            class="inline-block bg-orange-100 text-orange-600 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter mb-4">
+                            {{ questions[currentStep].category }}
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-black text-slate-900 leading-tight">{{
+                            questions[currentStep].text }}</h2>
+                        <p class="text-slate-500 mt-4">{{ questions[currentStep].subtitle }}</p>
                     </div>
-                    <h2 class="text-2xl md:text-3xl font-black text-slate-900 leading-tight">{{ questions[currentStep].text }}</h2>
-                    <p class="text-slate-500 mt-4">{{ questions[currentStep].subtitle }}</p>
+
+                    <div class="grid grid-cols-1 gap-4">
+                        <button v-for="opt in questions[currentStep].options" :key="opt.value"
+                            @click="selectOption(opt.value)"
+                            class="group flex items-center justify-between p-4 border-2 rounded-2xl transition-all duration-300 text-left active:scale-[0.98]"
+                            :class="answers[questions[currentStep].key] === opt.value ? 'border-teal-500 bg-teal-50' : 'border-slate-100 hover:border-teal-400 hover:bg-teal-50/30'">
+                            <div>
+                                <p class="font-bold text-base text-slate-800"
+                                    :class="answers[questions[currentStep].key] === opt.value ? 'text-teal-800' : ''">{{
+                                        opt.text }}
+                                </p>
+                                <p class="text-xs text-slate-400">{{ opt.sub }}</p>
+                            </div>
+                            <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all"
+                                :class="answers[questions[currentStep].key] === opt.value ? 'border-teal-500 bg-teal-500' : 'border-slate-200 group-hover:border-teal-400'">
+                                <Check v-if="answers[questions[currentStep].key] === opt.value"
+                                    class="text-white w-5 h-5" />
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="mt-12 flex justify-between items-center">
+                        <button @click="prevStep"
+                            class="text-slate-400 font-bold hover:text-slate-900 transition flex items-center gap-2 group disabled:opacity-0"
+                            :disabled="currentStep === 0">
+                            <ChevronLeft class="w-5 h-5 transition group-hover:-translate-x-1" /> Quay lại
+                        </button>
+                        <button @click="nextStep" :disabled="!answers[questions[currentStep].key]"
+                            class="bg-orange-500 text-white px-10 py-4 rounded-2xl font-black shadow-lg shadow-orange-500/30 hover:bg-orange-600 hover:-translate-y-1 transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                            {{ currentStep === questions.length - 1 ? 'HOÀN TẤT' : 'TIẾP THEO' }}
+                        </button>
+                    </div>
                 </div>
-
-                <div class="grid grid-cols-1 gap-4">
-                    <button 
-                        v-for="opt in questions[currentStep].options" 
-                        :key="opt.value"
-                        @click="selectOption(opt.value)"
-                        class="group flex items-center justify-between p-4 border-2 rounded-2xl transition-all duration-300 text-left active:scale-[0.98]"
-                        :class="answers[currentStep] === opt.value ? 'border-teal-500 bg-teal-50' : 'border-slate-100 hover:border-teal-400 hover:bg-teal-50/30'"
-                    >
-                        <div>
-                            <p class="font-bold text-base text-slate-800" :class="answers[currentStep] === opt.value ? 'text-teal-800' : ''">{{ opt.text }}</p>
-                            <p class="text-xs text-slate-400">{{ opt.sub }}</p>
-                        </div>
-                        <div 
-                            class="w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all"
-                            :class="answers[currentStep] === opt.value ? 'border-teal-500 bg-teal-500' : 'border-slate-200 group-hover:border-teal-400'"
-                        >
-                            <Check v-if="answers[currentStep] === opt.value" class="text-white w-5 h-5" />
-                        </div>
-                    </button>
-                </div>
-
-                <div class="mt-12 flex justify-between items-center">
-                    <button 
-                        @click="prevStep" 
-                        class="text-slate-400 font-bold hover:text-slate-900 transition flex items-center gap-2 group disabled:opacity-0"
-                        :disabled="currentStep === 0"
-                    >
-                        <ChevronLeft class="w-5 h-5 transition group-hover:-translate-x-1" /> Quay lại
-                    </button>
-                    <button 
-                        @click="nextStep"
-                        :disabled="!answers[currentStep]"
-                        class="bg-orange-500 text-white px-10 py-4 rounded-2xl font-black shadow-lg shadow-orange-500/30 hover:bg-orange-600 hover:-translate-y-1 transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                    >
-                        {{ currentStep === questions.length - 1 ? 'HOÀN TẤT' : 'TIẾP THEO' }}
-                    </button>
-                </div>
-            </div>
-        </transition>
-    </div>
-
-    <!-- Result Card -->
-    <div v-else class="max-w-2xl w-full text-center">
-        <h2 class="text-3xl font-extrabold text-slate-900 mb-2">Kết quả phân tích</h2>
-        <p class="text-slate-500 mb-8">Dựa trên 5 câu trả lời của bạn</p>
-        
-        <div class="bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl border-4 border-teal-500 relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-teal-400 to-orange-400"></div>
-            
-            <div class="inline-block bg-teal-100 text-teal-700 font-bold px-4 py-1 rounded-full text-sm mb-6">
-                Độ phù hợp: {{ suggestedPet.match }}
-            </div>
-
-            <div class="w-48 h-48 mx-auto rounded-full overflow-hidden border-8 border-slate-100 mb-6 shadow-inner">
-                <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=400" class="w-full h-full object-cover">
-            </div>
-            
-            <h3 class="text-3xl font-black text-slate-800 mb-4">{{ suggestedPet.name }}</h3>
-            <p class="text-slate-600 mb-8 leading-relaxed">{{ suggestedPet.desc }}</p>
-
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <button @click="router.push('/info/1')" class="bg-slate-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-teal-700 transition flex items-center justify-center gap-2">
-                    Xem chi tiết <ArrowRight class="w-4 h-4"/>
-                </button>
-                <button @click="restart" class="bg-white text-slate-500 border border-slate-200 px-8 py-3 rounded-xl font-bold hover:bg-slate-50 transition flex items-center justify-center gap-2">
-                    <RotateCcw class="w-4 h-4"/> Làm lại
-                </button>
-            </div>
+            </transition>
         </div>
-    </div>
 
-  </div>
+        <!-- Result Card -->
+        <div v-else class="max-w-4xl w-full text-center">
+            <h2 class="text-3xl font-extrabold text-slate-900 mb-2">Kết quả phân tích</h2>
+            <p class="text-slate-500 mb-8">Top 3 thú cưng phù hợp với bạn</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div v-for="(pet, index) in suggestedPet" :key="pet.id"
+                    class="bg-white rounded-3xl p-6 shadow-xl border relative">
+
+                    <!-- TOP badge -->
+                    <div v-if="index === 0"
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-xs px-3 py-1 rounded-full font-bold">
+                        Lựa chọn tốt nhất
+                    </div>
+
+                    <div class="text-sm text-teal-600 font-bold mb-2">
+                        Xác suất: {{ pet.match }}
+                    </div>
+
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4">
+                        <img :src="pet.image" class="w-full h-full object-cover">
+                    </div>
+
+                    <h3 class="text-xl font-bold mb-2 min-h-[56px] leading-tight">
+                        {{ pet.name }}
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mb-4 min-h-[40px]">
+                        {{ pet.desc }}
+                    </p>
+
+                    <button @click="router.push({
+                        path: `/info/${pet.id}`,
+                        query: { from: 'matching' }
+                    })"
+                        class="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-teal-700 transition">
+                        Xem chi tiết
+                    </button>
+                </div>
+            </div>
+
+            <button @click="restart"
+                class="mt-8 bg-white text-slate-500 border px-6 py-3 rounded-xl font-bold hover:bg-slate-50">
+                Làm lại
+            </button>
+        </div>
+
+    </div>
 </template>
 
 <style scoped>
 .slide-fade-enter-active {
-  transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }
+
 .slide-fade-leave-active {
-  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
 }
+
 .slide-fade-enter-from,
 .slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
+    transform: translateX(20px);
+    opacity: 0;
 }
 </style>
