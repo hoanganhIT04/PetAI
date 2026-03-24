@@ -3078,5 +3078,27 @@
       "kid_friendly": 2
     },
     "image_path": "/assets/avatar/burmese.jpg"
+  },
+  {
+    "id": "unknown",
+    "name": "unknown",
+    "type": "unknown",
+    "lifespan": "",
+    "care_instruction": "",
+    "price": {
+      "paper": "",
+      "no_paper": "",
+      "international": ""
+    },
+    "priceMin": 0,
+    "priceMax": 0,
+    "size": "Lớn",
+    "scores": {
+      "energy": 3,
+      "space": 3,
+      "grooming": 3,
+      "kid_friendly": 3
+    },
+    "image_path": "/assets/avatar/unknown.jpg"
   }
 ]
