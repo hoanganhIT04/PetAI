@@ -184,7 +184,14 @@ def process_csv(input_path, output_path):
 # ==========================================
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    csv_path = os.path.join(base_dir, "metadata.csv")
+
+    # đi lên thư mục ai
+    parent_dir = os.path.dirname(base_dir)
+
+    # vào data
+    csv_path = os.path.join(parent_dir, "data", "metadata.csv")
+
+    print("DEBUG:", csv_path)
 
     if os.path.exists(csv_path):
         process_csv(csv_path, csv_path)
