@@ -22,8 +22,8 @@ app.add_middleware(
 
 # ===== PATH =====
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "model", "model.keras")
-LABEL_PATH = os.path.join(BASE_DIR, "label", "label_keras.json")
+MODEL_PATH = os.path.join(BASE_DIR, "model", "model_v2.keras")
+LABEL_PATH = os.path.join(BASE_DIR, "label", "label_v2_keras.json")
 ASSETS_PATH = os.path.join(BASE_DIR, "..", "frontend", "public", "assets")
 
 # ===== STATIC FILES =====
