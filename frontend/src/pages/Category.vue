@@ -8,7 +8,7 @@ import PetCard from '../components/PetCard.vue'
 const searchQuery = ref('')
 const selectedType = ref('All') // 'All', 'Dog', 'Cat'
 const selectedSize = ref('All')
-const priceRange = ref([0, 5000]) // Min 0, Max 50 (Million)
+// const priceRange = ref([0, 5000])
 const currentPage = ref(1)
 const itemsPerPage = 6
 const showMobileFilters = ref(false)
@@ -21,9 +21,9 @@ const filteredPets = computed(() => {
             const matchesSearch = pet.name.toLowerCase().includes(searchQuery.value.toLowerCase())
             const matchesType = selectedType.value === 'All' || pet.type === selectedType.value
             const matchesSize = selectedSize.value === 'All' || pet.size === selectedSize.value
-            const matchesPrice = pet.priceMin >= priceRange.value[0] && pet.priceMax <= priceRange.value[1]
+            // const matchesPrice = pet.priceMin >= priceRange.value[0] && pet.priceMax <= priceRange.value[1]
 
-            return matchesSearch && matchesType && matchesSize && matchesPrice
+            return matchesSearch && matchesType && matchesSize
         })
 })
 
@@ -76,7 +76,7 @@ const activeFiltersCount = computed(() => {
     let count = 0
     if (selectedType.value !== 'All') count++
     if (selectedSize.value !== 'All') count++
-    if (priceRange.value[0] > 0 || priceRange.value[1] < 50) count++
+    // if (priceRange.value[0] > 0 || priceRange.value[1] < 50) count++
     return count
 })
 
@@ -91,7 +91,7 @@ const setPage = (page) => {
 const clearFilters = () => {
     selectedType.value = 'All'
     selectedSize.value = 'All'
-    priceRange.value = [0, 5000]
+    // priceRange.value = [0, 5000]
     searchQuery.value = ''
     currentPage.value = 1
 }
@@ -159,7 +159,7 @@ const clearFilters = () => {
                     </div>
 
                     <!-- Price Range -->
-                    <div>
+                    <div v-if="false">
                         <label class="block text-sm font-black text-slate-400 uppercase tracking-wider mb-4">Mức giá
                             (Triệu VNĐ)</label>
                         <div class="flex items-center gap-4 mb-4">
@@ -293,7 +293,7 @@ const clearFilters = () => {
                     </div>
                 </div>
 
-                <div class="mb-8">
+                <div class="mb-8" v-if="false">
                     <label class="block text-sm font-black text-slate-400 uppercase tracking-wider mb-4">Mức giá</label>
                     <div class="flex items-center gap-2 mb-4">
                         <div class="bg-slate-100 px-3 py-2 rounded-xl font-bold text-slate-700 w-full text-center">{{
