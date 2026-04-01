@@ -67,7 +67,7 @@ const getStarCount = (score) => {
                         <div class="absolute top-6 left-6 flex flex-wrap gap-2">
                             <span
                                 class="bg-white/90 backdrop-blur px-4 py-2 rounded-full font-black text-teal-700 shadow-sm text-xs uppercase tracking-wider">
-                                {{ pet.type === 'Dog' ? 'Chó cảnh' : 'Mèo cảnh' }}
+                                {{ pet.type === 'dog' ? 'Chó cảnh' : 'Mèo cảnh' }}
                             </span>
                             <span
                                 class="bg-orange-500/90 backdrop-blur px-4 py-2 rounded-full font-black text-white shadow-sm text-xs uppercase tracking-wider">

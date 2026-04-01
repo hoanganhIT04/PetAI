@@ -50,6 +50,18 @@ const parseCSV = (text) => {
     return rows;
 };
 
+/* ================= NORMALIZE ================= */
+
+const normalizeType = (type) => {
+    return (type || '').toLowerCase().trim();
+};
+
+const normalizeSize = (size) => {
+    if (size === 'small') return 'small';
+    if (size === 'large') return 'large';
+    return 'medium';
+};
+
 /* ================= MAIN ================= */
 
 fs.readFile(inputFile, 'utf8', (err, text) => {
@@ -63,18 +75,24 @@ fs.readFile(inputFile, 'utf8', (err, text) => {
 
     const pets = dataRows.map(row => {
         const get = i => (row[i] || '').trim();
+
         const rawName = get(2);
         const name = rawName.replace(/_/g, ' ').trim();
         if (!name) return null;
 
         const slug = name.toLowerCase().replace(/\s+/g, '_');
 
+        // ✅ FIX: normalize type
+        const type = normalizeType(get(1));
+
+        // ❌ loại unknown ngay từ đây
+        if (type === 'unknown') return null;
+
         // Prices
         const pricePaper = get(8);
         const priceNoPaper = get(9);
         const priceInternational = get(10);
 
-        // Parse numeric prices
         const allPrices = `${pricePaper} ${priceNoPaper} ${priceInternational}`;
         const nums = allPrices.match(/\d+/g)?.map(Number) || [];
         const priceMin = nums.length ? Math.min(...nums) : 0;
@@ -86,34 +104,37 @@ fs.readFile(inputFile, 'utf8', (err, text) => {
         const scoreGrooming = parseInt(get(13)) || 3;
         const scoreKid = parseInt(get(14)) || 3;
 
-        // Size from score_size
-        const rawSize = get(15); // small | medium | large
-        let size = 'Trung bình';
-        if (rawSize === 'small') size = 'Nhỏ';
-        if (rawSize === 'large') size = 'Lớn';
+        // ✅ FIX: giữ size dạng chuẩn ML
+        const size = normalizeSize(get(15));
 
         return {
             id: slug,
             name: name,
-            type: get(1),
+            type: type, // dog / cat
             lifespan: get(3),
             care_instruction: get(7),
+
             price: {
                 paper: pricePaper,
                 no_paper: priceNoPaper,
                 international: priceInternational
             },
+
             priceMin,
             priceMax,
-            size,
+
+            size: size, // small / medium / large
+
             scores: {
                 energy: scoreEnergy,
                 space: scoreSpace,
                 grooming: scoreGrooming,
                 kid_friendly: scoreKid
             },
+
             image_path: `/assets/avatar/${slug}.jpg`
         };
+
     }).filter(Boolean);
 
     fs.writeFile(
