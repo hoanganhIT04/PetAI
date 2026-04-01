@@ -1,0 +1,138 @@
+PS A:\NCKH_Web\PetAI\ai\training> python train_model1_h5.py
+Found 3344 images belonging to 2 classes.
+Found 834 images belonging to 2 classes.
+Label map: {'0': 'animal', '1': 'non_animal'}
+2026-04-01 16:54:17.278065: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE SSE2 SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+\START TRAINING...
+
+Epoch 1/30
+209/209 [==============================] - 361s 2s/step - loss: 0.1011 - accuracy: 0.9608 - val_loss: 0.1248 - val_accuracy: 0.9556 - lr: 0.0010
+Epoch 2/30
+209/209 [==============================] - 328s 2s/step - loss: 0.0440 - accuracy: 0.9862 - val_loss: 0.1249 - val_accuracy: 0.9580 - lr: 0.0010
+2026-04-01 17:05:48.578892: W tensorflow/core/framework/op_kernel.cc:1816] INVALID_ARGUMENT: ValueError: Could not find callback with key=pyfunc_31 in the registry.
+Traceback (most recent call last):
+
+  File "C:\laragon\bin\python\python-3.10\lib\site-packages\tensorflow\python\ops\script_ops.py", line 256, in __call__
+    raise ValueError(f"Could not find callback with key={token} in the "
+
+ValueError: Could not find callback with key=pyfunc_31 in the registry.
+
+
+2026-04-01 17:05:48.579084: W tensorflow/core/kernels/data/generator_dataset_op.cc:108] Error occurred when finalizing GeneratorDataset iterator: INVALID_ARGUMENT: ValueError: Could not find callback with key=pyfunc_31 in the registry.
+Traceback (most recent call last):
+
+  File "C:\laragon\bin\python\python-3.10\lib\site-packages\tensorflow\python\ops\script_ops.py", line 256, in __call__
+    raise ValueError(f"Could not find callback with key={token} in the "
+
+ValueError: Could not find callback with key=pyfunc_31 in the registry.
+
+
+         [[{{node EagerPyFunc}}]]
+Epoch 3/30
+209/209 [==============================] - 346s 2s/step - loss: 0.0239 - accuracy: 0.9916 - val_loss: 0.1393 - val_accuracy: 0.9520 - lr: 0.0010
+Epoch 4/30
+209/209 [==============================] - 320s 2s/step - loss: 0.0243 - accuracy: 0.9919 - val_loss: 0.1344 - val_accuracy: 0.9616 - lr: 0.0010
+Epoch 5/30
+209/209 [==============================] - 326s 2s/step - loss: 0.0145 - accuracy: 0.9955 - val_loss: 0.1111 - val_accuracy: 0.9652 - lr: 5.0000e-04
+Epoch 6/30
+209/209 [==============================] - 329s 2s/step - loss: 0.0086 - accuracy: 0.9964 - val_loss: 0.1011 - val_accuracy: 0.9700 - lr: 5.0000e-04
+Epoch 7/30
+209/209 [==============================] - 350s 2s/step - loss: 0.0106 - accuracy: 0.9964 - val_loss: 0.0914 - val_accuracy: 0.9760 - lr: 5.0000e-04
+Epoch 8/30
+209/209 [==============================] - 342s 2s/step - loss: 0.0118 - accuracy: 0.9955 - val_loss: 0.0876 - val_accuracy: 0.9760 - lr: 5.0000e-04
+Epoch 9/30
+209/209 [==============================] - 345s 2s/step - loss: 0.0079 - accuracy: 0.9967 - val_loss: 0.0888 - val_accuracy: 0.9748 - lr: 5.0000e-04
+2026-04-01 17:45:06.985948: W tensorflow/core/framework/op_kernel.cc:1816] INVALID_ARGUMENT: ValueError: Could not find callback with key=pyfunc_115 in the registry.
+Traceback (most recent call last):
+
+  File "C:\laragon\bin\python\python-3.10\lib\site-packages\tensorflow\python\ops\script_ops.py", line 256, in __call__
+    raise ValueError(f"Could not find callback with key={token} in the "
+
+ValueError: Could not find callback with key=pyfunc_115 in the registry.
+
+
+2026-04-01 17:45:06.986177: W tensorflow/core/kernels/data/generator_dataset_op.cc:108] Error occurred when finalizing GeneratorDataset iterator: INVALID_ARGUMENT: ValueError: Could not find callback with key=pyfunc_115 in the registry.
+Traceback (most recent call last):
+
+  File "C:\laragon\bin\python\python-3.10\lib\site-packages\tensorflow\python\ops\script_ops.py", line 256, in __call__
+    raise ValueError(f"Could not find callback with key={token} in the "
+
+ValueError: Could not find callback with key=pyfunc_115 in the registry.
+
+
+         [[{{node EagerPyFunc}}]]
+Epoch 10/30
+209/209 [==============================] - 340s 2s/step - loss: 0.0080 - accuracy: 0.9961 - val_loss: 0.0829 - val_accuracy: 0.9712 - lr: 5.0000e-04
+Epoch 11/30
+209/209 [==============================] - 333s 2s/step - loss: 0.0107 - accuracy: 0.9970 - val_loss: 0.0896 - val_accuracy: 0.9712 - lr: 5.0000e-04
+2026-04-01 17:56:19.788625: W tensorflow/core/framework/op_kernel.cc:1816] INVALID_ARGUMENT: ValueError: Could not find callback with key=pyfunc_139 in the registry.
+Traceback (most recent call last):
+
+  File "C:\laragon\bin\python\python-3.10\lib\site-packages\tensorflow\python\ops\script_ops.py", line 256, in __call__
+    raise ValueError(f"Could not find callback with key={token} in the "
+
+ValueError: Could not find callback with key=pyfunc_139 in the registry.
+
+
+2026-04-01 17:56:19.788818: W tensorflow/core/kernels/data/generator_dataset_op.cc:108] Error occurred when finalizing GeneratorDataset iterator: INVALID_ARGUMENT: ValueError: Could not find callback with key=pyfunc_139 in the registry.
+Traceback (most recent call last):
+
+  File "C:\laragon\bin\python\python-3.10\lib\site-packages\tensorflow\python\ops\script_ops.py", line 256, in __call__
+    raise ValueError(f"Could not find callback with key={token} in the "
+
+ValueError: Could not find callback with key=pyfunc_139 in the registry.
+
+
+         [[{{node EagerPyFunc}}]]
+Epoch 12/30
+209/209 [==============================] - 330s 2s/step - loss: 0.0054 - accuracy: 0.9982 - val_loss: 0.1015 - val_accuracy: 0.9664 - lr: 5.0000e-04
+Epoch 13/30
+209/209 [==============================] - 345s 2s/step - loss: 0.0083 - accuracy: 0.9967 - val_loss: 0.0981 - val_accuracy: 0.9676 - lr: 5.0000e-04
+2026-04-01 18:07:35.230824: W tensorflow/core/framework/op_kernel.cc:1816] INVALID_ARGUMENT: ValueError: Could not find callback with key=pyfunc_163 in the registry.
+Traceback (most recent call last):
+
+  File "C:\laragon\bin\python\python-3.10\lib\site-packages\tensorflow\python\ops\script_ops.py", line 256, in __call__
+    raise ValueError(f"Could not find callback with key={token} in the "
+
+ValueError: Could not find callback with key=pyfunc_163 in the registry.
+
+
+2026-04-01 18:07:35.231023: W tensorflow/core/kernels/data/generator_dataset_op.cc:108] Error occurred when finalizing GeneratorDataset iterator: INVALID_ARGUMENT: ValueError: Could not find callback with key=pyfunc_163 in the registry.
+Traceback (most recent call last):
+
+  File "C:\laragon\bin\python\python-3.10\lib\site-packages\tensorflow\python\ops\script_ops.py", line 256, in __call__
+    raise ValueError(f"Could not find callback with key={token} in the "
+
+ValueError: Could not find callback with key=pyfunc_163 in the registry.
+
+
+         [[{{node EagerPyFunc}}]]
+Epoch 14/30
+209/209 [==============================] - 359s 2s/step - loss: 0.0067 - accuracy: 0.9976 - val_loss: 0.1036 - val_accuracy: 0.9604 - lr: 2.5000e-04
+Epoch 15/30
+209/209 [==============================] - 369s 2s/step - loss: 0.0080 - accuracy: 0.9982 - val_loss: 0.0989 - val_accuracy: 0.9616 - lr: 2.5000e-04
+C:\laragon\bin\python\python-3.10\lib\site-packages\keras\src\engine\training.py:3000: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+2026-04-01 18:19:43.405005: W tensorflow/core/framework/op_kernel.cc:1816] INVALID_ARGUMENT: ValueError: Could not find callback with key=pyfunc_187 in the registry.
+Traceback (most recent call last):
+
+  File "C:\laragon\bin\python\python-3.10\lib\site-packages\tensorflow\python\ops\script_ops.py", line 256, in __call__
+    raise ValueError(f"Could not find callback with key={token} in the "
+
+ValueError: Could not find callback with key=pyfunc_187 in the registry.
+
+
+2026-04-01 18:19:43.405242: W tensorflow/core/kernels/data/generator_dataset_op.cc:108] Error occurred when finalizing GeneratorDataset iterator: INVALID_ARGUMENT: ValueError: Could not find callback with key=pyfunc_187 in the registry.
+Traceback (most recent call last):
+
+  File "C:\laragon\bin\python\python-3.10\lib\site-packages\tensorflow\python\ops\script_ops.py", line 256, in __call__
+    raise ValueError(f"Could not find callback with key={token} in the "
+
+ValueError: Could not find callback with key=pyfunc_187 in the registry.
+
+
+         [[{{node EagerPyFunc}}]]
+Saved model (.h5)!
+53/53 [==============================] - 70s 1s/step - loss: 0.0829 - accuracy: 0.9712
+Val Acc: 97.12%
