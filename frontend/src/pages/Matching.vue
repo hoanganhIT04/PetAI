@@ -10,8 +10,12 @@ onMounted(() => {
     const saved = localStorage.getItem("pet_recommend_results")
 
     if (saved) {
-        suggestedPet.value = JSON.parse(saved)
-        isFinished.value = true
+        try {
+            suggestedPet.value = JSON.parse(saved)
+            isFinished.value = true
+        } catch {
+            localStorage.removeItem("pet_recommend_results")
+        }
 
         // restore scroll
         // setTimeout(() => {
@@ -244,6 +248,7 @@ const restart = () => {
     answers.value = {}
     isFinished.value = false
     suggestedPet.value = []
+    localStorage.removeItem("pet_recommend_results")
 }
 </script>
 
