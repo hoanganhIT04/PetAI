@@ -28,3 +28,5 @@ A. Phần AI & Model (Trọng tâm)
   D. Metadata & Database
    * Search & Filter: Với 140 giống loài, bạn nên tối ưu hóa file pets_data.json hoặc sử dụng một database nhỏ (như SQLite) nếu có ý
      định mở rộng hơn nữa, giúp việc truy vấn metadata nhanh hơn thay vì load toàn bộ file JSON lớn vào memory của Frontend.
+
+# Phương pháp chấm điểm (score)
