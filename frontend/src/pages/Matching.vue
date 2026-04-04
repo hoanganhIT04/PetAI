@@ -3,91 +3,22 @@ import { ref, computed, onMounted } from 'vue'
 import { Check, ChevronLeft } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import allPets from '../data/pets_data.json'
+import {
+    QUESTIONS as questions,
+    MATCHING_WEIGHTS as WEIGHTS,
+    STORAGE_ANSWERS_KEY,
+    STORAGE_RESULTS_KEY
+} from '../constants/quizData'
 
 const router = useRouter()
-const STORAGE_RESULTS_KEY = 'pet_recommend_results'
-const STORAGE_ANSWERS_KEY = 'pet_recommend_answers'
 
-const questions = [
-    {
-        key: 'type',
-        category: 'Loại thú cưng',
-        subtitle: 'Chọn giữa chó hoặc mèo',
-        text: 'Bạn muốn nuôi gì?',
-        options: [
-            { text: 'Chó', value: 'dog' },
-            { text: 'Mèo', value: 'cat' }
-        ]
-    },
-    {
-        key: 'energy',
-        category: 'Mức năng lượng',
-        subtitle: 'Ảnh hưởng đến việc vận động mỗi ngày',
-        text: 'Bạn thích thú cưng vận động mức nào?',
-        options: [
-            { text: 'Ít vận động', value: 1 },
-            { text: 'Trung bình', value: 3 },
-            { text: 'Rất năng động', value: 5 }
-        ]
-    },
-    {
-        key: 'space',
-        category: 'Không gian sống',
-        subtitle: 'Phù hợp với diện tích nhà',
-        text: 'Không gian sống của bạn?',
-        options: [
-            { text: 'Nhỏ', value: 1 },
-            { text: 'Vừa', value: 3 },
-            { text: 'Rộng', value: 5 }
-        ]
-    },
-    {
-        key: 'grooming',
-        category: 'Chăm sóc',
-        subtitle: 'Thời gian bạn dành để chăm thú cưng',
-        text: 'Bạn có thể chăm sóc lông mức nào?',
-        options: [
-            { text: 'Ít chăm', value: 1 },
-            { text: 'Bình thường', value: 3 },
-            { text: 'Chăm kỹ', value: 5 }
-        ]
-    },
-    {
-        key: 'kid_friendly',
-        category: 'Gia đình',
-        subtitle: 'Mức độ thân thiện với trẻ nhỏ',
-        text: 'Nhà bạn có trẻ nhỏ không?',
-        options: [
-            { text: 'Có, cần rất hiền', value: 1 },
-            { text: 'Không quan trọng', value: 3 },
-            { text: 'Không có trẻ', value: 5 }
-        ]
-    },
-    {
-        key: 'size',
-        category: 'Kích thước',
-        subtitle: 'Chọn kích thước thú cưng mong muốn',
-        text: 'Bạn thích kích thước nào?',
-        options: [
-            { text: 'Nhỏ', value: 'small' },
-            { text: 'Trung bình', value: 'medium' },
-            { text: 'Lớn', value: 'large' }
-        ]
-    }
-]
-
+// --- State ---
 const currentStep = ref(0)
 const answers = ref({})
 const isFinished = ref(false)
 const suggestedPet = ref([])
 
-const WEIGHTS = {
-    energy: 2.0,
-    space: 1.5,
-    grooming: 1.0,
-    kid_friendly: 1.5
-}
-
+// --- Computed ---
 const progress = computed(() => ((currentStep.value + 1) / questions.length) * 100)
 
 const hasCurrentAnswer = computed(() => {
@@ -98,7 +29,10 @@ const hasCurrentAnswer = computed(() => {
 const selectedAnswersSummary = computed(() => {
     return questions.map((q) => {
         const selectedValue = answers.value[q.key]
-        const selectedOption = q.options.find((opt) => opt.value === selectedValue)
+        // Vì selectedValue giờ là array (vd: [1,2]), ta dùng JSON.stringify để so sánh mảng
+        const selectedOption = q.options.find(
+            (opt) => JSON.stringify(opt.value) === JSON.stringify(selectedValue)
+        )
         return {
             key: q.key,
             category: q.category,
@@ -108,147 +42,119 @@ const selectedAnswersSummary = computed(() => {
     })
 })
 
-const getVector = (obj) => [
-    obj.energy,
-    obj.space,
-    obj.grooming,
-    obj.kid_friendly
-]
+// --- Logic Helpers ---
 
-const weightedDistance = (a, b) => {
+// Hàm phụ trợ: Kiểm tra xem điểm của Pet có nằm trong hoặc sát viền Range của User không (sai số <= 1)
+const isMatchClose = (petVal, userRange) => {
+    if (!userRange || !Array.isArray(userRange)) return false
+    const min = userRange[0]
+    const max = userRange[userRange.length - 1]
+    return petVal >= min - 1 && petVal <= max + 1
+}
+
+// 1. HÀM TÍNH KHOẢNG CÁCH EUCLID MỚI (FUZZY MATCHING)
+const calculateWeightedDistance = (userSelection, petScores) => {
     const keys = ['energy', 'space', 'grooming', 'kid_friendly']
+    const distanceSq = keys.reduce((sum, key) => {
+        const weight = WEIGHTS[key] || 1
 
-    return Math.sqrt(
-        keys.reduce((sum, key, i) => {
-            const w = WEIGHTS[key] || 1
-            return sum + w * Math.pow(a[i] - b[i], 2)
-        }, 0)
-    )
+        // userRange là 1 mảng (VD: [1, 2]). Nếu chưa có thì coi như mức trung bình [3]
+        const userRange = userSelection[key] || [3]
+        const petVal = petScores[key] || 3
+
+        let diff = 0
+        // Tính khoảng cách đến biên gần nhất
+        if (petVal < userRange[0]) {
+            diff = userRange[0] - petVal
+        } else if (petVal > userRange[userRange.length - 1]) {
+            diff = petVal - userRange[userRange.length - 1]
+        }
+        // Nếu petVal nằm trong khoảng userRange thì diff = 0 (Match 100%)
+
+        return sum + weight * Math.pow(diff, 2)
+    }, 0)
+    return Math.sqrt(distanceSq)
 }
 
-const persistAnswers = () => {
-    localStorage.setItem(STORAGE_ANSWERS_KEY, JSON.stringify(answers.value))
+// 2. HÀM TRÍCH XUẤT LÝ DO (Cập nhật đọc mảng)
+const generateMatchReasons = (pet, user) => {
+    const reasons = []
+    if (isMatchClose(pet.scores.energy, user.energy)) reasons.push('Mức năng lượng phù hợp')
+    if (isMatchClose(pet.scores.space, user.space)) reasons.push('Phù hợp không gian sống')
+    if (isMatchClose(pet.scores.kid_friendly, user.kid_friendly)) reasons.push('Thân thiện gia đình')
+    if (pet.size === user.size) reasons.push('Kích thước mong muốn')
+    return reasons.slice(0, 2).join(' • ')
 }
 
-const getFirstUnansweredStep = () => {
-    const idx = questions.findIndex((q) => answers.value[q.key] === undefined)
-    return idx === -1 ? questions.length - 1 : idx
-}
-
+// --- Main Actions ---
 const selectOption = (val) => {
     const key = questions[currentStep.value].key
     answers.value[key] = val
-    persistAnswers()
+    localStorage.setItem(STORAGE_ANSWERS_KEY, JSON.stringify(answers.value))
 }
 
 const nextStep = () => {
-    const key = questions[currentStep.value].key
-
-    if (answers.value[key] !== undefined) {
-        if (currentStep.value < questions.length - 1) {
-            currentStep.value++
-        } else {
-            finishQuiz()
-        }
+    if (currentStep.value < questions.length - 1) {
+        currentStep.value++
+    } else {
+        finishQuiz()
     }
 }
 
 const prevStep = () => {
-    if (currentStep.value > 0) {
-        currentStep.value--
-    }
+    if (currentStep.value > 0) currentStep.value--
 }
 
 const calculateResult = () => {
-    const filteredPets = allPets
-        .filter((p) => p.id !== 'unknown')
-        .filter((p) => p.type.toLowerCase() === answers.value.type)
+    const user = answers.value
 
-    const userVec = getVector(answers.value)
-    const results = []
+    const results = allPets
+        .filter(p => p.id !== 'unknown' && p.type.toLowerCase() === user.type)
+        .filter(pet => {
+            // [HARD FILTER] - Cập nhật kiểm tra mảng
+            // 1. Nhà hẹp (chọn mảng [1, 2]), loại bỏ pet cần space >= 4
+            if (user.space && user.space[0] === 1 && pet.scores.space >= 4) return false
 
-    filteredPets.forEach((pet) => {
-        if (answers.value.space === 1 && pet.scores.space >= 4) return
-        if (answers.value.kid_friendly === 1 && pet.scores.kid_friendly >= 4) return
+            // 2. Nhà có trẻ em (chọn mảng [4, 5]), loại bỏ pet có kid_friendly <= 2
+            if (user.kid_friendly && user.kid_friendly[0] === 4 && pet.scores.kid_friendly <= 2) return false
 
-        const petVec = getVector(pet.scores)
-        let distance = weightedDistance(userVec, petVec)
-
-        if (pet.size !== answers.value.size) {
-            distance += 1.5
-        }
-
-        const score = 100 / (1 + distance)
-
-        results.push({
-            pet,
-            score,
-            distance
+            return true
         })
-    })
+        .map(pet => {
+            // Dùng trực tiếp Object truyền vào thay vì Vector tĩnh
+            let distance = calculateWeightedDistance(user, pet.scores)
 
-    if (results.length === 0) {
-        suggestedPet.value = []
-        localStorage.removeItem(STORAGE_RESULTS_KEY)
-        return
-    }
+            // Penalty (Phạt điểm) nếu kích thước không khớp
+            if (pet.size !== user.size) distance += 1.5
 
-    results.sort((a, b) => b.score - a.score)
+            // Chuẩn hóa điểm
+            const score = Math.max(0, Math.min(100, 100 / (1 + distance * 0.2)))
 
-    suggestedPet.value = results.slice(0, 3).map((item) => {
-        const pet = item.pet
-        const user = answers.value
-        const reasons = []
+            return {
+                name: pet.name,
+                id: pet.id,
+                image: pet.image_path,
+                match: Math.round(score) + '%',
+                score,
+                desc: generateMatchReasons(pet, user),
+                matchTags: [
+                    isMatchClose(pet.scores.energy, user.energy) ? 'Năng lượng' : null,
+                    isMatchClose(pet.scores.space, user.space) ? 'Không gian' : null,
+                    isMatchClose(pet.scores.kid_friendly, user.kid_friendly) ? 'Thân thiện' : null,
+                    pet.size === user.size ? 'Kích thước' : null
+                ].filter(Boolean)
+            }
+        })
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3)
 
-        if (Math.abs(pet.scores.energy - user.energy) <= 1) {
-            reasons.push('Mức năng lượng phù hợp với bạn')
-        }
-
-        if (Math.abs(pet.scores.space - user.space) <= 1) {
-            reasons.push('Phù hợp với không gian sống')
-        }
-
-        if (Math.abs(pet.scores.grooming - user.grooming) <= 1) {
-            reasons.push('Dễ chăm sóc theo nhu cầu của bạn')
-        }
-
-        if (Math.abs(pet.scores.kid_friendly - user.kid_friendly) <= 1) {
-            reasons.push('Thân thiện với gia đình/trẻ nhỏ')
-        }
-
-        if (pet.size === user.size) {
-            reasons.push('Kích thước đúng mong muốn')
-        }
-
-        return {
-            name: pet.name,
-            match: Math.round(item.score) + '%',
-            image: pet.image_path,
-            id: pet.id,
-            desc: reasons.slice(0, 2).join(' • '),
-            matchTags: [
-                Math.abs(pet.scores.energy - user.energy) <= 1 ? 'Năng lượng' : null,
-                Math.abs(pet.scores.space - user.space) <= 1 ? 'Không gian' : null,
-                Math.abs(pet.scores.grooming - user.grooming) <= 1 ? 'Chăm sóc' : null,
-                Math.abs(pet.scores.kid_friendly - user.kid_friendly) <= 1 ? 'Thân thiện với trẻ' : null,
-                pet.size === user.size ? 'Kích thước' : null
-            ].filter(Boolean)
-        }
-    })
-
-    localStorage.setItem(STORAGE_RESULTS_KEY, JSON.stringify(suggestedPet.value))
+    suggestedPet.value = results
+    localStorage.setItem(STORAGE_RESULTS_KEY, JSON.stringify(results))
 }
 
 const finishQuiz = () => {
     calculateResult()
     isFinished.value = true
-}
-
-const editAnswers = () => {
-    isFinished.value = false
-    currentStep.value = 0
-    suggestedPet.value = []
-    localStorage.removeItem(STORAGE_RESULTS_KEY)
 }
 
 const restart = () => {
@@ -260,34 +166,31 @@ const restart = () => {
     localStorage.removeItem(STORAGE_ANSWERS_KEY)
 }
 
+const editAnswers = () => {
+    isFinished.value = false
+    currentStep.value = 0
+}
+
 onMounted(() => {
     const savedAnswers = localStorage.getItem(STORAGE_ANSWERS_KEY)
-    if (savedAnswers) {
-        try {
-            answers.value = JSON.parse(savedAnswers)
-        } catch {
-            localStorage.removeItem(STORAGE_ANSWERS_KEY)
-        }
-    }
-
     const savedResults = localStorage.getItem(STORAGE_RESULTS_KEY)
+
+    if (savedAnswers) answers.value = JSON.parse(savedAnswers)
+
     if (savedResults) {
-        try {
-            suggestedPet.value = JSON.parse(savedResults)
-            isFinished.value = true
-        } catch {
-            localStorage.removeItem(STORAGE_RESULTS_KEY)
-            currentStep.value = getFirstUnansweredStep()
-        }
+        suggestedPet.value = JSON.parse(savedResults)
+        isFinished.value = true
     } else {
-        currentStep.value = getFirstUnansweredStep()
+        const unansweredIdx = questions.findIndex(q => answers.value[q.key] === undefined)
+        currentStep.value = unansweredIdx === -1 ? 0 : unansweredIdx
     }
 })
 </script>
 
 <template>
     <div
-        class="pt-32 pb-20 px-4 min-h-screen flex flex-col items-center bg-[radial-gradient(circle_at_top,_rgba(20,184,166,0.12),_transparent_45%),radial-gradient(circle_at_bottom_right,_rgba(249,115,22,0.10),_transparent_40%)]">
+        class="pt-32 pb-20 px-4 min-h-screen flex flex-col items-center
+      bg-[radial-gradient(circle_at_top,_rgba(20,184,166,0.12),_transparent_45%),radial-gradient(circle_at_bottom_right,_rgba(249,115,22,0.10),_transparent_40%)]">
 
         <div v-if="!isFinished" class="max-w-2xl w-full mb-8">
             <div class="flex justify-between items-center mb-2">
