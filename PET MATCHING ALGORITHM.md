@@ -54,39 +54,48 @@ $$Score = \frac{100}{1 + d \times 0.2}$$
 
 ## 5. Ví dụ minh họa thực tế (Case Study)
 
-Giả sử hệ thống đang xử lý dữ liệu với 4 tiêu chí: `[Năng lượng, Không gian, Chăm sóc, Thân thiện]`.
+Giả sử người dùng đã chọn loại thú cưng là **Chó** ở câu hỏi đầu tiên. Hệ thống hiện đang xử lý dữ liệu với 4 tiêu chí cốt lõi: `[Năng lượng, Không gian, Chăm sóc, Thân thiện]`.
 
-**1. Dữ liệu đầu vào:**
-* **Người dùng ($U$):** Ở căn hộ nhỏ (Không gian: 1), các tiêu chí khác ở mức trung bình khá.
-  * Vectơ $U = [3, 1, 3, 4]$
-* **Thú cưng A (Chó Husky):** Rất hiếu động và cần không gian cực lớn.
-  * Vectơ $P_A = [5, 5, 4, 3]$
-* **Thú cưng B (Mèo Anh lông ngắn):** Trầm tính, không gian nhỏ, dễ chăm sóc.
-  * Vectơ $P_B = [2, 2, 3, 4]$
+**1. Dữ liệu đầu vào (Input Vectors):**
+* **Người dùng ($U$):** Ở căn hộ nhỏ (Không gian: 1), ít vận động (Năng lượng: 2), chăm sóc bình thường (Chăm sóc: 3), nhà có trẻ nhỏ nên cần chó rất hiền (Thân thiện: 5), và thích kích thước nhỏ (`small`).
+  * Vectơ lý tưởng $U = [2, 1, 3, 5]$ | Size: `small`
+* **Trích xuất 4 giống chó tiềm năng từ Database (đã chuẩn hóa):**
+  * $P_1$ (Pug): $[2, 2, 3, 5]$ | Size: `small`
+  * $P_2$ (Shih Tzu): $[2, 2, 5, 5]$ | Size: `small`
+  * $P_3$ (Maltese): $[3, 2, 5, 4]$ | Size: `small`
+  * $P_4$ (Basset Hound): $[2, 3, 4, 5]$ | Size: `medium`
 
-**2. Bước 1: Áp dụng Hard-filters**
-* Kiểm tra thú cưng A (Husky): Không gian của người dùng = 1. Mức yêu cầu của Husky = 5 ($\ge 4$). 
-* **Kết quả:** Thú cưng A bị **loại bỏ** ngay lập tức, bỏ qua bước tính toán phức tạp.
+**2. Bước 1: Áp dụng Hard-filters (Lọc thô)**
+* Cả 4 giống chó trên đều có `space < 4` (không gian yêu cầu không quá lớn) và `kid_friendly > 2` (khá thân thiện). 
+* **Kết quả:** Cả 4 loài đều thỏa mãn điều kiện an toàn và vượt qua vòng lọc cứng để vào vòng tính điểm chi tiết.
 
-**3. Bước 2: Tính toán cho Thú cưng B (Mèo Anh lông ngắn)**
-Áp dụng công thức Euclid có trọng số tương ứng:
-* Sai lệch Năng lượng: $2.0 \times (3 - 2)^2 = 2.0$
-* Sai lệch Không gian: $1.5 \times (1 - 2)^2 = 1.5$
-* Sai lệch Chăm sóc: $1.0 \times (3 - 3)^2 = 0$
-* Sai lệch Thân thiện: $1.8 \times (4 - 4)^2 = 0$
+**3. Bước 2: Tính toán khoảng cách (Euclidean + Size Penalty)**
+Áp dụng công thức Euclid có bộ trọng số $w = [2.0, 1.5, 1.0, 1.8]$ kết hợp hình phạt sai lệch kích thước (Penalty = $+1.5$ nếu khác size):
 
-=> Tổng bình phương độ lệch = $2.0 + 1.5 + 0 + 0 = 3.5$
-=> Khoảng cách $d = \sqrt{3.5} \approx 1.87$
+* **Tính điểm cho giống Pug ($P_1$):**
+  * Độ lệch: $2.0(2-2)^2 + 1.5(1-2)^2 + 1.0(3-3)^2 + 1.8(5-5)^2 = 0 + 1.5 + 0 + 0 = 1.5$
+  * Khoảng cách ban đầu = $\sqrt{1.5} \approx 1.22$
+  * Trùng khớp size `small` $\rightarrow$ Penalty = 0. Tổng khoảng cách $d_1 = 1.22$
+* **Tính điểm cho giống Basset Hound ($P_4$):**
+  * Độ lệch: $2.0(2-2)^2 + 1.5(1-3)^2 + 1.0(3-4)^2 + 1.8(5-5)^2 = 0 + 6.0 + 1.0 + 0 = 7.0$
+  * Khoảng cách ban đầu = $\sqrt{7.0} \approx 2.65$
+  * Sai lệch size (`small` vs `medium`) $\rightarrow$ Penalty = $+1.5$. Tổng khoảng cách $d_4 = 4.15$
+* *(Tương tự cho $P_2$ và $P_3$, ta có: $d_2 \approx 2.35$ và $d_3 \approx 3.05$)*
 
-**4. Bước 3: Chuẩn hóa & Xếp hạng**
-* Tính điểm tương đồng: 
-  $$Score = \frac{100}{1 + 1.87 \times 0.2} = \frac{100}{1.374} \approx 72.7\%$$
-* Thú cưng B đạt độ tương thích **73%** và được đưa vào tập kết quả. 
+**4. Bước 3: Chuẩn hóa & Xếp hạng (Ranking & Slicing)**
+Chuẩn hóa khoảng cách $d$ thành thang điểm $100\%$ qua công thức $Score = \frac{100}{1 + d \times 0.2}$:
+1. **Pug ($d = 1.22$):** $Score = \frac{100}{1 + 1.22 \times 0.2} \approx \textbf{80.4\%}$
+2. **Shih Tzu ($d = 2.35$):** $Score \approx \textbf{68.0\%}$
+3. **Maltese ($d = 3.05$):** $Score \approx \textbf{62.1\%}$
+4. **Basset Hound ($d = 4.15$):** $Score \approx \textbf{54.6\%}$
 
-**5. Bước 4: Explainable AI (Trích xuất lý do)**
-Hệ thống quét lại các tiêu chí có sai lệch $\le 1$.
-* Sai lệch Chăm sóc ($|3 - 3| = 0$) $\le 1$ $\rightarrow$ Gắn nhãn: *"Chăm sóc phù hợp"*.
-* Sai lệch Thân thiện ($|4 - 4| = 0$) $\le 1$ $\rightarrow$ Gắn nhãn: *"Thân thiện gia đình"*.
+* **Thuật toán Slice(0, 3):** Hệ thống chỉ lấy Top 3. Giống Basset Hound đứng ở vị trí thứ 4 (do bị phạt điểm size và sai lệch không gian) sẽ bị **loại khỏi tập kết quả cuối cùng**.
+
+**5. Bước 4: Explainable AI (Trích xuất lý do cho Pug)**
+Hệ thống quét lại các tiêu chí của ứng viên Top 1 (Pug) có sai số $|U_i - P_i| \le 1$:
+* Sai lệch Năng lượng ($|2 - 2| = 0$) $\rightarrow$ Gắn nhãn: *"Năng lượng phù hợp"*
+* Sai lệch Không gian ($|1 - 2| = 1$) $\rightarrow$ Gắn nhãn: *"Phù hợp không gian"*
+* Trùng Size $\rightarrow$ Gắn nhãn: *"Kích thước mong muốn"*
 
 ---
 
