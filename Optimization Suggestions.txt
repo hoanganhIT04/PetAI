@@ -1,0 +1,30 @@
+A. Phần AI & Model (Trọng tâm)
+   * Tối ưu hóa Model 1 (Animal Filter): Thay vì chỉ dùng 2000 ảnh mỗi lớp, bạn có thể sử dụng các mô hình pre-trained nhỏ như
+     MobileNetV3-Small hoặc EfficientNet-Lite để tăng tốc độ inference trên CPU mà vẫn đảm bảo độ chính xác cực cao cho bài toán nhị
+     phân.
+   * Xử lý lớp "Unknown": Trong README.md bạn có đề cập đến lớp unknown với 3,000 ảnh.
+       * Gợi ý: Thay vì chỉ coi unknown là một class khi training, bạn nên kết hợp với Softmax Thresholding. Nếu xác suất cao nhất
+         của Model 2 thấp hơn ngưỡng (ví dụ < 0.35), hãy trả về kết quả "Unknown". Điều này giúp mô hình linh hoạt hơn với các giống
+         loài chưa được học.
+   * Image Augmentation: Trong phần training/, hãy đảm bảo bạn đã sử dụng các kỹ thuật như Rotation, Zoom, Horizontal Flip và đặc
+     biệt là Brightness Adjustment vì ảnh người dùng tải lên thường có điều kiện ánh sáng không lý tưởng.
+
+  B. Phần Backend (FastAPI)
+   * Inference Speed: Hiện tại mình thấy bạn có các file server_keras.py. Keras/TensorFlow khi load model khá nặng.
+       * Tối ưu: Hãy cân nhắc chuyển đổi model .h5/.keras sang định dạng ONNX hoặc TensorFlow Lite. Điều này sẽ giúp server phản hồi
+         nhanh hơn gấp 2-3 lần và giảm chiếm dụng RAM.
+   * Asynchronous Processing: Đảm bảo sử dụng async def trong FastAPI để không làm nghẽn (blocking) server khi có nhiều người cùng
+     upload ảnh một lúc.
+
+  C. Phần Frontend (Vue.js)
+   * Tính nhất quán: Trong README.md bạn ghi sử dụng "HTML, CSS, JS, Bootstrap", nhưng cấu trúc thư mục là Vue 3 + Vite. Bạn nên cập
+     nhật lại README.md để phản ánh đúng công nghệ hiện đại này (nó sẽ ghi điểm cao hơn trong hội đồng NCKH).
+   * UX (User Experience):
+       * Thêm tính năng Client-side Image Compression: Nén ảnh ngay trên trình duyệt trước khi gửi lên server để tiết kiệm băng thông
+         và tăng tốc độ xử lý.
+       * Hiển thị Top-3 dự đoán thay vì chỉ 1 kết quả duy nhất. Ví dụ: "Chó Husky (80%), Chó Alaska (15%), Khác (5%)". Điều này tạo
+         cảm giác minh bạch về mặt AI.
+
+  D. Metadata & Database
+   * Search & Filter: Với 140 giống loài, bạn nên tối ưu hóa file pets_data.json hoặc sử dụng một database nhỏ (như SQLite) nếu có ý
+     định mở rộng hơn nữa, giúp việc truy vấn metadata nhanh hơn thay vì load toàn bộ file JSON lớn vào memory của Frontend.

@@ -294,7 +294,7 @@ onMounted(() => {
                 <span class="text-sm font-bold text-teal-600 uppercase tracking-widest">Tiến trình: {{
                     Math.round(progress) }}%</span>
                 <span class="text-xs text-slate-400 font-medium">Câu hỏi {{ currentStep + 1 }} / {{ questions.length
-                    }}</span>
+                }}</span>
             </div>
             <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                 <div class="bg-teal-500 h-full transition-all duration-500 ease-out" :style="{ width: `${progress}%` }">
