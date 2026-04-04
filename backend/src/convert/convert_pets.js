@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '../../../');
 
 // Paths
-const inputFile = path.join(projectRoot, 'ai', 'data', 'metadata.csv');
+const inputFile = path.join(projectRoot, 'ai', 'data', 'metadata_scored_final.csv');
 const outputFile = path.join(projectRoot, 'frontend', 'src', 'data', 'pets_data.json');
 
 // Ensure output directory exists
