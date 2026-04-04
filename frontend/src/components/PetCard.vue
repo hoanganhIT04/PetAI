@@ -33,9 +33,9 @@ const goToDetail = () => {
         }}
       </div>
       <div class="absolute bottom-2 left-2 flex gap-1">
-        <!-- Invert Kid Friendly Score for Display: 1(Safe) -> 5 Stars, 5(Risk) -> 1 Star -->
+        <!-- Display Kid Friendly Score as Stars: 1 -> 1 Star, 5 -> 5 Stars -->
         <span v-for="i in 5" :key="i" class="text-xs"
-          :class="i <= (6 - (pet.scores?.kid_friendly || 3)) ? 'text-yellow-400' : 'text-gray-300'">
+          :class="i <= (pet.scores?.kid_friendly || 3) ? 'text-yellow-400' : 'text-gray-300'">
           ★
         </span>
       </div>

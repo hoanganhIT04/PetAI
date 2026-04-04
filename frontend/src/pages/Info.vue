@@ -123,9 +123,8 @@ const getStarCount = (score) => {
                                     <Heart class="w-4 h-4" /> Thân thiện trẻ em
                                 </div>
                                 <div class="flex gap-1">
-                                    <!-- Invert Score: 1(Safe) -> 5 Bars, 5(Risk) -> 1 Bar -->
                                     <span v-for="i in 5" :key="i" class="h-2 w-full rounded-full"
-                                        :class="i <= (6 - (pet.scores?.kid_friendly || 3)) ? 'bg-red-500' : 'bg-slate-200'"></span>
+                                        :class="i <= (pet.scores?.kid_friendly || 3) ? 'bg-pink-500' : 'bg-slate-200'"></span>
                                 </div>
                             </div>
                         </div>
