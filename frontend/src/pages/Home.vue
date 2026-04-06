@@ -33,7 +33,7 @@ const startScan = async () => {
   formData.append("file", fileInput.value.files[0])
 
   try {
-    const res = await fetch("https://pet-ai-backend-c7h8.onrender.com/predict", {
+    const res = await fetch("http://localhost:8000/predict", {
       method: "POST",
       body: formData
     })
