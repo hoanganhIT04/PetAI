@@ -179,10 +179,8 @@ const getStarCount = (score) => {
                     <!-- Care Instructions -->
                     <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">
                         <h3 class="text-2xl font-black text-slate-900 mb-6">Hướng dẫn chăm sóc</h3>
-                        <div class="prose prose-slate prose-lg max-w-none">
-                            <p class="whitespace-pre-line text-slate-600 leading-relaxed">
-                                {{ pet.care_instruction }}
-                            </p>
+                        <div class="whitespace-pre-line text-slate-600 leading-7 text-justify space-y-4">
+                            {{ pet.care_instruction }}
                         </div>
                     </div>
 
