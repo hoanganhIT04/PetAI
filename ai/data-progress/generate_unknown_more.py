@@ -61,14 +61,11 @@ while count < total_needed:
             if min_edge < 100:
                 continue
                 
-            # Random kích thước khung cắt: 20% đến 50%
             crop_size = int(min_edge * random.uniform(0.2, 0.5))
             
-            # Random tọa độ cắt
             x = random.randint(0, width - crop_size)
             y = random.randint(0, height - crop_size)
             
-            # Cắt và Resize về 224x224
             cropped_img = img.crop((x, y, x + crop_size, y + crop_size))
             final_img = cropped_img.resize((TARGET_SIZE, TARGET_SIZE), Image.Resampling.LANCZOS)
             
