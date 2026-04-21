@@ -110,7 +110,7 @@ fs.readFile(inputFile, 'utf8', (err, text) => {
         return {
             id: slug,
             name: name,
-            type: type, // dog / cat
+            type: type,
             lifespan: get(3),
             care_instruction: get(7),
 
@@ -123,7 +123,7 @@ fs.readFile(inputFile, 'utf8', (err, text) => {
             priceMin,
             priceMax,
 
-            size: size, // small / medium / large
+            size: size,
 
             scores: {
                 energy: scoreEnergy,

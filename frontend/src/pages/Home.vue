@@ -64,12 +64,12 @@ const startScan = async () => {
 
 
 const resetScan = () => {
-    previewImage.value = null
-    scanResult.value = null
-    if (fileInput.value) {
-        fileInput.value.value = '' // Reset input
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  previewImage.value = null
+  scanResult.value = null
+  if (fileInput.value) {
+    fileInput.value.value = '' // Reset input
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 const formatBreed = (name) => {
@@ -88,44 +88,34 @@ const formatBreed = (name) => {
 
       <!-- Dropzone Area -->
       <transition name="fade" mode="out-in">
-        <div 
-            v-if="!previewImage"
-            @click="triggerUpload" 
-            class="border-4 border-dashed border-slate-200 rounded-[2rem] p-8 bg-white hover:border-teal-400 transition cursor-pointer group shadow-xl max-w-2xl mx-auto min-h-[250px] flex flex-col justify-center items-center"
-        >
-            <div class="flex flex-col items-center gap-6 text-slate-400 group-hover:text-teal-600">
+        <div v-if="!previewImage" @click="triggerUpload"
+          class="border-4 border-dashed border-slate-200 rounded-[2rem] p-8 bg-white hover:border-teal-400 transition cursor-pointer group shadow-xl max-w-2xl mx-auto min-h-[250px] flex flex-col justify-center items-center">
+          <div class="flex flex-col items-center gap-6 text-slate-400 group-hover:text-teal-600">
             <UploadCloud class="w-20 h-20 transition-transform group-hover:scale-110" />
             <p class="text-2xl font-bold">Kéo thả ảnh hoặc click để chọn file</p>
             <span class="text-base bg-slate-100 px-4 py-2 rounded-lg font-medium">Hỗ trợ: JPG, PNG, WEBP</span>
-            <input 
-                type="file" 
-                ref="fileInput" 
-                class="hidden" 
-                accept="image/*"
-                @change="handleFileChange"
-            >
-            </div>
+            <input type="file" ref="fileInput" class="hidden" accept="image/*" @change="handleFileChange">
+          </div>
         </div>
 
         <!-- Scanning/Result State -->
         <div v-else class="max-w-3xl mx-auto">
-            
-            <!-- Loading State -->
-            <div v-if="isScanning" class="border-4 border-dashed border-teal-100 rounded-[2rem] p-8 bg-teal-50 min-h-[250px] flex flex-col justify-center items-center">
-                <div class="flex flex-col items-center gap-6 text-teal-600 animate-pulse">
-                    <Loader2 class="w-20 h-20 animate-spin" />
-                    <p class="text-2xl font-bold italic">AI đang phân tích hình ảnh...</p>
-                </div>
-            </div>
 
-            <!-- Result State -->
+          <!-- Loading State -->
+          <div v-if="isScanning"
+            class="border-4 border-dashed border-teal-100 rounded-[2rem] p-8 bg-teal-50 min-h-[250px] flex flex-col justify-center items-center">
+            <div class="flex flex-col items-center gap-6 text-teal-600 animate-pulse">
+              <Loader2 class="w-20 h-20 animate-spin" />
+              <p class="text-2xl font-bold italic">AI đang phân tích hình ảnh...</p>
+            </div>
+          </div>
+
+          <!-- Result State -->
           <div v-if="scanResult" id="result-preview" class="mt-8">
 
             <!--CASE: Ảnh không hợp lệ -->
-            <div
-              v-if="scanResult.error"
-              class="bg-red-50 p-8 rounded-[2.5rem] shadow-2xl border-4 border-red-400 text-center"
-            >
+            <div v-if="scanResult.error"
+              class="bg-red-50 p-8 rounded-[2.5rem] shadow-2xl border-4 border-red-400 text-center">
               <div class="flex flex-col items-center gap-6">
                 <div class="w-64 h-64 bg-slate-200 rounded-3xl overflow-hidden shadow-md">
                   <img :src="previewImage" class="w-full h-full object-cover">
@@ -143,20 +133,15 @@ const formatBreed = (name) => {
                   Độ tin cậy: {{ scanResult.confidence }}
                 </p>
 
-                <button
-                  @click="resetScan"
-                  class="mt-4 bg-white border-2 border-red-400 text-red-600 px-8 py-4 rounded-xl font-bold hover:bg-red-100 transition flex items-center gap-2"
-                >
+                <button @click="resetScan"
+                  class="mt-4 bg-white border-2 border-red-400 text-red-600 px-8 py-4 rounded-xl font-bold hover:bg-red-100 transition flex items-center gap-2">
                   <RotateCw class="w-5 h-5" /> Quét ảnh khác
                 </button>
               </div>
             </div>
 
             <!--CASE: Nhận diện thành công -->
-            <div
-              v-else
-              class="bg-white p-8 rounded-[2.5rem] shadow-2xl border-4 border-teal-500 relative"
-            >
+            <div v-else class="bg-white p-8 rounded-[2.5rem] shadow-2xl border-4 border-teal-500 relative">
               <div class="flex flex-col md:flex-row items-center gap-10">
                 <div class="w-64 h-64 bg-slate-200 rounded-3xl overflow-hidden shadow-md shrink-0">
                   <img :src="previewImage" class="w-full h-full object-cover">
@@ -167,9 +152,7 @@ const formatBreed = (name) => {
                     Kết quả phân tích
                   </span>
 
-                  <h3
-                    class="text-5xl font-black italic text-slate-900 mb-3 leading-tight max-w-[28rem] line-clamp-2"
-                  >
+                  <h3 class="text-5xl font-black italic text-slate-900 mb-3 leading-tight max-w-[28rem] line-clamp-2">
                     {{ formatBreed(scanResult.breed) }}
                   </h3>
 
@@ -181,17 +164,14 @@ const formatBreed = (name) => {
                   </p>
 
                   <div class="flex flex-col gap-3">
-                    <RouterLink
-                      :to="`/info/${scanResult.breed}`"
-                      class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-teal-700 transition flex items-center justify-center gap-2 text-lg shadow-lg"
-                    >
-                      Xem thông tin chi tiết <ArrowRight class="w-5 h-5" />
+                    <RouterLink :to="`/info/${scanResult.breed}`"
+                      class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-teal-700 transition flex items-center justify-center gap-2 text-lg shadow-lg">
+                      Xem thông tin chi tiết
+                      <ArrowRight class="w-5 h-5" />
                     </RouterLink>
 
-                    <button
-                      @click="resetScan"
-                      class="w-full bg-white border-2 border-slate-200 text-slate-600 py-4 rounded-xl font-bold hover:border-teal-400 hover:text-teal-600 transition flex items-center justify-center gap-2 text-lg"
-                    >
+                    <button @click="resetScan"
+                      class="w-full bg-white border-2 border-slate-200 text-slate-600 py-4 rounded-xl font-bold hover:border-teal-400 hover:text-teal-600 transition flex items-center justify-center gap-2 text-lg">
                       <RotateCw class="w-5 h-5" /> Quét ảnh khác
                     </button>
                   </div>

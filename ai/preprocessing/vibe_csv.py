@@ -77,7 +77,7 @@ def calculate_size_index(weight, height, length,
     l_ratio = length / avg_length
 
     # Trọng số: cân nặng > chiều cao > chiều dài
-    return 0.4 * w_ratio + 0.3 * h_ratio + 0.3 * l_ratio
+    return 0.4 * w_ratio + 0.3 * h_ratio + 0.3 * l_ratio 
 def map_size(index):
     if index is None:
         return ""

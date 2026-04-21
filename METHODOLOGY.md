@@ -1,4 +1,4 @@
-# BÁO CÁO PHƯƠNG PHÁP XÂY DỰNG BỘ CHỈ SỐ ĐẶC TÍNH THÚ CỰNG (METHODOLOGY)
+# BÁO CÁO PHƯƠNG PHÁP XÂY DỰNG BỘ CHỈ SỐ ĐẶC TÍNH THÚ CƯNG (METHODOLOGY)
 
 ## 1. Tổng quan phương pháp luận
 Trong dự án **PetAI**, để chuyển đổi các mô tả định tính (văn bản) về hành vi vật nuôi sang dữ liệu định lượng (số liệu) phục vụ cho thuật toán gợi ý, chúng tôi áp dụng phương pháp **Semantic Scoring (Chấm điểm ngữ nghĩa)** thông qua mô hình ngôn ngữ lớn (**LLM - Gemini**). 

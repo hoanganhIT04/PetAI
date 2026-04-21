@@ -61,7 +61,7 @@ async def predict(file: UploadFile = File(...)):
         image_bytes = await file.read()
         img = preprocess_image(image_bytes)
 
-       # ===== STEP 1 =====
+       # Model 1
         binary_pred = float(check_animal(img))
 
         if binary_pred > 0.5:
@@ -71,14 +71,14 @@ async def predict(file: UploadFile = File(...)):
                 "confidence": round(binary_pred * 100, 2)
             }
 
-        # ===== STEP 2 =====
+        # Model 2
         preds = model.predict(img)[0]
-        max_conf = float(np.max(preds))   # 🔥 FIX
+        max_conf = float(np.max(preds))   
         idx = int(np.argmax(preds))
 
         label = LABELS[str(idx)] if isinstance(LABELS, dict) else LABELS[idx]
 
-        # ===== RULE 1: confidence thấp =====
+        # confidence thấp 
         if max_conf < CONFIDENCE_THRESHOLD:
             return {
                 "success": False,
@@ -86,7 +86,7 @@ async def predict(file: UploadFile = File(...)):
                 "confidence": round(max_conf * 100, 2)
             }
 
-        # ===== RULE 2: unknown =====
+        # unknown 
         if label.lower() == "unknown":
             return {
                 "success": False,
@@ -94,7 +94,7 @@ async def predict(file: UploadFile = File(...)):
                 "confidence": round(max_conf * 100, 2)
             }
 
-        # ===== SUCCESS =====
+        # success
         return {
             "success": True,
             "class_id": idx,
