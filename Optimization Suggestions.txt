@@ -30,3 +30,18 @@ A. Phần AI & Model (Trọng tâm)
      định mở rộng hơn nữa, giúp việc truy vấn metadata nhanh hơn thay vì load toàn bộ file JSON lớn vào memory của Frontend.
 
 # Phương pháp chấm điểm (score)
+
+// AHP
+Bước 3: Nội dung cho Báo cáo Nghiên cứu (Mục 3.7.3)
+
+  Mục 3.7.3: Cải tiến Mô hình Hỗ trợ Ra quyết định với Hệ thống Lai AHP-TOPSIS
+
+  Trong giai đoạn này, dự án PetAI đã tiến hành thay thế cơ chế tính điểm heuristic bằng mô hình ra quyết định đa tiêu chí (MCDM) kết hợp giữa Quá trình Phân tích Thứ bậc (AHP) và Kỹ thuật Xếp hạng theo sự Tương đồng với
+  Giải pháp Lý tưởng (TOPSIS). Sự kết hợp này nhằm triệt tiêu tính chủ quan và tăng cường độ tin cậy khoa học cho các đề xuất thú cưng.
+
+   1. Xác định Trọng số bằng AHP: Các trọng số cho bốn tiêu chí cốt lõi (Năng lượng, Thân thiện trẻ em, Không gian, Chăm sóc) không còn được gán thủ công mà được trích xuất từ ma trận so sánh cặp dựa trên lý thuyết hành vi
+      động vật. Quy trình tính toán Vector riêng chính đã xác lập bộ trọng số mới với Tỷ số Nhất quán (CR) = 0.014, nằm dưới ngưỡng giới hạn 0.1, chứng minh tính nhất quán logic tuyệt đối trong quá trình đánh giá chuyên
+      gia.
+   2. Xếp hạng Ưu tiên bằng TOPSIS: Thuật toán TOPSIS được triển khai để thay thế cho khoảng cách Euclid có trọng số truyền thống. Ma trận quyết định sau khi được chuẩn hóa vectơ và nhân trọng số AHP sẽ được dùng để xác
+      định Giải pháp Lý tưởng (PIS) và Giải pháp Nghịch lý (NIS). Điểm số đề xuất cuối cùng dựa trên Độ tương tự gần nhất (Relative Closeness), đảm bảo giống thú cưng được chọn là phương án tối ưu nhất: vừa tiệm cận sát
+      nhất với nhu cầu người dùng, vừa có khoảng cách xa nhất đối với các đặc tính không mong muốn.

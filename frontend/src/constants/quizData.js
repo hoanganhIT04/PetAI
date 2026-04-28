@@ -2,12 +2,12 @@
 export const STORAGE_RESULTS_KEY = 'pet_recommend_results';
 export const STORAGE_ANSWERS_KEY = 'pet_recommend_answers';
 
-// Trọng số cho thuật toán so khớp (Càng cao thì tiêu chí đó càng quan trọng)
+// Trọng số cho thuật toán so khớp (Được xác định qua phương pháp AHP - CR = 0.014)
 export const MATCHING_WEIGHTS = {
-    energy: 2.0,       // Năng lượng là yếu tố then chốt nhất
-    space: 1.5,        // Không gian sống quan trọng thứ hai
-    kid_friendly: 1.8, // Thân thiện trẻ em được ưu tiên cao để đảm bảo an toàn
-    grooming: 1.0      // Chăm sóc lông có trọng số thấp hơn
+    energy: 0.508,       // Năng lượng (Trọng số cao nhất)
+    kid_friendly: 0.308, // Thân thiện trẻ em
+    space: 0.120,        // Không gian sống
+    grooming: 0.064      // Chăm sóc lông
 };
 
 // Cấu trúc bộ câu hỏi

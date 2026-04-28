@@ -52,31 +52,83 @@ const isMatchClose = (petVal, userRange) => {
     return petVal >= min - 1 && petVal <= max + 1
 }
 
-// 1. HÀM TÍNH KHOẢNG CÁCH EUCLID MỚI (FUZZY MATCHING)
-const calculateWeightedDistance = (userSelection, petScores) => {
+/**
+ * THUẬT TOÁN TOPSIS (Technique for Order of Preference by Similarity to Ideal Solution)
+ * Dùng để xếp hạng thú cưng dựa trên sự gần gũi với giải pháp lý tưởng.
+ */
+const calculateTopsisRanking = (filteredPets, userSelection) => {
     const keys = ['energy', 'space', 'grooming', 'kid_friendly']
-    const distanceSq = keys.reduce((sum, key) => {
-        const weight = WEIGHTS[key] || 1
+    if (filteredPets.length === 0) return []
 
-        // userRange là 1 mảng (VD: [1, 2]). Nếu chưa có thì coi như mức trung bình [3]
+    // 1. Xây dựng ma trận quyết định (Decision Matrix)
+    const matrix = filteredPets.map(pet => keys.map(key => pet.scores[key] || 3))
+
+    // 2. Chuẩn hóa ma trận (Vector Normalization)
+    const columnSumsSq = keys.map((_, j) => {
+        const sumSq = matrix.reduce((sum, row) => sum + Math.pow(row[j], 2), 0)
+        return Math.sqrt(sumSq) || 1
+    })
+
+    const normalizedMatrix = matrix.map(row => row.map((val, j) => val / columnSumsSq[j]))
+
+    // 3. Nhân trọng số AHP (Weighted Normalized Decision Matrix)
+    const weightedMatrix = normalizedMatrix.map(row => 
+        row.map((val, j) => val * (WEIGHTS[keys[j]] || 0.25))
+    )
+
+    // 4. Xác định Giải pháp Lý tưởng (PIS) và Nghịch lý (NIS)
+    // PIS (vj+) là giá trị gần nhất với mong muốn người dùng trong tập dữ liệu
+    // NIS (vj-) là giá trị xa nhất với mong muốn người dùng
+    const pis = []
+    const nis = []
+
+    keys.forEach((key, j) => {
         const userRange = userSelection[key] || [3]
-        const petVal = petScores[key] || 3
+        const userTarget = (userRange[0] + userRange[userRange.length - 1]) / 2
+        const normUserTarget = (userTarget / columnSumsSq[j]) * (WEIGHTS[key] || 0.25)
 
-        let diff = 0
-        // Tính khoảng cách đến biên gần nhất
-        if (petVal < userRange[0]) {
-            diff = userRange[0] - petVal
-        } else if (petVal > userRange[userRange.length - 1]) {
-            diff = petVal - userRange[userRange.length - 1]
+        const columnValues = weightedMatrix.map(row => row[j])
+        
+        let bestVal = columnValues[0]
+        let worstVal = columnValues[0]
+        let minDiff = Math.abs(columnValues[0] - normUserTarget)
+        let maxDiff = Math.abs(columnValues[0] - normUserTarget)
+
+        columnValues.forEach(val => {
+            const diff = Math.abs(val - normUserTarget)
+            if (diff < minDiff) {
+                minDiff = diff
+                bestVal = val
+            }
+            if (diff > maxDiff) {
+                maxDiff = diff
+                worstVal = val
+            }
+        })
+        pis[j] = bestVal
+        nis[j] = worstVal
+    })
+
+    // 5. Tính toán khoảng cách và Độ tương tự gần nhất (Relative Closeness)
+    return filteredPets.map((pet, i) => {
+        const row = weightedMatrix[i]
+        const dPlus = Math.sqrt(row.reduce((sum, val, j) => sum + Math.pow(val - pis[j], 2), 0))
+        const dMinus = Math.sqrt(row.reduce((sum, val, j) => sum + Math.pow(val - nis[j], 2), 0))
+
+        // Closeness Coefficient Ci = dMinus / (dPlus + dMinus)
+        let closeness = (dPlus + dMinus === 0) ? 1 : dMinus / (dPlus + dMinus)
+        
+        // Phạt điểm nếu kích thước không khớp (Penalty)
+        if (pet.size !== userSelection.size) closeness *= 0.9
+
+        return {
+            ...pet,
+            topsisScore: closeness
         }
-        // Nếu petVal nằm trong khoảng userRange thì diff = 0 (Match 100%)
-
-        return sum + weight * Math.pow(diff, 2)
-    }, 0)
-    return Math.sqrt(distanceSq)
+    })
 }
 
-// 2. HÀM TRÍCH XUẤT LÝ DO (Cập nhật đọc mảng)
+// 2. HÀM TRÍCH XUẤT LÝ DO
 const generateMatchReasons = (pet, user) => {
     const reasons = []
     if (isMatchClose(pet.scores.energy, user.energy)) reasons.push('Mức năng lượng phù hợp')
@@ -115,34 +167,29 @@ const prevStep = () => {
 const calculateResult = () => {
     const user = answers.value
 
-    const results = allPets
+    // Lọc danh sách thú cưng sơ bộ
+    const filtered = allPets
         .filter(p => p.id !== 'unknown' && p.type.toLowerCase() === user.type)
         .filter(pet => {
-            // [HARD FILTER] - Cập nhật kiểm tra mảng
-            // 1. Nhà hẹp (chọn mảng [1, 2]), loại bỏ pet cần space >= 4
+            // [HARD FILTER]
             if (user.space && user.space[0] === 1 && pet.scores.space >= 4) return false
-
-            // 2. Nhà có trẻ em (chọn mảng [4, 5]), loại bỏ pet có kid_friendly <= 2
             if (user.kid_friendly && user.kid_friendly[0] === 4 && pet.scores.kid_friendly <= 2) return false
-
             return true
         })
+
+    // Tính toán xếp hạng bằng TOPSIS
+    const rankedPets = calculateTopsisRanking(filtered, user)
+
+    const results = rankedPets
         .map(pet => {
-            // Dùng trực tiếp Object truyền vào thay vì Vector tĩnh
-            let distance = calculateWeightedDistance(user, pet.scores)
-
-            // Penalty (Phạt điểm) nếu kích thước không khớp
-            if (pet.size !== user.size) distance += 1.5
-
-            // Chuẩn hóa điểm
-            const score = Math.max(0, Math.min(100, 100 / (1 + distance * 0.2)))
+            const scorePercent = pet.topsisScore * 100
 
             return {
                 name: pet.name,
                 id: pet.id,
                 image: pet.image_path,
-                match: Math.round(score) + '%',
-                score,
+                match: Math.round(scorePercent) + '%',
+                score: scorePercent,
                 desc: generateMatchReasons(pet, user),
                 matchTags: [
                     isMatchClose(pet.scores.energy, user.energy) ? 'Năng lượng' : null,
