@@ -42,13 +42,13 @@ const route = useRoute()
       </nav>
 
       <!-- CTA Button (Right) -->
-      <div class="justify-self-end">
+      <!-- <div class="justify-self-end">
         <button
           class="bg-slate-900 text-white px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-teal-600 hover:shadow-lg hover:shadow-teal-600/20 transition-all duration-300 flex items-center gap-2 group">
           <ScanLine class="w-4 h-4 transition-transform group-hover:scale-110" />
           <span>Tải App</span>
         </button>
-      </div>
+      </div> -->
 
     </div>
   </header>
