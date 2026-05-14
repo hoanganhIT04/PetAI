@@ -179,13 +179,15 @@ const getStarCount = (score) => {
                     <!-- Care Instructions -->
                     <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">
                         <h3 class="text-2xl font-black text-slate-900 mb-6">Hướng dẫn chăm sóc</h3>
-                        <div class="whitespace-pre-line text-slate-600 leading-7 text-justify space-y-4">
-                            {{ pet.care_instruction }}
+                        <div class="text-slate-600 leading-7 text-justify space-y-4">
+                            <p v-for="(paragraph, index) in pet.care_instruction.split('\n\n').filter(p => p.trim())" :key="index">
+                                {{ paragraph }}
+                            </p>
                         </div>
                     </div>
 
                     <!-- CTA -->
-                    <div
+                    <!-- <div
                         class="bg-orange-50 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-orange-100">
                         <div>
                             <h4 class="text-xl font-black text-slate-900 mb-2">Bạn quan tâm đến {{ pet.name }}?</h4>
@@ -196,7 +198,7 @@ const getStarCount = (score) => {
                             class="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl shadow-lg shadow-orange-500/30 transition transform hover:-translate-y-1">
                             Liên hệ ngay
                         </button>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
