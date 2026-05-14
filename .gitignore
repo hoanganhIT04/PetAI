@@ -5,3 +5,5 @@ dist/
 coverage/
 
 frontend/public/assets/
+
+PHAN_BIEN_AHP_TOPSIS.md
