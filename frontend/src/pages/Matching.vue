@@ -72,7 +72,7 @@ const calculateTopsisRanking = (filteredPets, userSelection) => {
     const normalizedMatrix = matrix.map(row => row.map((val, j) => val / columnSumsSq[j]))
 
     // 3. Nhân trọng số AHP (Weighted Normalized Decision Matrix)
-    const weightedMatrix = normalizedMatrix.map(row => 
+    const weightedMatrix = normalizedMatrix.map(row =>
         row.map((val, j) => val * (WEIGHTS[keys[j]] || 0.25))
     )
 
@@ -88,7 +88,7 @@ const calculateTopsisRanking = (filteredPets, userSelection) => {
         const normUserTarget = (userTarget / columnSumsSq[j]) * (WEIGHTS[key] || 0.25)
 
         const columnValues = weightedMatrix.map(row => row[j])
-        
+
         let bestVal = columnValues[0]
         let worstVal = columnValues[0]
         let minDiff = Math.abs(columnValues[0] - normUserTarget)
@@ -117,7 +117,7 @@ const calculateTopsisRanking = (filteredPets, userSelection) => {
 
         // Closeness Coefficient Ci = dMinus / (dPlus + dMinus)
         let closeness = (dPlus + dMinus === 0) ? 1 : dMinus / (dPlus + dMinus)
-        
+
         // Phạt điểm nếu kích thước không khớp (Penalty)
         if (pet.size !== userSelection.size) closeness *= 0.9
 
@@ -286,8 +286,7 @@ onMounted(() => {
                             </div>
                             <div class="w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all"
                                 :class="isSelected(opt.value) ? 'border-teal-500 bg-teal-500' : 'border-slate-200 group-hover:border-teal-400'">
-                                <Check v-if="isSelected(opt.value)"
-                                    class="text-white w-5 h-5" />
+                                <Check v-if="isSelected(opt.value)" class="text-white w-5 h-5" />
                             </div>
                         </button>
                     </div>
