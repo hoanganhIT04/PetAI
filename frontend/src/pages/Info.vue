@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import allPets from '../data/pets_data.json'
 import { ArrowLeft, Activity, Home, Scissors, Heart, DollarSign } from 'lucide-vue-next'
+import { formatBreedName } from '../utils/text'
 
 const route = useRoute()
 
@@ -136,7 +137,8 @@ const getStarCount = (score) => {
 
                     <!-- Title Section -->
                     <div>
-                        <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">{{ pet.name }}
+                        <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">
+                            {{ formatBreedName(pet.name) }}
                         </h1>
                         <div class="flex items-center gap-4 text-slate-500 font-bold text-lg">
                             <span

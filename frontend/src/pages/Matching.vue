@@ -3,6 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { Check, ChevronLeft } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import allPets from '../data/pets_data.json'
+import { formatBreedName } from '../utils/text'
 import {
     QUESTIONS as questions,
     MATCHING_WEIGHTS as WEIGHTS,
@@ -251,7 +252,7 @@ onMounted(() => {
                 <span class="text-sm font-bold text-teal-600 uppercase tracking-widest">Tiến trình: {{
                     Math.round(progress) }}%</span>
                 <span class="text-xs text-slate-400 font-medium">Câu hỏi {{ currentStep + 1 }} / {{ questions.length
-                }}</span>
+                    }}</span>
             </div>
             <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                 <div class="bg-teal-500 h-full transition-all duration-500 ease-out" :style="{ width: `${progress}%` }">
@@ -350,7 +351,7 @@ onMounted(() => {
                     </div>
 
                     <h3 class="text-xl font-bold mb-2 min-h-[56px] leading-tight">
-                        {{ pet.name }}
+                        {{ formatBreedName(pet.name) }}
                     </h3>
 
                     <p class="text-sm text-slate-500 mb-4 min-h-[40px]">
